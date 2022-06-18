@@ -5,10 +5,10 @@ import (
 	"time"
 
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
-	_init_ "github.com/hupe1980/cdktg-go/cdktg/jsii"
+	_init_ "github.com/hupe1980/cdk-threagile-go/cdktg/jsii"
 
 	"github.com/aws/constructs-go/constructs/v10"
-	"github.com/hupe1980/cdktg-go/cdktg/internal"
+	"github.com/hupe1980/cdk-threagile-go/cdktg/internal"
 )
 
 type Asset interface {

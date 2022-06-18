@@ -1,4 +1,4 @@
-module github.com/hupe1980/cdktg-go/cdktg
+module github.com/hupe1980/cdk-threagile-go/cdktg
 
 go 1.16
 
