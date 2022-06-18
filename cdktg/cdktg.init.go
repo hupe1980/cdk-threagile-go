@@ -234,6 +234,23 @@ func init() {
 		},
 	)
 	_jsii_.RegisterClass(
+		"cdktg.Manifest",
+		reflect.TypeOf((*Manifest)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "addModel", GoMethod: "AddModel"},
+			_jsii_.MemberProperty{JsiiProperty: "data", GoGetter: "Data"},
+			_jsii_.MemberProperty{JsiiProperty: "outdir", GoGetter: "Outdir"},
+			_jsii_.MemberMethod{JsiiMethod: "save", GoMethod: "Save"},
+		},
+		func() interface{} {
+			return &jsiiProxy_Manifest{}
+		},
+	)
+	_jsii_.RegisterStruct(
+		"cdktg.ManifestProps",
+		reflect.TypeOf((*ManifestProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
 		"cdktg.Model",
 		reflect.TypeOf((*Model)(nil)).Elem(),
 		[]_jsii_.Member{
@@ -241,7 +258,6 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "businessCriticality", GoGetter: "BusinessCriticality"},
 			_jsii_.MemberProperty{JsiiProperty: "date", GoGetter: "Date"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "synth", GoMethod: "Synth"},
 			_jsii_.MemberProperty{JsiiProperty: "title", GoGetter: "Title"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "version", GoGetter: "Version"},
@@ -272,6 +288,25 @@ func init() {
 	_jsii_.RegisterStruct(
 		"cdktg.OutOfScopeProps",
 		reflect.TypeOf((*OutOfScopeProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"cdktg.Project",
+		reflect.TypeOf((*Project)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "outdir", GoGetter: "Outdir"},
+			_jsii_.MemberMethod{JsiiMethod: "synth", GoMethod: "Synth"},
+			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+		},
+		func() interface{} {
+			j := jsiiProxy_Project{}
+			_jsii_.InitJsiiProxy(&j.Type__constructsConstruct)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"cdktg.ProjectProps",
+		reflect.TypeOf((*ProjectProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterEnum(
 		"cdktg.Protocol",

@@ -1,4 +1,4 @@
-// cdktg
+// Agile Threat Modeling as Code
 package cdktg
 
 import (
@@ -810,6 +810,100 @@ const (
 	Machine_SERVERLESS Machine = "SERVERLESS"
 )
 
+type Manifest interface {
+	Data() *map[string]*string
+	// The output directory into which models will be synthesized.
+	Outdir() *string
+	AddModel(title *string, filePath *string)
+	Save()
+}
+
+// The jsii proxy struct for Manifest
+type jsiiProxy_Manifest struct {
+	_ byte // padding
+}
+
+func (j *jsiiProxy_Manifest) Data() *map[string]*string {
+	var returns *map[string]*string
+	_jsii_.Get(
+		j,
+		"data",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_Manifest) Outdir() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"outdir",
+		&returns,
+	)
+	return returns
+}
+
+
+func NewManifest(props *ManifestProps) Manifest {
+	_init_.Initialize()
+
+	j := jsiiProxy_Manifest{}
+
+	_jsii_.Create(
+		"cdktg.Manifest",
+		[]interface{}{props},
+		&j,
+	)
+
+	return &j
+}
+
+func NewManifest_Override(m Manifest, props *ManifestProps) {
+	_init_.Initialize()
+
+	_jsii_.Create(
+		"cdktg.Manifest",
+		[]interface{}{props},
+		m,
+	)
+}
+
+func Manifest_FromFile(dir *string) Manifest {
+	_init_.Initialize()
+
+	var returns Manifest
+
+	_jsii_.StaticInvoke(
+		"cdktg.Manifest",
+		"fromFile",
+		[]interface{}{dir},
+		&returns,
+	)
+
+	return returns
+}
+
+func (m *jsiiProxy_Manifest) AddModel(title *string, filePath *string) {
+	_jsii_.InvokeVoid(
+		m,
+		"addModel",
+		[]interface{}{title, filePath},
+	)
+}
+
+func (m *jsiiProxy_Manifest) Save() {
+	_jsii_.InvokeVoid(
+		m,
+		"save",
+		nil, // no parameters
+	)
+}
+
+type ManifestProps struct {
+	// The directory to output the threadgile model.
+	Outdir *string `field:"optional" json:"outdir" yaml:"outdir"`
+}
+
 type Model interface {
 	constructs.Construct
 	Author() Author
@@ -819,8 +913,6 @@ type Model interface {
 	Node() constructs.Node
 	Title() *string
 	Version() *string
-	// Synthesizes the model to the output directory.
-	Synth(outdir *string)
 	// Returns a string representation of this construct.
 	ToString() *string
 }
@@ -891,26 +983,26 @@ func (j *jsiiProxy_Model) Version() *string {
 }
 
 
-func NewModel(props *ModelProps) Model {
+func NewModel(project constructs.Construct, id *string, props *ModelProps) Model {
 	_init_.Initialize()
 
 	j := jsiiProxy_Model{}
 
 	_jsii_.Create(
 		"cdktg.Model",
-		[]interface{}{props},
+		[]interface{}{project, id, props},
 		&j,
 	)
 
 	return &j
 }
 
-func NewModel_Override(m Model, props *ModelProps) {
+func NewModel_Override(m Model, project constructs.Construct, id *string, props *ModelProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
 		"cdktg.Model",
-		[]interface{}{props},
+		[]interface{}{project, id, props},
 		m,
 	)
 }
@@ -947,14 +1039,6 @@ func Model_IsConstruct(x interface{}) *bool {
 	return returns
 }
 
-func (m *jsiiProxy_Model) Synth(outdir *string) {
-	_jsii_.InvokeVoid(
-		m,
-		"synth",
-		[]interface{}{outdir},
-	)
-}
-
 func (m *jsiiProxy_Model) ToString() *string {
 	var returns *string
 
@@ -973,12 +1057,12 @@ type ModelProps struct {
 	Author Author `field:"required" json:"author" yaml:"author"`
 	// Business criticality of the target.
 	BusinessCriticality BusinessCriticality `field:"required" json:"businessCriticality" yaml:"businessCriticality"`
-	// Title of the model.
-	Title *string `field:"required" json:"title" yaml:"title"`
 	// Version of the Threagile toolkit.
 	Version *string `field:"required" json:"version" yaml:"version"`
 	// Date of the model.
 	Date *time.Time `field:"optional" json:"date" yaml:"date"`
+	// Title of the model.
+	Title *string `field:"optional" json:"title" yaml:"title"`
 }
 
 type OutOfScope interface {
@@ -1040,6 +1124,126 @@ func NewOutOfScope_Override(o OutOfScope, justification *string) {
 type OutOfScopeProps struct {
 	OutOfScope *bool `field:"required" json:"outOfScope" yaml:"outOfScope"`
 	Justification *string `field:"optional" json:"justification" yaml:"justification"`
+}
+
+type Project interface {
+	constructs.Construct
+	// The tree node.
+	Node() constructs.Node
+	// The output directory into which models will be synthesized.
+	Outdir() *string
+	// Synthesizes the model to the output directory.
+	Synth()
+	// Returns a string representation of this construct.
+	ToString() *string
+}
+
+// The jsii proxy struct for Project
+type jsiiProxy_Project struct {
+	internal.Type__constructsConstruct
+}
+
+func (j *jsiiProxy_Project) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_Project) Outdir() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"outdir",
+		&returns,
+	)
+	return returns
+}
+
+
+func NewProject(props *ProjectProps) Project {
+	_init_.Initialize()
+
+	j := jsiiProxy_Project{}
+
+	_jsii_.Create(
+		"cdktg.Project",
+		[]interface{}{props},
+		&j,
+	)
+
+	return &j
+}
+
+func NewProject_Override(p Project, props *ProjectProps) {
+	_init_.Initialize()
+
+	_jsii_.Create(
+		"cdktg.Project",
+		[]interface{}{props},
+		p,
+	)
+}
+
+// Checks if `x` is a construct.
+//
+// Use this method instead of `instanceof` to properly detect `Construct`
+// instances, even when the construct library is symlinked.
+//
+// Explanation: in JavaScript, multiple copies of the `constructs` library on
+// disk are seen as independent, completely different libraries. As a
+// consequence, the class `Construct` in each copy of the `constructs` library
+// is seen as a different class, and an instance of one class will not test as
+// `instanceof` the other class. `npm install` will not create installations
+// like this, but users may manually symlink construct libraries together or
+// use a monorepo tool: in those cases, multiple copies of the `constructs`
+// library can be accidentally installed, and `instanceof` will behave
+// unpredictably. It is safest to avoid using `instanceof`, and using
+// this type-testing method instead.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+func Project_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"cdktg.Project",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
+func (p *jsiiProxy_Project) Synth() {
+	_jsii_.InvokeVoid(
+		p,
+		"synth",
+		nil, // no parameters
+	)
+}
+
+func (p *jsiiProxy_Project) ToString() *string {
+	var returns *string
+
+	_jsii_.Invoke(
+		p,
+		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+type ProjectProps struct {
+	// The directory to output the threadgile model.
+	Outdir *string `field:"optional" json:"outdir" yaml:"outdir"`
 }
 
 type Protocol string
