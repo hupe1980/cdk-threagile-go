@@ -5,7 +5,7 @@
 
 > Agile Threat Modeling as Code
 
-CDK Construct for [threatgile](https://threagile.io/)
+CDK Constructs for [threatgile](https://threagile.io/)
 
 ## Installation
 
