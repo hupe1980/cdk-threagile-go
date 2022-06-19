@@ -2,8 +2,6 @@
 package cdktg
 
 import (
-	"time"
-
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 	_init_ "github.com/hupe1980/cdk-threagile-go/cdktg/jsii"
 
@@ -1058,7 +1056,7 @@ type Model interface {
 	constructs.Construct
 	Author() Author
 	BusinessCriticality() BusinessCriticality
-	Date() *time.Time
+	Date() *string
 	ManagementSummary() *string
 	// The tree node.
 	Node() constructs.Node
@@ -1097,8 +1095,8 @@ func (j *jsiiProxy_Model) BusinessCriticality() BusinessCriticality {
 	return returns
 }
 
-func (j *jsiiProxy_Model) Date() *time.Time {
-	var returns *time.Time
+func (j *jsiiProxy_Model) Date() *string {
+	var returns *string
 	_jsii_.Get(
 		j,
 		"date",
@@ -1310,7 +1308,7 @@ type ModelProps struct {
 	// Version of the Threagile toolkit.
 	Version *string `field:"required" json:"version" yaml:"version"`
 	// Date of the model.
-	Date *time.Time `field:"optional" json:"date" yaml:"date"`
+	Date *string `field:"optional" json:"date" yaml:"date"`
 	// Individual management summary for the report.
 	ManagementSummary *string `field:"optional" json:"managementSummary" yaml:"managementSummary"`
 	// Title of the model.
