@@ -59,7 +59,7 @@ const someTrustBoundary = new TrustBoundary(model, 'Some Trust Boundary', {
 const someTechnicalAsset = new TechnicalAsset(model, 'Some Technical Asset', {
     trustBoundary: someTrustBoundary,
     description: 'Some Description',
-    assetType: AssetType.PROCESS,
+    type: TechnicalAssetType.PROCESS,
     usage: Usage.BUSINESS,
     humanUse: false,
     size: Size.COMPONENT,
@@ -81,11 +81,12 @@ someTechnicalAsset.process(someData);
 
 const someOtherTechnicalAsset = new TechnicalAsset(model, 'Some Other Technical Asset', {
     description: 'Some Description',
-    assetType: AssetType.PROCESS,
+    type: TechnicalAssetType.PROCESS,
     usage: Usage.BUSINESS,
     humanUse: false,
     size: Size.COMPONENT,
     technology: Technology.WEB_SERVICE_REST,
+    tags: ["some-tag", "some-other-tag"],
     internet: false,
     machine: Machine.VIRTUAL,
     encryption: Encryption.NONE,
@@ -113,6 +114,12 @@ const someTraffic = someTechnicalAsset.communicateWith('Some Traffic', someOther
 });
 
 someTraffic.send(someData);
+
+const someSharedRuntime = new SharedRuntime(model, "Some Shared Runtime", {
+    description: "Some Description",
+});
+
+someSharedRuntime.run(someTechnicalAsset, someOtherTechnicalAsset);
 
 project.synth();
 ```

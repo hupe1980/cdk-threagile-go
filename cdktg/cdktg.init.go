@@ -39,36 +39,6 @@ func init() {
 			return &jsiiProxy_Aspects{}
 		},
 	)
-	_jsii_.RegisterClass(
-		"cdktg.Asset",
-		reflect.TypeOf((*Asset)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "ciaTriad", GoGetter: "CiaTriad"},
-			_jsii_.MemberProperty{JsiiProperty: "description", GoGetter: "Description"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
-			_jsii_.MemberProperty{JsiiProperty: "usage", GoGetter: "Usage"},
-			_jsii_.MemberProperty{JsiiProperty: "uuid", GoGetter: "Uuid"},
-		},
-		func() interface{} {
-			j := jsiiProxy_Asset{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsConstruct)
-			return &j
-		},
-	)
-	_jsii_.RegisterStruct(
-		"cdktg.AssetProps",
-		reflect.TypeOf((*AssetProps)(nil)).Elem(),
-	)
-	_jsii_.RegisterEnum(
-		"cdktg.AssetType",
-		reflect.TypeOf((*AssetType)(nil)).Elem(),
-		map[string]interface{}{
-			"EXTERNAL_ENTITY": AssetType_EXTERNAL_ENTITY,
-			"PROCESS": AssetType_PROCESS,
-			"DATASTORE": AssetType_DATASTORE,
-		},
-	)
 	_jsii_.RegisterEnum(
 		"cdktg.Authentication",
 		reflect.TypeOf((*Authentication)(nil)).Elem(),
@@ -195,13 +165,14 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "origin", GoGetter: "Origin"},
 			_jsii_.MemberProperty{JsiiProperty: "owner", GoGetter: "Owner"},
 			_jsii_.MemberProperty{JsiiProperty: "quantity", GoGetter: "Quantity"},
+			_jsii_.MemberProperty{JsiiProperty: "tags", GoGetter: "Tags"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "usage", GoGetter: "Usage"},
 			_jsii_.MemberProperty{JsiiProperty: "uuid", GoGetter: "Uuid"},
 		},
 		func() interface{} {
 			j := jsiiProxy_DataAsset{}
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_Asset)
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_Resource)
 			return &j
 		},
 	)
@@ -330,9 +301,11 @@ func init() {
 		reflect.TypeOf((*Model)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addOverride", GoMethod: "AddOverride"},
+			_jsii_.MemberMethod{JsiiMethod: "addTags", GoMethod: "AddTags"},
 			_jsii_.MemberProperty{JsiiProperty: "author", GoGetter: "Author"},
 			_jsii_.MemberProperty{JsiiProperty: "businessCriticality", GoGetter: "BusinessCriticality"},
 			_jsii_.MemberProperty{JsiiProperty: "date", GoGetter: "Date"},
+			_jsii_.MemberProperty{JsiiProperty: "managementSummary", GoGetter: "ManagementSummary"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberProperty{JsiiProperty: "synthesizer", GoGetter: "Synthesizer"},
 			_jsii_.MemberProperty{JsiiProperty: "title", GoGetter: "Title"},
@@ -472,6 +445,25 @@ func init() {
 		},
 	)
 	_jsii_.RegisterClass(
+		"cdktg.Resource",
+		reflect.TypeOf((*Resource)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "description", GoGetter: "Description"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+			_jsii_.MemberProperty{JsiiProperty: "uuid", GoGetter: "Uuid"},
+		},
+		func() interface{} {
+			j := jsiiProxy_Resource{}
+			_jsii_.InitJsiiProxy(&j.Type__constructsConstruct)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"cdktg.ResourceProps",
+		reflect.TypeOf((*ResourceProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
 		"cdktg.Scope",
 		reflect.TypeOf((*Scope)(nil)).Elem(),
 		[]_jsii_.Member{
@@ -481,6 +473,27 @@ func init() {
 		func() interface{} {
 			return &jsiiProxy_Scope{}
 		},
+	)
+	_jsii_.RegisterClass(
+		"cdktg.SharedRuntime",
+		reflect.TypeOf((*SharedRuntime)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "description", GoGetter: "Description"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberMethod{JsiiMethod: "run", GoMethod: "Run"},
+			_jsii_.MemberProperty{JsiiProperty: "tags", GoGetter: "Tags"},
+			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+			_jsii_.MemberProperty{JsiiProperty: "uuid", GoGetter: "Uuid"},
+		},
+		func() interface{} {
+			j := jsiiProxy_SharedRuntime{}
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_Resource)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"cdktg.SharedRuntimeProps",
+		reflect.TypeOf((*SharedRuntimeProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterEnum(
 		"cdktg.Size",
@@ -496,7 +509,6 @@ func init() {
 		"cdktg.TechnicalAsset",
 		reflect.TypeOf((*TechnicalAsset)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "assetType", GoGetter: "AssetType"},
 			_jsii_.MemberProperty{JsiiProperty: "ciaTriad", GoGetter: "CiaTriad"},
 			_jsii_.MemberMethod{JsiiMethod: "communicateWith", GoMethod: "CommunicateWith"},
 			_jsii_.MemberProperty{JsiiProperty: "description", GoGetter: "Description"},
@@ -512,20 +524,31 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "scope", GoGetter: "Scope"},
 			_jsii_.MemberProperty{JsiiProperty: "size", GoGetter: "Size"},
 			_jsii_.MemberMethod{JsiiMethod: "store", GoMethod: "Store"},
+			_jsii_.MemberProperty{JsiiProperty: "tags", GoGetter: "Tags"},
 			_jsii_.MemberProperty{JsiiProperty: "technology", GoGetter: "Technology"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+			_jsii_.MemberProperty{JsiiProperty: "type", GoGetter: "Type"},
 			_jsii_.MemberProperty{JsiiProperty: "usage", GoGetter: "Usage"},
 			_jsii_.MemberProperty{JsiiProperty: "uuid", GoGetter: "Uuid"},
 		},
 		func() interface{} {
 			j := jsiiProxy_TechnicalAsset{}
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_Asset)
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_Resource)
 			return &j
 		},
 	)
 	_jsii_.RegisterStruct(
 		"cdktg.TechnicalAssetProps",
 		reflect.TypeOf((*TechnicalAssetProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterEnum(
+		"cdktg.TechnicalAssetType",
+		reflect.TypeOf((*TechnicalAssetType)(nil)).Elem(),
+		map[string]interface{}{
+			"EXTERNAL_ENTITY": TechnicalAssetType_EXTERNAL_ENTITY,
+			"PROCESS": TechnicalAssetType_PROCESS,
+			"DATASTORE": TechnicalAssetType_DATASTORE,
+		},
 	)
 	_jsii_.RegisterEnum(
 		"cdktg.Technology",
@@ -597,13 +620,14 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "addTrustBoundary", GoMethod: "AddTrustBoundary"},
 			_jsii_.MemberProperty{JsiiProperty: "description", GoGetter: "Description"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "tags", GoGetter: "Tags"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "type", GoGetter: "Type"},
 			_jsii_.MemberProperty{JsiiProperty: "uuid", GoGetter: "Uuid"},
 		},
 		func() interface{} {
 			j := jsiiProxy_TrustBoundary{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsConstruct)
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_Resource)
 			return &j
 		},
 	)

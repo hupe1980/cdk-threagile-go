@@ -130,143 +130,6 @@ func (a *jsiiProxy_Aspects) Add(aspect IAspect) {
 	)
 }
 
-type Asset interface {
-	constructs.Construct
-	CiaTriad() CIATriad
-	Description() *string
-	// The tree node.
-	Node() constructs.Node
-	Usage() Usage
-	Uuid() *string
-	// Returns a string representation of this construct.
-	ToString() *string
-}
-
-// The jsii proxy struct for Asset
-type jsiiProxy_Asset struct {
-	internal.Type__constructsConstruct
-}
-
-func (j *jsiiProxy_Asset) CiaTriad() CIATriad {
-	var returns CIATriad
-	_jsii_.Get(
-		j,
-		"ciaTriad",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_Asset) Description() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"description",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_Asset) Node() constructs.Node {
-	var returns constructs.Node
-	_jsii_.Get(
-		j,
-		"node",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_Asset) Usage() Usage {
-	var returns Usage
-	_jsii_.Get(
-		j,
-		"usage",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_Asset) Uuid() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"uuid",
-		&returns,
-	)
-	return returns
-}
-
-
-func NewAsset_Override(a Asset, model constructs.Construct, id *string, props *AssetProps) {
-	_init_.Initialize()
-
-	_jsii_.Create(
-		"cdktg.Asset",
-		[]interface{}{model, id, props},
-		a,
-	)
-}
-
-// Checks if `x` is a construct.
-//
-// Use this method instead of `instanceof` to properly detect `Construct`
-// instances, even when the construct library is symlinked.
-//
-// Explanation: in JavaScript, multiple copies of the `constructs` library on
-// disk are seen as independent, completely different libraries. As a
-// consequence, the class `Construct` in each copy of the `constructs` library
-// is seen as a different class, and an instance of one class will not test as
-// `instanceof` the other class. `npm install` will not create installations
-// like this, but users may manually symlink construct libraries together or
-// use a monorepo tool: in those cases, multiple copies of the `constructs`
-// library can be accidentally installed, and `instanceof` will behave
-// unpredictably. It is safest to avoid using `instanceof`, and using
-// this type-testing method instead.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-func Asset_IsConstruct(x interface{}) *bool {
-	_init_.Initialize()
-
-	var returns *bool
-
-	_jsii_.StaticInvoke(
-		"cdktg.Asset",
-		"isConstruct",
-		[]interface{}{x},
-		&returns,
-	)
-
-	return returns
-}
-
-func (a *jsiiProxy_Asset) ToString() *string {
-	var returns *string
-
-	_jsii_.Invoke(
-		a,
-		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-type AssetProps struct {
-	CiaTriad CIATriad `field:"required" json:"ciaTriad" yaml:"ciaTriad"`
-	Description *string `field:"required" json:"description" yaml:"description"`
-	Usage Usage `field:"required" json:"usage" yaml:"usage"`
-}
-
-type AssetType string
-
-const (
-	AssetType_EXTERNAL_ENTITY AssetType = "EXTERNAL_ENTITY"
-	AssetType_PROCESS AssetType = "PROCESS"
-	AssetType_DATASTORE AssetType = "DATASTORE"
-)
-
 type Authentication string
 
 const (
@@ -656,7 +519,7 @@ const (
 )
 
 type DataAsset interface {
-	Asset
+	Resource
 	CiaTriad() CIATriad
 	Description() *string
 	// The tree node.
@@ -664,6 +527,7 @@ type DataAsset interface {
 	Origin() *string
 	Owner() *string
 	Quantity() Quantity
+	Tags() *[]*string
 	Usage() Usage
 	Uuid() *string
 	// Returns a string representation of this construct.
@@ -672,7 +536,7 @@ type DataAsset interface {
 
 // The jsii proxy struct for DataAsset
 type jsiiProxy_DataAsset struct {
-	jsiiProxy_Asset
+	jsiiProxy_Resource
 }
 
 func (j *jsiiProxy_DataAsset) CiaTriad() CIATriad {
@@ -735,6 +599,16 @@ func (j *jsiiProxy_DataAsset) Quantity() Quantity {
 	return returns
 }
 
+func (j *jsiiProxy_DataAsset) Tags() *[]*string {
+	var returns *[]*string
+	_jsii_.Get(
+		j,
+		"tags",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_DataAsset) Usage() Usage {
 	var returns Usage
 	_jsii_.Get(
@@ -756,26 +630,26 @@ func (j *jsiiProxy_DataAsset) Uuid() *string {
 }
 
 
-func NewDataAsset(model constructs.Construct, id *string, props *DataAssetProps) DataAsset {
+func NewDataAsset(scope constructs.Construct, id *string, props *DataAssetProps) DataAsset {
 	_init_.Initialize()
 
 	j := jsiiProxy_DataAsset{}
 
 	_jsii_.Create(
 		"cdktg.DataAsset",
-		[]interface{}{model, id, props},
+		[]interface{}{scope, id, props},
 		&j,
 	)
 
 	return &j
 }
 
-func NewDataAsset_Override(d DataAsset, model constructs.Construct, id *string, props *DataAssetProps) {
+func NewDataAsset_Override(d DataAsset, scope constructs.Construct, id *string, props *DataAssetProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
 		"cdktg.DataAsset",
-		[]interface{}{model, id, props},
+		[]interface{}{scope, id, props},
 		d,
 	)
 }
@@ -826,12 +700,13 @@ func (d *jsiiProxy_DataAsset) ToString() *string {
 }
 
 type DataAssetProps struct {
-	CiaTriad CIATriad `field:"required" json:"ciaTriad" yaml:"ciaTriad"`
 	Description *string `field:"required" json:"description" yaml:"description"`
-	Usage Usage `field:"required" json:"usage" yaml:"usage"`
+	CiaTriad CIATriad `field:"required" json:"ciaTriad" yaml:"ciaTriad"`
 	Quantity Quantity `field:"required" json:"quantity" yaml:"quantity"`
+	Usage Usage `field:"required" json:"usage" yaml:"usage"`
 	Origin *string `field:"optional" json:"origin" yaml:"origin"`
 	Owner *string `field:"optional" json:"owner" yaml:"owner"`
+	Tags *[]*string `field:"optional" json:"tags" yaml:"tags"`
 }
 
 type DataFormat string
@@ -1184,6 +1059,7 @@ type Model interface {
 	Author() Author
 	BusinessCriticality() BusinessCriticality
 	Date() *time.Time
+	ManagementSummary() *string
 	// The tree node.
 	Node() constructs.Node
 	Synthesizer() IModelSynthesizer
@@ -1191,6 +1067,7 @@ type Model interface {
 	Title() *string
 	Version() *string
 	AddOverride(path *string, value interface{})
+	AddTags(tags ...*string)
 	// Returns a string representation of this construct.
 	ToString() *string
 }
@@ -1225,6 +1102,16 @@ func (j *jsiiProxy_Model) Date() *time.Time {
 	_jsii_.Get(
 		j,
 		"date",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_Model) ManagementSummary() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"managementSummary",
 		&returns,
 	)
 	return returns
@@ -1350,11 +1237,39 @@ func Model_IsModel(x interface{}) *bool {
 	return returns
 }
 
+func Model_Of(construct constructs.IConstruct) Model {
+	_init_.Initialize()
+
+	var returns Model
+
+	_jsii_.StaticInvoke(
+		"cdktg.Model",
+		"of",
+		[]interface{}{construct},
+		&returns,
+	)
+
+	return returns
+}
+
 func (m *jsiiProxy_Model) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		m,
 		"addOverride",
 		[]interface{}{path, value},
+	)
+}
+
+func (m *jsiiProxy_Model) AddTags(tags ...*string) {
+	args := []interface{}{}
+	for _, a := range tags {
+		args = append(args, a)
+	}
+
+	_jsii_.InvokeVoid(
+		m,
+		"addTags",
+		args,
 	)
 }
 
@@ -1396,6 +1311,8 @@ type ModelProps struct {
 	Version *string `field:"required" json:"version" yaml:"version"`
 	// Date of the model.
 	Date *time.Time `field:"optional" json:"date" yaml:"date"`
+	// Individual management summary for the report.
+	ManagementSummary *string `field:"optional" json:"managementSummary" yaml:"managementSummary"`
 	// Title of the model.
 	Title *string `field:"optional" json:"title" yaml:"title"`
 }
@@ -1731,6 +1648,111 @@ const (
 	Quantity_VERY_MANY Quantity = "VERY_MANY"
 )
 
+type Resource interface {
+	constructs.Construct
+	Description() *string
+	// The tree node.
+	Node() constructs.Node
+	Uuid() *string
+	// Returns a string representation of this construct.
+	ToString() *string
+}
+
+// The jsii proxy struct for Resource
+type jsiiProxy_Resource struct {
+	internal.Type__constructsConstruct
+}
+
+func (j *jsiiProxy_Resource) Description() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"description",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_Resource) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_Resource) Uuid() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"uuid",
+		&returns,
+	)
+	return returns
+}
+
+
+func NewResource_Override(r Resource, model constructs.Construct, id *string, props *ResourceProps) {
+	_init_.Initialize()
+
+	_jsii_.Create(
+		"cdktg.Resource",
+		[]interface{}{model, id, props},
+		r,
+	)
+}
+
+// Checks if `x` is a construct.
+//
+// Use this method instead of `instanceof` to properly detect `Construct`
+// instances, even when the construct library is symlinked.
+//
+// Explanation: in JavaScript, multiple copies of the `constructs` library on
+// disk are seen as independent, completely different libraries. As a
+// consequence, the class `Construct` in each copy of the `constructs` library
+// is seen as a different class, and an instance of one class will not test as
+// `instanceof` the other class. `npm install` will not create installations
+// like this, but users may manually symlink construct libraries together or
+// use a monorepo tool: in those cases, multiple copies of the `constructs`
+// library can be accidentally installed, and `instanceof` will behave
+// unpredictably. It is safest to avoid using `instanceof`, and using
+// this type-testing method instead.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+func Resource_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"cdktg.Resource",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
+func (r *jsiiProxy_Resource) ToString() *string {
+	var returns *string
+
+	_jsii_.Invoke(
+		r,
+		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+type ResourceProps struct {
+	Description *string `field:"required" json:"description" yaml:"description"`
+}
+
 type Scope interface {
 	IsInScope() *bool
 	Justification() *string
@@ -1772,6 +1794,151 @@ func NewScope_Override(s Scope, justification *string) {
 	)
 }
 
+type SharedRuntime interface {
+	Resource
+	Description() *string
+	// The tree node.
+	Node() constructs.Node
+	Tags() *[]*string
+	Uuid() *string
+	Run(assets ...TechnicalAsset)
+	// Returns a string representation of this construct.
+	ToString() *string
+}
+
+// The jsii proxy struct for SharedRuntime
+type jsiiProxy_SharedRuntime struct {
+	jsiiProxy_Resource
+}
+
+func (j *jsiiProxy_SharedRuntime) Description() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"description",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_SharedRuntime) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_SharedRuntime) Tags() *[]*string {
+	var returns *[]*string
+	_jsii_.Get(
+		j,
+		"tags",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_SharedRuntime) Uuid() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"uuid",
+		&returns,
+	)
+	return returns
+}
+
+
+func NewSharedRuntime(scope constructs.Construct, id *string, props *SharedRuntimeProps) SharedRuntime {
+	_init_.Initialize()
+
+	j := jsiiProxy_SharedRuntime{}
+
+	_jsii_.Create(
+		"cdktg.SharedRuntime",
+		[]interface{}{scope, id, props},
+		&j,
+	)
+
+	return &j
+}
+
+func NewSharedRuntime_Override(s SharedRuntime, scope constructs.Construct, id *string, props *SharedRuntimeProps) {
+	_init_.Initialize()
+
+	_jsii_.Create(
+		"cdktg.SharedRuntime",
+		[]interface{}{scope, id, props},
+		s,
+	)
+}
+
+// Checks if `x` is a construct.
+//
+// Use this method instead of `instanceof` to properly detect `Construct`
+// instances, even when the construct library is symlinked.
+//
+// Explanation: in JavaScript, multiple copies of the `constructs` library on
+// disk are seen as independent, completely different libraries. As a
+// consequence, the class `Construct` in each copy of the `constructs` library
+// is seen as a different class, and an instance of one class will not test as
+// `instanceof` the other class. `npm install` will not create installations
+// like this, but users may manually symlink construct libraries together or
+// use a monorepo tool: in those cases, multiple copies of the `constructs`
+// library can be accidentally installed, and `instanceof` will behave
+// unpredictably. It is safest to avoid using `instanceof`, and using
+// this type-testing method instead.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+func SharedRuntime_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"cdktg.SharedRuntime",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
+func (s *jsiiProxy_SharedRuntime) Run(assets ...TechnicalAsset) {
+	args := []interface{}{}
+	for _, a := range assets {
+		args = append(args, a)
+	}
+
+	_jsii_.InvokeVoid(
+		s,
+		"run",
+		args,
+	)
+}
+
+func (s *jsiiProxy_SharedRuntime) ToString() *string {
+	var returns *string
+
+	_jsii_.Invoke(
+		s,
+		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+type SharedRuntimeProps struct {
+	Description *string `field:"required" json:"description" yaml:"description"`
+	Tags *[]*string `field:"optional" json:"tags" yaml:"tags"`
+}
+
 type Size string
 
 const (
@@ -1782,8 +1949,7 @@ const (
 )
 
 type TechnicalAsset interface {
-	Asset
-	AssetType() AssetType
+	Resource
 	CiaTriad() CIATriad
 	Description() *string
 	Encryption() Encryption
@@ -1797,7 +1963,9 @@ type TechnicalAsset interface {
 	Redundant() *bool
 	Scope() Scope
 	Size() Size
+	Tags() *[]*string
 	Technology() Technology
+	Type() TechnicalAssetType
 	Usage() Usage
 	Uuid() *string
 	CommunicateWith(id *string, target TechnicalAsset, options *CommunicationOptions) Communication
@@ -1809,17 +1977,7 @@ type TechnicalAsset interface {
 
 // The jsii proxy struct for TechnicalAsset
 type jsiiProxy_TechnicalAsset struct {
-	jsiiProxy_Asset
-}
-
-func (j *jsiiProxy_TechnicalAsset) AssetType() AssetType {
-	var returns AssetType
-	_jsii_.Get(
-		j,
-		"assetType",
-		&returns,
-	)
-	return returns
+	jsiiProxy_Resource
 }
 
 func (j *jsiiProxy_TechnicalAsset) CiaTriad() CIATriad {
@@ -1942,11 +2100,31 @@ func (j *jsiiProxy_TechnicalAsset) Size() Size {
 	return returns
 }
 
+func (j *jsiiProxy_TechnicalAsset) Tags() *[]*string {
+	var returns *[]*string
+	_jsii_.Get(
+		j,
+		"tags",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_TechnicalAsset) Technology() Technology {
 	var returns Technology
 	_jsii_.Get(
 		j,
 		"technology",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_TechnicalAsset) Type() TechnicalAssetType {
+	var returns TechnicalAssetType
+	_jsii_.Get(
+		j,
+		"type",
 		&returns,
 	)
 	return returns
@@ -1973,26 +2151,26 @@ func (j *jsiiProxy_TechnicalAsset) Uuid() *string {
 }
 
 
-func NewTechnicalAsset(model constructs.Construct, id *string, props *TechnicalAssetProps) TechnicalAsset {
+func NewTechnicalAsset(scope constructs.Construct, id *string, props *TechnicalAssetProps) TechnicalAsset {
 	_init_.Initialize()
 
 	j := jsiiProxy_TechnicalAsset{}
 
 	_jsii_.Create(
 		"cdktg.TechnicalAsset",
-		[]interface{}{model, id, props},
+		[]interface{}{scope, id, props},
 		&j,
 	)
 
 	return &j
 }
 
-func NewTechnicalAsset_Override(t TechnicalAsset, model constructs.Construct, id *string, props *TechnicalAssetProps) {
+func NewTechnicalAsset_Override(t TechnicalAsset, scope constructs.Construct, id *string, props *TechnicalAssetProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
 		"cdktg.TechnicalAsset",
-		[]interface{}{model, id, props},
+		[]interface{}{scope, id, props},
 		t,
 	)
 }
@@ -2082,10 +2260,8 @@ func (t *jsiiProxy_TechnicalAsset) ToString() *string {
 }
 
 type TechnicalAssetProps struct {
-	CiaTriad CIATriad `field:"required" json:"ciaTriad" yaml:"ciaTriad"`
 	Description *string `field:"required" json:"description" yaml:"description"`
-	Usage Usage `field:"required" json:"usage" yaml:"usage"`
-	AssetType AssetType `field:"required" json:"assetType" yaml:"assetType"`
+	CiaTriad CIATriad `field:"required" json:"ciaTriad" yaml:"ciaTriad"`
 	Encryption Encryption `field:"required" json:"encryption" yaml:"encryption"`
 	HumanUse *bool `field:"required" json:"humanUse" yaml:"humanUse"`
 	Internet *bool `field:"required" json:"internet" yaml:"internet"`
@@ -2095,9 +2271,20 @@ type TechnicalAssetProps struct {
 	Redundant *bool `field:"required" json:"redundant" yaml:"redundant"`
 	Size Size `field:"required" json:"size" yaml:"size"`
 	Technology Technology `field:"required" json:"technology" yaml:"technology"`
+	Type TechnicalAssetType `field:"required" json:"type" yaml:"type"`
+	Usage Usage `field:"required" json:"usage" yaml:"usage"`
 	Scope Scope `field:"optional" json:"scope" yaml:"scope"`
+	Tags *[]*string `field:"optional" json:"tags" yaml:"tags"`
 	TrustBoundary TrustBoundary `field:"optional" json:"trustBoundary" yaml:"trustBoundary"`
 }
+
+type TechnicalAssetType string
+
+const (
+	TechnicalAssetType_EXTERNAL_ENTITY TechnicalAssetType = "EXTERNAL_ENTITY"
+	TechnicalAssetType_PROCESS TechnicalAssetType = "PROCESS"
+	TechnicalAssetType_DATASTORE TechnicalAssetType = "DATASTORE"
+)
 
 type Technology string
 
@@ -2161,10 +2348,11 @@ const (
 )
 
 type TrustBoundary interface {
-	constructs.Construct
+	Resource
 	Description() *string
 	// The tree node.
 	Node() constructs.Node
+	Tags() *[]*string
 	Type() TrustBoundaryType
 	Uuid() *string
 	AddTechnicalAssets(assets ...TechnicalAsset)
@@ -2175,7 +2363,7 @@ type TrustBoundary interface {
 
 // The jsii proxy struct for TrustBoundary
 type jsiiProxy_TrustBoundary struct {
-	internal.Type__constructsConstruct
+	jsiiProxy_Resource
 }
 
 func (j *jsiiProxy_TrustBoundary) Description() *string {
@@ -2193,6 +2381,16 @@ func (j *jsiiProxy_TrustBoundary) Node() constructs.Node {
 	_jsii_.Get(
 		j,
 		"node",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_TrustBoundary) Tags() *[]*string {
+	var returns *[]*string
+	_jsii_.Get(
+		j,
+		"tags",
 		&returns,
 	)
 	return returns
@@ -2219,26 +2417,26 @@ func (j *jsiiProxy_TrustBoundary) Uuid() *string {
 }
 
 
-func NewTrustBoundary(model constructs.Construct, id *string, props *TrustBoundaryProps) TrustBoundary {
+func NewTrustBoundary(scope constructs.Construct, id *string, props *TrustBoundaryProps) TrustBoundary {
 	_init_.Initialize()
 
 	j := jsiiProxy_TrustBoundary{}
 
 	_jsii_.Create(
 		"cdktg.TrustBoundary",
-		[]interface{}{model, id, props},
+		[]interface{}{scope, id, props},
 		&j,
 	)
 
 	return &j
 }
 
-func NewTrustBoundary_Override(t TrustBoundary, model constructs.Construct, id *string, props *TrustBoundaryProps) {
+func NewTrustBoundary_Override(t TrustBoundary, scope constructs.Construct, id *string, props *TrustBoundaryProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
 		"cdktg.TrustBoundary",
-		[]interface{}{model, id, props},
+		[]interface{}{scope, id, props},
 		t,
 	)
 }
@@ -2312,6 +2510,7 @@ func (t *jsiiProxy_TrustBoundary) ToString() *string {
 type TrustBoundaryProps struct {
 	Description *string `field:"required" json:"description" yaml:"description"`
 	Type TrustBoundaryType `field:"required" json:"type" yaml:"type"`
+	Tags *[]*string `field:"optional" json:"tags" yaml:"tags"`
 }
 
 type TrustBoundaryType string
