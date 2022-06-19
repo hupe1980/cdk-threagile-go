@@ -7,6 +7,38 @@ import (
 )
 
 func init() {
+	_jsii_.RegisterEnum(
+		"cdktg.AnnotationMetadataEntryType",
+		reflect.TypeOf((*AnnotationMetadataEntryType)(nil)).Elem(),
+		map[string]interface{}{
+			"INFO": AnnotationMetadataEntryType_INFO,
+			"WARN": AnnotationMetadataEntryType_WARN,
+			"ERROR": AnnotationMetadataEntryType_ERROR,
+		},
+	)
+	_jsii_.RegisterClass(
+		"cdktg.Annotations",
+		reflect.TypeOf((*Annotations)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "addError", GoMethod: "AddError"},
+			_jsii_.MemberMethod{JsiiMethod: "addInfo", GoMethod: "AddInfo"},
+			_jsii_.MemberMethod{JsiiMethod: "addWarning", GoMethod: "AddWarning"},
+		},
+		func() interface{} {
+			return &jsiiProxy_Annotations{}
+		},
+	)
+	_jsii_.RegisterClass(
+		"cdktg.Aspects",
+		reflect.TypeOf((*Aspects)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "add", GoMethod: "Add"},
+			_jsii_.MemberProperty{JsiiProperty: "all", GoGetter: "All"},
+		},
+		func() interface{} {
+			return &jsiiProxy_Aspects{}
+		},
+	)
 	_jsii_.RegisterClass(
 		"cdktg.Asset",
 		reflect.TypeOf((*Asset)(nil)).Elem(),
@@ -124,8 +156,8 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "ipFiltered", GoGetter: "IpFiltered"},
 			_jsii_.MemberProperty{JsiiProperty: "protocol", GoGetter: "Protocol"},
 			_jsii_.MemberProperty{JsiiProperty: "readonly", GoGetter: "Readonly"},
-			_jsii_.MemberMethod{JsiiMethod: "received", GoMethod: "Received"},
-			_jsii_.MemberMethod{JsiiMethod: "sent", GoMethod: "Sent"},
+			_jsii_.MemberMethod{JsiiMethod: "receive", GoMethod: "Receive"},
+			_jsii_.MemberMethod{JsiiMethod: "send", GoMethod: "Send"},
 			_jsii_.MemberProperty{JsiiProperty: "target", GoGetter: "Target"},
 			_jsii_.MemberProperty{JsiiProperty: "usage", GoGetter: "Usage"},
 			_jsii_.MemberProperty{JsiiProperty: "vpn", GoGetter: "Vpn"},
@@ -199,6 +231,49 @@ func init() {
 			"ENDUSER_INDIVIDUAL_KEY": Encryption_ENDUSER_INDIVIDUAL_KEY,
 		},
 	)
+	_jsii_.RegisterInterface(
+		"cdktg.IAspect",
+		reflect.TypeOf((*IAspect)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "visit", GoMethod: "Visit"},
+		},
+		func() interface{} {
+			return &jsiiProxy_IAspect{}
+		},
+	)
+	_jsii_.RegisterInterface(
+		"cdktg.IManifest",
+		reflect.TypeOf((*IManifest)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "models", GoGetter: "Models"},
+			_jsii_.MemberProperty{JsiiProperty: "version", GoGetter: "Version"},
+		},
+		func() interface{} {
+			return &jsiiProxy_IManifest{}
+		},
+	)
+	_jsii_.RegisterInterface(
+		"cdktg.IModelSynthesizer",
+		reflect.TypeOf((*IModelSynthesizer)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
+		},
+		func() interface{} {
+			return &jsiiProxy_IModelSynthesizer{}
+		},
+	)
+	_jsii_.RegisterInterface(
+		"cdktg.ISynthesisSession",
+		reflect.TypeOf((*ISynthesisSession)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "manifest", GoGetter: "Manifest"},
+			_jsii_.MemberProperty{JsiiProperty: "outdir", GoGetter: "Outdir"},
+			_jsii_.MemberProperty{JsiiProperty: "skipValidation", GoGetter: "SkipValidation"},
+		},
+		func() interface{} {
+			return &jsiiProxy_ISynthesisSession{}
+		},
+	)
 	_jsii_.RegisterClass(
 		"cdktg.InScope",
 		reflect.TypeOf((*InScope)(nil)).Elem(),
@@ -237,27 +312,29 @@ func init() {
 		"cdktg.Manifest",
 		reflect.TypeOf((*Manifest)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberMethod{JsiiMethod: "addModel", GoMethod: "AddModel"},
-			_jsii_.MemberProperty{JsiiProperty: "data", GoGetter: "Data"},
+			_jsii_.MemberMethod{JsiiMethod: "buildManifest", GoMethod: "BuildManifest"},
+			_jsii_.MemberMethod{JsiiMethod: "forModel", GoMethod: "ForModel"},
+			_jsii_.MemberProperty{JsiiProperty: "models", GoGetter: "Models"},
 			_jsii_.MemberProperty{JsiiProperty: "outdir", GoGetter: "Outdir"},
-			_jsii_.MemberMethod{JsiiMethod: "save", GoMethod: "Save"},
+			_jsii_.MemberProperty{JsiiProperty: "version", GoGetter: "Version"},
+			_jsii_.MemberMethod{JsiiMethod: "writeToFile", GoMethod: "WriteToFile"},
 		},
 		func() interface{} {
-			return &jsiiProxy_Manifest{}
+			j := jsiiProxy_Manifest{}
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_IManifest)
+			return &j
 		},
-	)
-	_jsii_.RegisterStruct(
-		"cdktg.ManifestProps",
-		reflect.TypeOf((*ManifestProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
 		"cdktg.Model",
 		reflect.TypeOf((*Model)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "addOverride", GoMethod: "AddOverride"},
 			_jsii_.MemberProperty{JsiiProperty: "author", GoGetter: "Author"},
 			_jsii_.MemberProperty{JsiiProperty: "businessCriticality", GoGetter: "BusinessCriticality"},
 			_jsii_.MemberProperty{JsiiProperty: "date", GoGetter: "Date"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "synthesizer", GoGetter: "Synthesizer"},
 			_jsii_.MemberProperty{JsiiProperty: "title", GoGetter: "Title"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "version", GoGetter: "Version"},
@@ -269,8 +346,29 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
+		"cdktg.ModelAnnotation",
+		reflect.TypeOf((*ModelAnnotation)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"cdktg.ModelManifest",
+		reflect.TypeOf((*ModelManifest)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"cdktg.ModelProps",
 		reflect.TypeOf((*ModelProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"cdktg.ModelSynthesizer",
+		reflect.TypeOf((*ModelSynthesizer)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "model", GoGetter: "Model"},
+			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
+		},
+		func() interface{} {
+			j := jsiiProxy_ModelSynthesizer{}
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_IModelSynthesizer)
+			return &j
+		},
 	)
 	_jsii_.RegisterClass(
 		"cdktg.OutOfScope",
@@ -293,8 +391,10 @@ func init() {
 		"cdktg.Project",
 		reflect.TypeOf((*Project)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "manifest", GoGetter: "Manifest"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberProperty{JsiiProperty: "outdir", GoGetter: "Outdir"},
+			_jsii_.MemberProperty{JsiiProperty: "skipValidation", GoGetter: "SkipValidation"},
 			_jsii_.MemberMethod{JsiiMethod: "synth", GoMethod: "Synth"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 		},
@@ -398,7 +498,7 @@ func init() {
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "assetType", GoGetter: "AssetType"},
 			_jsii_.MemberProperty{JsiiProperty: "ciaTriad", GoGetter: "CiaTriad"},
-			_jsii_.MemberMethod{JsiiMethod: "communicatedWith", GoMethod: "CommunicatedWith"},
+			_jsii_.MemberMethod{JsiiMethod: "communicateWith", GoMethod: "CommunicateWith"},
 			_jsii_.MemberProperty{JsiiProperty: "description", GoGetter: "Description"},
 			_jsii_.MemberProperty{JsiiProperty: "encryption", GoGetter: "Encryption"},
 			_jsii_.MemberProperty{JsiiProperty: "humanUse", GoGetter: "HumanUse"},
@@ -407,11 +507,11 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "multiTenant", GoGetter: "MultiTenant"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberProperty{JsiiProperty: "owner", GoGetter: "Owner"},
-			_jsii_.MemberMethod{JsiiMethod: "processed", GoMethod: "Processed"},
+			_jsii_.MemberMethod{JsiiMethod: "process", GoMethod: "Process"},
 			_jsii_.MemberProperty{JsiiProperty: "redundant", GoGetter: "Redundant"},
 			_jsii_.MemberProperty{JsiiProperty: "scope", GoGetter: "Scope"},
 			_jsii_.MemberProperty{JsiiProperty: "size", GoGetter: "Size"},
-			_jsii_.MemberMethod{JsiiMethod: "stored", GoMethod: "Stored"},
+			_jsii_.MemberMethod{JsiiMethod: "store", GoMethod: "Store"},
 			_jsii_.MemberProperty{JsiiProperty: "technology", GoGetter: "Technology"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "usage", GoGetter: "Usage"},

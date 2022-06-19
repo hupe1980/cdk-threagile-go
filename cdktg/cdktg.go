@@ -11,6 +11,125 @@ import (
 	"github.com/hupe1980/cdk-threagile-go/cdktg/internal"
 )
 
+type AnnotationMetadataEntryType string
+
+const (
+	AnnotationMetadataEntryType_INFO AnnotationMetadataEntryType = "INFO"
+	AnnotationMetadataEntryType_WARN AnnotationMetadataEntryType = "WARN"
+	AnnotationMetadataEntryType_ERROR AnnotationMetadataEntryType = "ERROR"
+)
+
+// Includes API for attaching annotations such as warning messages to constructs.
+type Annotations interface {
+	// Adds an { "error": <message> } metadata entry to this construct.
+	//
+	// The toolkit will fail synthesis when errors are reported.
+	AddError(message *string)
+	// Adds an info metadata entry to this construct.
+	//
+	// The CLI will display the info message when apps are synthesized.
+	AddInfo(message *string)
+	// Adds a warning metadata entry to this construct.
+	//
+	// The CLI will display the warning when an app is synthesized.
+	// In a future release the CLI might introduce a --strict flag which
+	// will then fail the synthesis if it encounters a warning.
+	AddWarning(message *string)
+}
+
+// The jsii proxy struct for Annotations
+type jsiiProxy_Annotations struct {
+	_ byte // padding
+}
+
+// Returns the annotations API for a construct scope.
+func Annotations_Of(scope constructs.IConstruct) Annotations {
+	_init_.Initialize()
+
+	var returns Annotations
+
+	_jsii_.StaticInvoke(
+		"cdktg.Annotations",
+		"of",
+		[]interface{}{scope},
+		&returns,
+	)
+
+	return returns
+}
+
+func (a *jsiiProxy_Annotations) AddError(message *string) {
+	_jsii_.InvokeVoid(
+		a,
+		"addError",
+		[]interface{}{message},
+	)
+}
+
+func (a *jsiiProxy_Annotations) AddInfo(message *string) {
+	_jsii_.InvokeVoid(
+		a,
+		"addInfo",
+		[]interface{}{message},
+	)
+}
+
+func (a *jsiiProxy_Annotations) AddWarning(message *string) {
+	_jsii_.InvokeVoid(
+		a,
+		"addWarning",
+		[]interface{}{message},
+	)
+}
+
+// Aspects can be applied to CDK tree scopes and can operate on the tree before synthesis.
+type Aspects interface {
+	// The list of aspects which were directly applied on this scope.
+	All() *[]IAspect
+	// Adds an aspect to apply this scope before synthesis.
+	Add(aspect IAspect)
+}
+
+// The jsii proxy struct for Aspects
+type jsiiProxy_Aspects struct {
+	_ byte // padding
+}
+
+func (j *jsiiProxy_Aspects) All() *[]IAspect {
+	var returns *[]IAspect
+	_jsii_.Get(
+		j,
+		"all",
+		&returns,
+	)
+	return returns
+}
+
+
+// Returns the `Aspects` object associated with a construct scope.
+func Aspects_Of(scope constructs.IConstruct) Aspects {
+	_init_.Initialize()
+
+	var returns Aspects
+
+	_jsii_.StaticInvoke(
+		"cdktg.Aspects",
+		"of",
+		[]interface{}{scope},
+		&returns,
+	)
+
+	return returns
+}
+
+func (a *jsiiProxy_Aspects) Add(aspect IAspect) {
+	_jsii_.InvokeVoid(
+		a,
+		"add",
+		[]interface{}{aspect},
+	)
+}
+
 type Asset interface {
 	constructs.Construct
 	CiaTriad() CIATriad
@@ -343,8 +462,8 @@ type Communication interface {
 	Target() TechnicalAsset
 	Usage() Usage
 	Vpn() *bool
-	Received(assets ...DataAsset)
-	Sent(assets ...DataAsset)
+	Receive(assets ...DataAsset)
+	Send(assets ...DataAsset)
 }
 
 // The jsii proxy struct for Communication
@@ -477,7 +596,7 @@ func NewCommunication_Override(c Communication, id *string, props *Communication
 	)
 }
 
-func (c *jsiiProxy_Communication) Received(assets ...DataAsset) {
+func (c *jsiiProxy_Communication) Receive(assets ...DataAsset) {
 	args := []interface{}{}
 	for _, a := range assets {
 		args = append(args, a)
@@ -485,12 +604,12 @@ func (c *jsiiProxy_Communication) Received(assets ...DataAsset) {
 
 	_jsii_.InvokeVoid(
 		c,
-		"received",
+		"receive",
 		args,
 	)
 }
 
-func (c *jsiiProxy_Communication) Sent(assets ...DataAsset) {
+func (c *jsiiProxy_Communication) Send(assets ...DataAsset) {
 	args := []interface{}{}
 	for _, a := range assets {
 		args = append(args, a)
@@ -498,7 +617,7 @@ func (c *jsiiProxy_Communication) Sent(assets ...DataAsset) {
 
 	_jsii_.InvokeVoid(
 		c,
-		"sent",
+		"send",
 		args,
 	)
 }
@@ -735,6 +854,115 @@ const (
 	Encryption_ENDUSER_INDIVIDUAL_KEY Encryption = "ENDUSER_INDIVIDUAL_KEY"
 )
 
+// Represents an Aspect.
+type IAspect interface {
+	// All aspects can visit an IConstruct.
+	Visit(node constructs.IConstruct)
+}
+
+// The jsii proxy for IAspect
+type jsiiProxy_IAspect struct {
+	_ byte // padding
+}
+
+func (i *jsiiProxy_IAspect) Visit(node constructs.IConstruct) {
+	_jsii_.InvokeVoid(
+		i,
+		"visit",
+		[]interface{}{node},
+	)
+}
+
+type IManifest interface {
+	Models() *map[string]*ModelManifest
+	Version() *string
+}
+
+// The jsii proxy for IManifest
+type jsiiProxy_IManifest struct {
+	_ byte // padding
+}
+
+func (j *jsiiProxy_IManifest) Models() *map[string]*ModelManifest {
+	var returns *map[string]*ModelManifest
+	_jsii_.Get(
+		j,
+		"models",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IManifest) Version() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"version",
+		&returns,
+	)
+	return returns
+}
+
+type IModelSynthesizer interface {
+	// Synthesize the associated model to the session.
+	Synthesize(session ISynthesisSession)
+}
+
+// The jsii proxy for IModelSynthesizer
+type jsiiProxy_IModelSynthesizer struct {
+	_ byte // padding
+}
+
+func (i *jsiiProxy_IModelSynthesizer) Synthesize(session ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		i,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
+type ISynthesisSession interface {
+	Manifest() Manifest
+	// The output directory for this synthesis session.
+	Outdir() *string
+	SkipValidation() *bool
+}
+
+// The jsii proxy for ISynthesisSession
+type jsiiProxy_ISynthesisSession struct {
+	_ byte // padding
+}
+
+func (j *jsiiProxy_ISynthesisSession) Manifest() Manifest {
+	var returns Manifest
+	_jsii_.Get(
+		j,
+		"manifest",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_ISynthesisSession) Outdir() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"outdir",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_ISynthesisSession) SkipValidation() *bool {
+	var returns *bool
+	_jsii_.Get(
+		j,
+		"skipValidation",
+		&returns,
+	)
+	return returns
+}
+
 type InScope interface {
 	Scope
 	IsInScope() *bool
@@ -811,23 +1039,25 @@ const (
 )
 
 type Manifest interface {
-	Data() *map[string]*string
-	// The output directory into which models will be synthesized.
+	IManifest
+	Models() *map[string]*ModelManifest
 	Outdir() *string
-	AddModel(title *string, filePath *string)
-	Save()
+	Version() *string
+	BuildManifest() IManifest
+	ForModel(model Model) *ModelManifest
+	WriteToFile()
 }
 
 // The jsii proxy struct for Manifest
 type jsiiProxy_Manifest struct {
-	_ byte // padding
+	jsiiProxy_IManifest
 }
 
-func (j *jsiiProxy_Manifest) Data() *map[string]*string {
-	var returns *map[string]*string
+func (j *jsiiProxy_Manifest) Models() *map[string]*ModelManifest {
+	var returns *map[string]*ModelManifest
 	_jsii_.Get(
 		j,
-		"data",
+		"models",
 		&returns,
 	)
 	return returns
@@ -843,39 +1073,49 @@ func (j *jsiiProxy_Manifest) Outdir() *string {
 	return returns
 }
 
+func (j *jsiiProxy_Manifest) Version() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"version",
+		&returns,
+	)
+	return returns
+}
 
-func NewManifest(props *ManifestProps) Manifest {
+
+func NewManifest(version *string, outdir *string) Manifest {
 	_init_.Initialize()
 
 	j := jsiiProxy_Manifest{}
 
 	_jsii_.Create(
 		"cdktg.Manifest",
-		[]interface{}{props},
+		[]interface{}{version, outdir},
 		&j,
 	)
 
 	return &j
 }
 
-func NewManifest_Override(m Manifest, props *ManifestProps) {
+func NewManifest_Override(m Manifest, version *string, outdir *string) {
 	_init_.Initialize()
 
 	_jsii_.Create(
 		"cdktg.Manifest",
-		[]interface{}{props},
+		[]interface{}{version, outdir},
 		m,
 	)
 }
 
-func Manifest_FromFile(dir *string) Manifest {
+func Manifest_FromPath(dir *string) Manifest {
 	_init_.Initialize()
 
 	var returns Manifest
 
 	_jsii_.StaticInvoke(
 		"cdktg.Manifest",
-		"fromFile",
+		"fromPath",
 		[]interface{}{dir},
 		&returns,
 	)
@@ -883,25 +1123,60 @@ func Manifest_FromFile(dir *string) Manifest {
 	return returns
 }
 
-func (m *jsiiProxy_Manifest) AddModel(title *string, filePath *string) {
-	_jsii_.InvokeVoid(
-		m,
-		"addModel",
-		[]interface{}{title, filePath},
+func Manifest_FileName() *string {
+	_init_.Initialize()
+	var returns *string
+	_jsii_.StaticGet(
+		"cdktg.Manifest",
+		"fileName",
+		&returns,
 	)
+	return returns
 }
 
-func (m *jsiiProxy_Manifest) Save() {
+func Manifest_ModelsFolder() *string {
+	_init_.Initialize()
+	var returns *string
+	_jsii_.StaticGet(
+		"cdktg.Manifest",
+		"modelsFolder",
+		&returns,
+	)
+	return returns
+}
+
+func (m *jsiiProxy_Manifest) BuildManifest() IManifest {
+	var returns IManifest
+
+	_jsii_.Invoke(
+		m,
+		"buildManifest",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (m *jsiiProxy_Manifest) ForModel(model Model) *ModelManifest {
+	var returns *ModelManifest
+
+	_jsii_.Invoke(
+		m,
+		"forModel",
+		[]interface{}{model},
+		&returns,
+	)
+
+	return returns
+}
+
+func (m *jsiiProxy_Manifest) WriteToFile() {
 	_jsii_.InvokeVoid(
 		m,
-		"save",
+		"writeToFile",
 		nil, // no parameters
 	)
-}
-
-type ManifestProps struct {
-	// The directory to output the threadgile model.
-	Outdir *string `field:"optional" json:"outdir" yaml:"outdir"`
 }
 
 type Model interface {
@@ -911,8 +1186,11 @@ type Model interface {
 	Date() *time.Time
 	// The tree node.
 	Node() constructs.Node
+	Synthesizer() IModelSynthesizer
+	SetSynthesizer(val IModelSynthesizer)
 	Title() *string
 	Version() *string
+	AddOverride(path *string, value interface{})
 	// Returns a string representation of this construct.
 	ToString() *string
 }
@@ -957,6 +1235,16 @@ func (j *jsiiProxy_Model) Node() constructs.Node {
 	_jsii_.Get(
 		j,
 		"node",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_Model) Synthesizer() IModelSynthesizer {
+	var returns IModelSynthesizer
+	_jsii_.Get(
+		j,
+		"synthesizer",
 		&returns,
 	)
 	return returns
@@ -1007,6 +1295,14 @@ func NewModel_Override(m Model, project constructs.Construct, id *string, props 
 	)
 }
 
+func (j *jsiiProxy_Model) SetSynthesizer(val IModelSynthesizer) {
+	_jsii_.Set(
+		j,
+		"synthesizer",
+		val,
+	)
+}
+
 // Checks if `x` is a construct.
 //
 // Use this method instead of `instanceof` to properly detect `Construct`
@@ -1039,6 +1335,29 @@ func Model_IsConstruct(x interface{}) *bool {
 	return returns
 }
 
+func Model_IsModel(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"cdktg.Model",
+		"isModel",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
+func (m *jsiiProxy_Model) AddOverride(path *string, value interface{}) {
+	_jsii_.InvokeVoid(
+		m,
+		"addOverride",
+		[]interface{}{path, value},
+	)
+}
+
 func (m *jsiiProxy_Model) ToString() *string {
 	var returns *string
 
@@ -1052,6 +1371,22 @@ func (m *jsiiProxy_Model) ToString() *string {
 	return returns
 }
 
+type ModelAnnotation struct {
+	ConstructPath *string `field:"required" json:"constructPath" yaml:"constructPath"`
+	Level AnnotationMetadataEntryType `field:"required" json:"level" yaml:"level"`
+	Message *string `field:"required" json:"message" yaml:"message"`
+	Stacktrace *[]*string `field:"optional" json:"stacktrace" yaml:"stacktrace"`
+}
+
+type ModelManifest struct {
+	Annotations *[]*ModelAnnotation `field:"required" json:"annotations" yaml:"annotations"`
+	ConstructPath *string `field:"required" json:"constructPath" yaml:"constructPath"`
+	Name *string `field:"required" json:"name" yaml:"name"`
+	SanitizedName *string `field:"required" json:"sanitizedName" yaml:"sanitizedName"`
+	SynthesizedModelPath *string `field:"required" json:"synthesizedModelPath" yaml:"synthesizedModelPath"`
+	WorkingDirectory *string `field:"required" json:"workingDirectory" yaml:"workingDirectory"`
+}
+
 type ModelProps struct {
 	// Author of the model.
 	Author Author `field:"required" json:"author" yaml:"author"`
@@ -1063,6 +1398,70 @@ type ModelProps struct {
 	Date *time.Time `field:"optional" json:"date" yaml:"date"`
 	// Title of the model.
 	Title *string `field:"optional" json:"title" yaml:"title"`
+}
+
+type ModelSynthesizer interface {
+	IModelSynthesizer
+	Model() Model
+	SetModel(val Model)
+	// Synthesize the associated model to the session.
+	Synthesize(session ISynthesisSession)
+}
+
+// The jsii proxy struct for ModelSynthesizer
+type jsiiProxy_ModelSynthesizer struct {
+	jsiiProxy_IModelSynthesizer
+}
+
+func (j *jsiiProxy_ModelSynthesizer) Model() Model {
+	var returns Model
+	_jsii_.Get(
+		j,
+		"model",
+		&returns,
+	)
+	return returns
+}
+
+
+func NewModelSynthesizer(model Model, continueOnErrorAnnotations *bool) ModelSynthesizer {
+	_init_.Initialize()
+
+	j := jsiiProxy_ModelSynthesizer{}
+
+	_jsii_.Create(
+		"cdktg.ModelSynthesizer",
+		[]interface{}{model, continueOnErrorAnnotations},
+		&j,
+	)
+
+	return &j
+}
+
+func NewModelSynthesizer_Override(m ModelSynthesizer, model Model, continueOnErrorAnnotations *bool) {
+	_init_.Initialize()
+
+	_jsii_.Create(
+		"cdktg.ModelSynthesizer",
+		[]interface{}{model, continueOnErrorAnnotations},
+		m,
+	)
+}
+
+func (j *jsiiProxy_ModelSynthesizer) SetModel(val Model) {
+	_jsii_.Set(
+		j,
+		"model",
+		val,
+	)
+}
+
+func (m *jsiiProxy_ModelSynthesizer) Synthesize(session ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		m,
+		"synthesize",
+		[]interface{}{session},
+	)
 }
 
 type OutOfScope interface {
@@ -1128,10 +1527,13 @@ type OutOfScopeProps struct {
 
 type Project interface {
 	constructs.Construct
+	Manifest() Manifest
 	// The tree node.
 	Node() constructs.Node
 	// The output directory into which models will be synthesized.
 	Outdir() *string
+	// Whether to skip the validation during synthesis of the app.
+	SkipValidation() *bool
 	// Synthesizes the model to the output directory.
 	Synth()
 	// Returns a string representation of this construct.
@@ -1141,6 +1543,16 @@ type Project interface {
 // The jsii proxy struct for Project
 type jsiiProxy_Project struct {
 	internal.Type__constructsConstruct
+}
+
+func (j *jsiiProxy_Project) Manifest() Manifest {
+	var returns Manifest
+	_jsii_.Get(
+		j,
+		"manifest",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_Project) Node() constructs.Node {
@@ -1158,6 +1570,16 @@ func (j *jsiiProxy_Project) Outdir() *string {
 	_jsii_.Get(
 		j,
 		"outdir",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_Project) SkipValidation() *bool {
+	var returns *bool
+	_jsii_.Get(
+		j,
+		"skipValidation",
 		&returns,
 	)
 	return returns
@@ -1244,6 +1666,8 @@ func (p *jsiiProxy_Project) ToString() *string {
 type ProjectProps struct {
 	// The directory to output the threadgile model.
 	Outdir *string `field:"optional" json:"outdir" yaml:"outdir"`
+	// Whether to skip the validation during synthesis of the project.
+	SkipValidation *bool `field:"optional" json:"skipValidation" yaml:"skipValidation"`
 }
 
 type Protocol string
@@ -1376,9 +1800,9 @@ type TechnicalAsset interface {
 	Technology() Technology
 	Usage() Usage
 	Uuid() *string
-	CommunicatedWith(id *string, target TechnicalAsset, options *CommunicationOptions) Communication
-	Processed(assets ...DataAsset)
-	Stored(assets ...DataAsset)
+	CommunicateWith(id *string, target TechnicalAsset, options *CommunicationOptions) Communication
+	Process(assets ...DataAsset)
+	Store(assets ...DataAsset)
 	// Returns a string representation of this construct.
 	ToString() *string
 }
@@ -1605,12 +2029,12 @@ func TechnicalAsset_IsConstruct(x interface{}) *bool {
 	return returns
 }
 
-func (t *jsiiProxy_TechnicalAsset) CommunicatedWith(id *string, target TechnicalAsset, options *CommunicationOptions) Communication {
+func (t *jsiiProxy_TechnicalAsset) CommunicateWith(id *string, target TechnicalAsset, options *CommunicationOptions) Communication {
 	var returns Communication
 
 	_jsii_.Invoke(
 		t,
-		"communicatedWith",
+		"communicateWith",
 		[]interface{}{id, target, options},
 		&returns,
 	)
@@ -1618,7 +2042,7 @@ func (t *jsiiProxy_TechnicalAsset) CommunicatedWith(id *string, target Technical
 	return returns
 }
 
-func (t *jsiiProxy_TechnicalAsset) Processed(assets ...DataAsset) {
+func (t *jsiiProxy_TechnicalAsset) Process(assets ...DataAsset) {
 	args := []interface{}{}
 	for _, a := range assets {
 		args = append(args, a)
@@ -1626,12 +2050,12 @@ func (t *jsiiProxy_TechnicalAsset) Processed(assets ...DataAsset) {
 
 	_jsii_.InvokeVoid(
 		t,
-		"processed",
+		"process",
 		args,
 	)
 }
 
-func (t *jsiiProxy_TechnicalAsset) Stored(assets ...DataAsset) {
+func (t *jsiiProxy_TechnicalAsset) Store(assets ...DataAsset) {
 	args := []interface{}{}
 	for _, a := range assets {
 		args = append(args, a)
@@ -1639,7 +2063,7 @@ func (t *jsiiProxy_TechnicalAsset) Stored(assets ...DataAsset) {
 
 	_jsii_.InvokeVoid(
 		t,
-		"stored",
+		"store",
 		args,
 	)
 }
