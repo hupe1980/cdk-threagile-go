@@ -439,8 +439,8 @@ type Communication interface {
 	Target() TechnicalAsset
 	Usage() Usage
 	Vpn() *bool
-	Receive(assets ...DataAsset)
-	Send(assets ...DataAsset)
+	Receives(assets ...DataAsset)
+	Sends(assets ...DataAsset)
 }
 
 // The jsii proxy struct for Communication
@@ -583,7 +583,7 @@ func NewCommunication_Override(c Communication, id *string, props *Communication
 	)
 }
 
-func (c *jsiiProxy_Communication) Receive(assets ...DataAsset) {
+func (c *jsiiProxy_Communication) Receives(assets ...DataAsset) {
 	args := []interface{}{}
 	for _, a := range assets {
 		args = append(args, a)
@@ -591,12 +591,12 @@ func (c *jsiiProxy_Communication) Receive(assets ...DataAsset) {
 
 	_jsii_.InvokeVoid(
 		c,
-		"receive",
+		"receives",
 		args,
 	)
 }
 
-func (c *jsiiProxy_Communication) Send(assets ...DataAsset) {
+func (c *jsiiProxy_Communication) Sends(assets ...DataAsset) {
 	args := []interface{}{}
 	for _, a := range assets {
 		args = append(args, a)
@@ -604,7 +604,7 @@ func (c *jsiiProxy_Communication) Send(assets ...DataAsset) {
 
 	_jsii_.InvokeVoid(
 		c,
-		"send",
+		"sends",
 		args,
 	)
 }
@@ -2134,6 +2134,7 @@ type RiskCategory interface {
 	RiskAssessment() *string
 	Stride() Stride
 	Uuid() *string
+	AddIdentifiedRisk(risk Risk)
 	IdentifiedAtDataAsset(target DataAsset, options *RiskOptions)
 	IdentifiedAtSharedRuntime(target SharedRuntime, options *RiskOptions)
 	IdentifiedAtTechnicalAsset(target TechnicalAsset, options *RiskOptions)
@@ -2362,6 +2363,14 @@ func RiskCategory_IsConstruct(x interface{}) *bool {
 	)
 
 	return returns
+}
+
+func (r *jsiiProxy_RiskCategory) AddIdentifiedRisk(risk Risk) {
+	_jsii_.InvokeVoid(
+		r,
+		"addIdentifiedRisk",
+		[]interface{}{risk},
+	)
 }
 
 func (r *jsiiProxy_RiskCategory) IdentifiedAtDataAsset(target DataAsset, options *RiskOptions) {
@@ -2774,9 +2783,9 @@ type TechnicalAsset interface {
 	Type() TechnicalAssetType
 	Usage() Usage
 	Uuid() *string
-	CommunicateWith(id *string, target TechnicalAsset, options *CommunicationOptions) Communication
-	Process(assets ...DataAsset)
-	Store(assets ...DataAsset)
+	CommunicatesWith(id *string, target TechnicalAsset, options *CommunicationOptions) Communication
+	Processes(assets ...DataAsset)
+	Stores(assets ...DataAsset)
 	// Returns a string representation of this construct.
 	ToString() *string
 }
@@ -3013,12 +3022,12 @@ func TechnicalAsset_IsConstruct(x interface{}) *bool {
 	return returns
 }
 
-func (t *jsiiProxy_TechnicalAsset) CommunicateWith(id *string, target TechnicalAsset, options *CommunicationOptions) Communication {
+func (t *jsiiProxy_TechnicalAsset) CommunicatesWith(id *string, target TechnicalAsset, options *CommunicationOptions) Communication {
 	var returns Communication
 
 	_jsii_.Invoke(
 		t,
-		"communicateWith",
+		"communicatesWith",
 		[]interface{}{id, target, options},
 		&returns,
 	)
@@ -3026,7 +3035,7 @@ func (t *jsiiProxy_TechnicalAsset) CommunicateWith(id *string, target TechnicalA
 	return returns
 }
 
-func (t *jsiiProxy_TechnicalAsset) Process(assets ...DataAsset) {
+func (t *jsiiProxy_TechnicalAsset) Processes(assets ...DataAsset) {
 	args := []interface{}{}
 	for _, a := range assets {
 		args = append(args, a)
@@ -3034,12 +3043,12 @@ func (t *jsiiProxy_TechnicalAsset) Process(assets ...DataAsset) {
 
 	_jsii_.InvokeVoid(
 		t,
-		"process",
+		"processes",
 		args,
 	)
 }
 
-func (t *jsiiProxy_TechnicalAsset) Store(assets ...DataAsset) {
+func (t *jsiiProxy_TechnicalAsset) Stores(assets ...DataAsset) {
 	args := []interface{}{}
 	for _, a := range assets {
 		args = append(args, a)
@@ -3047,7 +3056,7 @@ func (t *jsiiProxy_TechnicalAsset) Store(assets ...DataAsset) {
 
 	_jsii_.InvokeVoid(
 		t,
-		"store",
+		"stores",
 		args,
 	)
 }
