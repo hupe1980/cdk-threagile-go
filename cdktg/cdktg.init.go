@@ -359,6 +359,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "synthesizer", GoGetter: "Synthesizer"},
 			_jsii_.MemberProperty{JsiiProperty: "title", GoGetter: "Title"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+			_jsii_.MemberMethod{JsiiMethod: "trackRisk", GoMethod: "TrackRisk"},
 			_jsii_.MemberProperty{JsiiProperty: "version", GoGetter: "Version"},
 		},
 		func() interface{} {
@@ -590,6 +591,37 @@ func init() {
 	_jsii_.RegisterStruct(
 		"cdktg.RiskProps",
 		reflect.TypeOf((*RiskProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"cdktg.RiskTracking",
+		reflect.TypeOf((*RiskTracking)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "checkedBy", GoGetter: "CheckedBy"},
+			_jsii_.MemberProperty{JsiiProperty: "date", GoGetter: "Date"},
+			_jsii_.MemberProperty{JsiiProperty: "id", GoGetter: "Id"},
+			_jsii_.MemberProperty{JsiiProperty: "justification", GoGetter: "Justification"},
+			_jsii_.MemberProperty{JsiiProperty: "status", GoGetter: "Status"},
+			_jsii_.MemberProperty{JsiiProperty: "ticket", GoGetter: "Ticket"},
+		},
+		func() interface{} {
+			return &jsiiProxy_RiskTracking{}
+		},
+	)
+	_jsii_.RegisterStruct(
+		"cdktg.RiskTrackingProps",
+		reflect.TypeOf((*RiskTrackingProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterEnum(
+		"cdktg.RiskTrackingStatus",
+		reflect.TypeOf((*RiskTrackingStatus)(nil)).Elem(),
+		map[string]interface{}{
+			"UNCHECKED": RiskTrackingStatus_UNCHECKED,
+			"IN_DISCUSSION": RiskTrackingStatus_IN_DISCUSSION,
+			"ACCEPTED": RiskTrackingStatus_ACCEPTED,
+			"IN_PROGRESS": RiskTrackingStatus_IN_PROGRESS,
+			"MITIGATED": RiskTrackingStatus_MITIGATED,
+			"FALSE_POSITIVE": RiskTrackingStatus_FALSE_POSITIVE,
+		},
 	)
 	_jsii_.RegisterClass(
 		"cdktg.Scope",

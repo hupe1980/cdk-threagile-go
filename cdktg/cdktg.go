@@ -1225,6 +1225,7 @@ type Model interface {
 	AddTags(tags ...*string)
 	// Returns a string representation of this construct.
 	ToString() *string
+	TrackRisk(id *string, options *RiskTrackingProps)
 }
 
 // The jsii proxy struct for Model
@@ -1481,6 +1482,14 @@ func (m *jsiiProxy_Model) ToString() *string {
 	)
 
 	return returns
+}
+
+func (m *jsiiProxy_Model) TrackRisk(id *string, options *RiskTrackingProps) {
+	_jsii_.InvokeVoid(
+		m,
+		"trackRisk",
+		[]interface{}{id, options},
+	)
 }
 
 type ModelAnnotation struct {
@@ -2464,6 +2473,124 @@ type RiskProps struct {
 	MostRelevantTechnicalAsset TechnicalAsset `field:"optional" json:"mostRelevantTechnicalAsset" yaml:"mostRelevantTechnicalAsset"`
 	MostRelevantTrustBoundary TrustBoundary `field:"optional" json:"mostRelevantTrustBoundary" yaml:"mostRelevantTrustBoundary"`
 }
+
+type RiskTracking interface {
+	CheckedBy() *string
+	Date() *string
+	Id() *string
+	Justification() *string
+	Status() RiskTrackingStatus
+	Ticket() *string
+}
+
+// The jsii proxy struct for RiskTracking
+type jsiiProxy_RiskTracking struct {
+	_ byte // padding
+}
+
+func (j *jsiiProxy_RiskTracking) CheckedBy() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"checkedBy",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_RiskTracking) Date() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"date",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_RiskTracking) Id() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"id",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_RiskTracking) Justification() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"justification",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_RiskTracking) Status() RiskTrackingStatus {
+	var returns RiskTrackingStatus
+	_jsii_.Get(
+		j,
+		"status",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_RiskTracking) Ticket() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"ticket",
+		&returns,
+	)
+	return returns
+}
+
+
+func NewRiskTracking(id *string, props *RiskTrackingProps) RiskTracking {
+	_init_.Initialize()
+
+	j := jsiiProxy_RiskTracking{}
+
+	_jsii_.Create(
+		"cdktg.RiskTracking",
+		[]interface{}{id, props},
+		&j,
+	)
+
+	return &j
+}
+
+func NewRiskTracking_Override(r RiskTracking, id *string, props *RiskTrackingProps) {
+	_init_.Initialize()
+
+	_jsii_.Create(
+		"cdktg.RiskTracking",
+		[]interface{}{id, props},
+		r,
+	)
+}
+
+type RiskTrackingProps struct {
+	CheckedBy *string `field:"optional" json:"checkedBy" yaml:"checkedBy"`
+	Date *string `field:"optional" json:"date" yaml:"date"`
+	Justification *string `field:"optional" json:"justification" yaml:"justification"`
+	Status RiskTrackingStatus `field:"optional" json:"status" yaml:"status"`
+	Ticket *string `field:"optional" json:"ticket" yaml:"ticket"`
+}
+
+type RiskTrackingStatus string
+
+const (
+	RiskTrackingStatus_UNCHECKED RiskTrackingStatus = "UNCHECKED"
+	RiskTrackingStatus_IN_DISCUSSION RiskTrackingStatus = "IN_DISCUSSION"
+	RiskTrackingStatus_ACCEPTED RiskTrackingStatus = "ACCEPTED"
+	RiskTrackingStatus_IN_PROGRESS RiskTrackingStatus = "IN_PROGRESS"
+	RiskTrackingStatus_MITIGATED RiskTrackingStatus = "MITIGATED"
+	RiskTrackingStatus_FALSE_POSITIVE RiskTrackingStatus = "FALSE_POSITIVE"
+)
 
 type Scope interface {
 	IsInScope() *bool
