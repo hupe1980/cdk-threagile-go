@@ -64,12 +64,45 @@ func NewAbuseCase_Override(a AbuseCase, props *AbuseCaseProps) {
 	)
 }
 
+func AbuseCase_CPU_CYCLE_THEFT() AbuseCase {
+	_init_.Initialize()
+	var returns AbuseCase
+	_jsii_.StaticGet(
+		"cdktg.AbuseCase",
+		"CPU_CYCLE_THEFT",
+		&returns,
+	)
+	return returns
+}
+
 func AbuseCase_DENIAL_OF_SERVICE() AbuseCase {
 	_init_.Initialize()
 	var returns AbuseCase
 	_jsii_.StaticGet(
 		"cdktg.AbuseCase",
 		"DENIAL_OF_SERVICE",
+		&returns,
+	)
+	return returns
+}
+
+func AbuseCase_IDENTITY_THEFT() AbuseCase {
+	_init_.Initialize()
+	var returns AbuseCase
+	_jsii_.StaticGet(
+		"cdktg.AbuseCase",
+		"IDENTITY_THEFT",
+		&returns,
+	)
+	return returns
+}
+
+func AbuseCase_PII_THEFT() AbuseCase {
+	_init_.Initialize()
+	var returns AbuseCase
+	_jsii_.StaticGet(
+		"cdktg.AbuseCase",
+		"PII_THEFT",
 		&returns,
 	)
 	return returns
@@ -397,6 +430,7 @@ type CIATriadProps struct {
 type Communication interface {
 	Authentication() Authentication
 	Authorization() Authorization
+	Caller() TechnicalAsset
 	Description() *string
 	Id() *string
 	IpFiltered() *bool
@@ -429,6 +463,16 @@ func (j *jsiiProxy_Communication) Authorization() Authorization {
 	_jsii_.Get(
 		j,
 		"authorization",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_Communication) Caller() TechnicalAsset {
+	var returns TechnicalAsset
+	_jsii_.Get(
+		j,
+		"caller",
 		&returns,
 	)
 	return returns
@@ -585,6 +629,7 @@ type CommunicationProps struct {
 	Readonly *bool `field:"required" json:"readonly" yaml:"readonly"`
 	Usage Usage `field:"required" json:"usage" yaml:"usage"`
 	Vpn *bool `field:"required" json:"vpn" yaml:"vpn"`
+	Caller TechnicalAsset `field:"required" json:"caller" yaml:"caller"`
 	Target TechnicalAsset `field:"required" json:"target" yaml:"target"`
 }
 
@@ -789,6 +834,14 @@ type DataAssetProps struct {
 	Tags *[]*string `field:"optional" json:"tags" yaml:"tags"`
 }
 
+type DataBreachProbability string
+
+const (
+	DataBreachProbability_IMPROBABLE DataBreachProbability = "IMPROBABLE"
+	DataBreachProbability_POSSIBLE DataBreachProbability = "POSSIBLE"
+	DataBreachProbability_PROBABLE DataBreachProbability = "PROBABLE"
+)
+
 type DataFormat string
 
 const (
@@ -807,6 +860,24 @@ const (
 	Encryption_SYMMETRIC_SHARED_KEY Encryption = "SYMMETRIC_SHARED_KEY"
 	Encryption_ASYMMETRIC_SHARED_KEY Encryption = "ASYMMETRIC_SHARED_KEY"
 	Encryption_ENDUSER_INDIVIDUAL_KEY Encryption = "ENDUSER_INDIVIDUAL_KEY"
+)
+
+type ExploitationImpact string
+
+const (
+	ExploitationImpact_LOW ExploitationImpact = "LOW"
+	ExploitationImpact_MEDIUM ExploitationImpact = "MEDIUM"
+	ExploitationImpact_HIGH ExploitationImpact = "HIGH"
+	ExploitationImpact_VERY_HIGH ExploitationImpact = "VERY_HIGH"
+)
+
+type ExploitationLikelihood string
+
+const (
+	ExploitationLikelihood_UNLIKELY ExploitationLikelihood = "UNLIKELY"
+	ExploitationLikelihood_LIKELY ExploitationLikelihood = "LIKELY"
+	ExploitationLikelihood_VERY_LIKELY ExploitationLikelihood = "VERY_LIKELY"
+	ExploitationLikelihood_FREQUENT ExploitationLikelihood = "FREQUENT"
 )
 
 // Represents an Aspect.
@@ -1149,6 +1220,7 @@ type Model interface {
 	AddAbuseCases(cases ...AbuseCase)
 	AddOverride(path *string, value interface{})
 	AddQuestion(text *string, answer *string)
+	AddSecurityRequirements(requirements ...SecurityRequirement)
 	AddTag(tag *string)
 	AddTags(tags ...*string)
 	// Returns a string representation of this construct.
@@ -1364,6 +1436,19 @@ func (m *jsiiProxy_Model) AddQuestion(text *string, answer *string) {
 	)
 }
 
+func (m *jsiiProxy_Model) AddSecurityRequirements(requirements ...SecurityRequirement) {
+	args := []interface{}{}
+	for _, a := range requirements {
+		args = append(args, a)
+	}
+
+	_jsii_.InvokeVoid(
+		m,
+		"addSecurityRequirements",
+		args,
+	)
+}
+
 func (m *jsiiProxy_Model) AddTag(tag *string) {
 	_jsii_.InvokeVoid(
 		m,
@@ -1429,6 +1514,8 @@ type ModelProps struct {
 	ManagementSummary *string `field:"optional" json:"managementSummary" yaml:"managementSummary"`
 	// Custom questions for the report.
 	Questions *[]*Question `field:"optional" json:"questions" yaml:"questions"`
+	// Custom security requirements for the report.
+	SecurityRequirements *[]SecurityRequirement `field:"optional" json:"securityRequirements" yaml:"securityRequirements"`
 	// Title of the model.
 	Title *string `field:"optional" json:"title" yaml:"title"`
 }
@@ -1874,6 +1961,501 @@ type ResourceProps struct {
 	Description *string `field:"required" json:"description" yaml:"description"`
 }
 
+type Risk interface {
+	DataBreachProbability() DataBreachProbability
+	DataBreachTechnicalAssets() *[]TechnicalAsset
+	ExploitationImpact() ExploitationImpact
+	ExploitationLikelihood() ExploitationLikelihood
+	Id() *string
+	MostRelevantCommunicationLink() Communication
+	MostRelevantDataAsset() DataAsset
+	MostRelevantSharedRuntime() SharedRuntime
+	MostRelevantTechnicalAsset() TechnicalAsset
+	MostRelevantTrustBoundary() TrustBoundary
+	Severity() Severity
+}
+
+// The jsii proxy struct for Risk
+type jsiiProxy_Risk struct {
+	_ byte // padding
+}
+
+func (j *jsiiProxy_Risk) DataBreachProbability() DataBreachProbability {
+	var returns DataBreachProbability
+	_jsii_.Get(
+		j,
+		"dataBreachProbability",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_Risk) DataBreachTechnicalAssets() *[]TechnicalAsset {
+	var returns *[]TechnicalAsset
+	_jsii_.Get(
+		j,
+		"dataBreachTechnicalAssets",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_Risk) ExploitationImpact() ExploitationImpact {
+	var returns ExploitationImpact
+	_jsii_.Get(
+		j,
+		"exploitationImpact",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_Risk) ExploitationLikelihood() ExploitationLikelihood {
+	var returns ExploitationLikelihood
+	_jsii_.Get(
+		j,
+		"exploitationLikelihood",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_Risk) Id() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"id",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_Risk) MostRelevantCommunicationLink() Communication {
+	var returns Communication
+	_jsii_.Get(
+		j,
+		"mostRelevantCommunicationLink",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_Risk) MostRelevantDataAsset() DataAsset {
+	var returns DataAsset
+	_jsii_.Get(
+		j,
+		"mostRelevantDataAsset",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_Risk) MostRelevantSharedRuntime() SharedRuntime {
+	var returns SharedRuntime
+	_jsii_.Get(
+		j,
+		"mostRelevantSharedRuntime",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_Risk) MostRelevantTechnicalAsset() TechnicalAsset {
+	var returns TechnicalAsset
+	_jsii_.Get(
+		j,
+		"mostRelevantTechnicalAsset",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_Risk) MostRelevantTrustBoundary() TrustBoundary {
+	var returns TrustBoundary
+	_jsii_.Get(
+		j,
+		"mostRelevantTrustBoundary",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_Risk) Severity() Severity {
+	var returns Severity
+	_jsii_.Get(
+		j,
+		"severity",
+		&returns,
+	)
+	return returns
+}
+
+
+func NewRisk(id *string, props *RiskProps) Risk {
+	_init_.Initialize()
+
+	j := jsiiProxy_Risk{}
+
+	_jsii_.Create(
+		"cdktg.Risk",
+		[]interface{}{id, props},
+		&j,
+	)
+
+	return &j
+}
+
+func NewRisk_Override(r Risk, id *string, props *RiskProps) {
+	_init_.Initialize()
+
+	_jsii_.Create(
+		"cdktg.Risk",
+		[]interface{}{id, props},
+		r,
+	)
+}
+
+type RiskCategory interface {
+	Resource
+	Action() *string
+	Asvs() *string
+	CheatSheat() *string
+	Check() *string
+	Cwe() *float64
+	Description() *string
+	DetectionLogic() *string
+	FalsePositives() *string
+	Function() RiskFunction
+	Impact() *string
+	Mitigation() *string
+	ModelFailurePossibleReason() *bool
+	// The tree node.
+	Node() constructs.Node
+	RiskAssessment() *string
+	Stride() Stride
+	Uuid() *string
+	IdentifiedAtDataAsset(target DataAsset, options *RiskOptions)
+	IdentifiedAtSharedRuntime(target SharedRuntime, options *RiskOptions)
+	IdentifiedAtTechnicalAsset(target TechnicalAsset, options *RiskOptions)
+	IdentifiedAtTrustBoundary(target SharedRuntime, options *RiskOptions)
+	// Returns a string representation of this construct.
+	ToString() *string
+}
+
+// The jsii proxy struct for RiskCategory
+type jsiiProxy_RiskCategory struct {
+	jsiiProxy_Resource
+}
+
+func (j *jsiiProxy_RiskCategory) Action() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"action",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_RiskCategory) Asvs() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"asvs",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_RiskCategory) CheatSheat() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"cheatSheat",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_RiskCategory) Check() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"check",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_RiskCategory) Cwe() *float64 {
+	var returns *float64
+	_jsii_.Get(
+		j,
+		"cwe",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_RiskCategory) Description() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"description",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_RiskCategory) DetectionLogic() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"detectionLogic",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_RiskCategory) FalsePositives() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"falsePositives",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_RiskCategory) Function() RiskFunction {
+	var returns RiskFunction
+	_jsii_.Get(
+		j,
+		"function",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_RiskCategory) Impact() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"impact",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_RiskCategory) Mitigation() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"mitigation",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_RiskCategory) ModelFailurePossibleReason() *bool {
+	var returns *bool
+	_jsii_.Get(
+		j,
+		"modelFailurePossibleReason",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_RiskCategory) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_RiskCategory) RiskAssessment() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"riskAssessment",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_RiskCategory) Stride() Stride {
+	var returns Stride
+	_jsii_.Get(
+		j,
+		"stride",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_RiskCategory) Uuid() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"uuid",
+		&returns,
+	)
+	return returns
+}
+
+
+func NewRiskCategory(scope constructs.Construct, id *string, props *RiskCategoryProps) RiskCategory {
+	_init_.Initialize()
+
+	j := jsiiProxy_RiskCategory{}
+
+	_jsii_.Create(
+		"cdktg.RiskCategory",
+		[]interface{}{scope, id, props},
+		&j,
+	)
+
+	return &j
+}
+
+func NewRiskCategory_Override(r RiskCategory, scope constructs.Construct, id *string, props *RiskCategoryProps) {
+	_init_.Initialize()
+
+	_jsii_.Create(
+		"cdktg.RiskCategory",
+		[]interface{}{scope, id, props},
+		r,
+	)
+}
+
+// Checks if `x` is a construct.
+//
+// Use this method instead of `instanceof` to properly detect `Construct`
+// instances, even when the construct library is symlinked.
+//
+// Explanation: in JavaScript, multiple copies of the `constructs` library on
+// disk are seen as independent, completely different libraries. As a
+// consequence, the class `Construct` in each copy of the `constructs` library
+// is seen as a different class, and an instance of one class will not test as
+// `instanceof` the other class. `npm install` will not create installations
+// like this, but users may manually symlink construct libraries together or
+// use a monorepo tool: in those cases, multiple copies of the `constructs`
+// library can be accidentally installed, and `instanceof` will behave
+// unpredictably. It is safest to avoid using `instanceof`, and using
+// this type-testing method instead.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+func RiskCategory_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"cdktg.RiskCategory",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
+func (r *jsiiProxy_RiskCategory) IdentifiedAtDataAsset(target DataAsset, options *RiskOptions) {
+	_jsii_.InvokeVoid(
+		r,
+		"identifiedAtDataAsset",
+		[]interface{}{target, options},
+	)
+}
+
+func (r *jsiiProxy_RiskCategory) IdentifiedAtSharedRuntime(target SharedRuntime, options *RiskOptions) {
+	_jsii_.InvokeVoid(
+		r,
+		"identifiedAtSharedRuntime",
+		[]interface{}{target, options},
+	)
+}
+
+func (r *jsiiProxy_RiskCategory) IdentifiedAtTechnicalAsset(target TechnicalAsset, options *RiskOptions) {
+	_jsii_.InvokeVoid(
+		r,
+		"identifiedAtTechnicalAsset",
+		[]interface{}{target, options},
+	)
+}
+
+func (r *jsiiProxy_RiskCategory) IdentifiedAtTrustBoundary(target SharedRuntime, options *RiskOptions) {
+	_jsii_.InvokeVoid(
+		r,
+		"identifiedAtTrustBoundary",
+		[]interface{}{target, options},
+	)
+}
+
+func (r *jsiiProxy_RiskCategory) ToString() *string {
+	var returns *string
+
+	_jsii_.Invoke(
+		r,
+		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+type RiskCategoryProps struct {
+	Description *string `field:"required" json:"description" yaml:"description"`
+	Action *string `field:"required" json:"action" yaml:"action"`
+	Asvs *string `field:"required" json:"asvs" yaml:"asvs"`
+	CheatSheat *string `field:"required" json:"cheatSheat" yaml:"cheatSheat"`
+	Check *string `field:"required" json:"check" yaml:"check"`
+	Cwe *float64 `field:"required" json:"cwe" yaml:"cwe"`
+	DetectionLogic *string `field:"required" json:"detectionLogic" yaml:"detectionLogic"`
+	FalsePositives *string `field:"required" json:"falsePositives" yaml:"falsePositives"`
+	Function RiskFunction `field:"required" json:"function" yaml:"function"`
+	Impact *string `field:"required" json:"impact" yaml:"impact"`
+	Mitigation *string `field:"required" json:"mitigation" yaml:"mitigation"`
+	RiskAssessment *string `field:"required" json:"riskAssessment" yaml:"riskAssessment"`
+	Stride Stride `field:"required" json:"stride" yaml:"stride"`
+	ModelFailurePossibleReason *bool `field:"optional" json:"modelFailurePossibleReason" yaml:"modelFailurePossibleReason"`
+}
+
+type RiskFunction string
+
+const (
+	RiskFunction_BUSINESS_SIDE RiskFunction = "BUSINESS_SIDE"
+	RiskFunction_ARCHITECTURE RiskFunction = "ARCHITECTURE"
+	RiskFunction_DEVELOPMENT RiskFunction = "DEVELOPMENT"
+	RiskFunction_OPERATIONS RiskFunction = "OPERATIONS"
+)
+
+type RiskOptions struct {
+	DataBreachProbability DataBreachProbability `field:"required" json:"dataBreachProbability" yaml:"dataBreachProbability"`
+	DataBreachTechnicalAssets *[]TechnicalAsset `field:"required" json:"dataBreachTechnicalAssets" yaml:"dataBreachTechnicalAssets"`
+	ExploitationImpact ExploitationImpact `field:"required" json:"exploitationImpact" yaml:"exploitationImpact"`
+	ExploitationLikelihood ExploitationLikelihood `field:"required" json:"exploitationLikelihood" yaml:"exploitationLikelihood"`
+	Severity Severity `field:"required" json:"severity" yaml:"severity"`
+}
+
+type RiskProps struct {
+	DataBreachProbability DataBreachProbability `field:"required" json:"dataBreachProbability" yaml:"dataBreachProbability"`
+	DataBreachTechnicalAssets *[]TechnicalAsset `field:"required" json:"dataBreachTechnicalAssets" yaml:"dataBreachTechnicalAssets"`
+	ExploitationImpact ExploitationImpact `field:"required" json:"exploitationImpact" yaml:"exploitationImpact"`
+	ExploitationLikelihood ExploitationLikelihood `field:"required" json:"exploitationLikelihood" yaml:"exploitationLikelihood"`
+	Severity Severity `field:"required" json:"severity" yaml:"severity"`
+	MostRelevantCommunicationLink Communication `field:"optional" json:"mostRelevantCommunicationLink" yaml:"mostRelevantCommunicationLink"`
+	MostRelevantDataAsset DataAsset `field:"optional" json:"mostRelevantDataAsset" yaml:"mostRelevantDataAsset"`
+	MostRelevantSharedRuntime SharedRuntime `field:"optional" json:"mostRelevantSharedRuntime" yaml:"mostRelevantSharedRuntime"`
+	MostRelevantTechnicalAsset TechnicalAsset `field:"optional" json:"mostRelevantTechnicalAsset" yaml:"mostRelevantTechnicalAsset"`
+	MostRelevantTrustBoundary TrustBoundary `field:"optional" json:"mostRelevantTrustBoundary" yaml:"mostRelevantTrustBoundary"`
+}
+
 type Scope interface {
 	IsInScope() *bool
 	Justification() *string
@@ -1914,6 +2496,98 @@ func NewScope_Override(s Scope, justification *string) {
 		s,
 	)
 }
+
+type SecurityRequirement interface {
+	Description() *string
+	Name() *string
+}
+
+// The jsii proxy struct for SecurityRequirement
+type jsiiProxy_SecurityRequirement struct {
+	_ byte // padding
+}
+
+func (j *jsiiProxy_SecurityRequirement) Description() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"description",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_SecurityRequirement) Name() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"name",
+		&returns,
+	)
+	return returns
+}
+
+
+func NewSecurityRequirement(props *SecurityRequirementProps) SecurityRequirement {
+	_init_.Initialize()
+
+	j := jsiiProxy_SecurityRequirement{}
+
+	_jsii_.Create(
+		"cdktg.SecurityRequirement",
+		[]interface{}{props},
+		&j,
+	)
+
+	return &j
+}
+
+func NewSecurityRequirement_Override(s SecurityRequirement, props *SecurityRequirementProps) {
+	_init_.Initialize()
+
+	_jsii_.Create(
+		"cdktg.SecurityRequirement",
+		[]interface{}{props},
+		s,
+	)
+}
+
+func SecurityRequirement_INPUT_VALIDATION() SecurityRequirement {
+	_init_.Initialize()
+	var returns SecurityRequirement
+	_jsii_.StaticGet(
+		"cdktg.SecurityRequirement",
+		"INPUT_VALIDATION",
+		&returns,
+	)
+	return returns
+}
+
+func SecurityRequirement_SECURING_ADMINISTRATIVE_ACCESS() SecurityRequirement {
+	_init_.Initialize()
+	var returns SecurityRequirement
+	_jsii_.StaticGet(
+		"cdktg.SecurityRequirement",
+		"SECURING_ADMINISTRATIVE_ACCESS",
+		&returns,
+	)
+	return returns
+}
+
+type SecurityRequirementProps struct {
+	Description *string `field:"required" json:"description" yaml:"description"`
+	Name *string `field:"required" json:"name" yaml:"name"`
+}
+
+type Severity string
+
+const (
+	Severity_LOW Severity = "LOW"
+	Severity_MEDIUM Severity = "MEDIUM"
+	Severity_ELEVATED Severity = "ELEVATED"
+	Severity_HIGH Severity = "HIGH"
+	Severity_CRITICAL Severity = "CRITICAL"
+)
 
 type SharedRuntime interface {
 	Resource
@@ -2067,6 +2741,17 @@ const (
 	Size_SERVICE Size = "SERVICE"
 	Size_APPLICATION Size = "APPLICATION"
 	Size_COMPONENT Size = "COMPONENT"
+)
+
+type Stride string
+
+const (
+	Stride_SPOOFING Stride = "SPOOFING"
+	Stride_TAMPERING Stride = "TAMPERING"
+	Stride_REPUDIATION Stride = "REPUDIATION"
+	Stride_INFORMATION_DISCLOSURE Stride = "INFORMATION_DISCLOSURE"
+	Stride_DENIAL_OF_SERVICE Stride = "DENIAL_OF_SERVICE"
+	Stride_ELEVATION_OF_PRIVILEGE Stride = "ELEVATION_OF_PRIVILEGE"
 )
 
 type TechnicalAsset interface {

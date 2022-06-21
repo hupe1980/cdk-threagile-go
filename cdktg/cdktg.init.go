@@ -136,6 +136,7 @@ func init() {
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "authentication", GoGetter: "Authentication"},
 			_jsii_.MemberProperty{JsiiProperty: "authorization", GoGetter: "Authorization"},
+			_jsii_.MemberProperty{JsiiProperty: "caller", GoGetter: "Caller"},
 			_jsii_.MemberProperty{JsiiProperty: "description", GoGetter: "Description"},
 			_jsii_.MemberProperty{JsiiProperty: "id", GoGetter: "Id"},
 			_jsii_.MemberProperty{JsiiProperty: "ipFiltered", GoGetter: "IpFiltered"},
@@ -196,6 +197,15 @@ func init() {
 		reflect.TypeOf((*DataAssetProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterEnum(
+		"cdktg.DataBreachProbability",
+		reflect.TypeOf((*DataBreachProbability)(nil)).Elem(),
+		map[string]interface{}{
+			"IMPROBABLE": DataBreachProbability_IMPROBABLE,
+			"POSSIBLE": DataBreachProbability_POSSIBLE,
+			"PROBABLE": DataBreachProbability_PROBABLE,
+		},
+	)
+	_jsii_.RegisterEnum(
 		"cdktg.DataFormat",
 		reflect.TypeOf((*DataFormat)(nil)).Elem(),
 		map[string]interface{}{
@@ -215,6 +225,26 @@ func init() {
 			"SYMMETRIC_SHARED_KEY": Encryption_SYMMETRIC_SHARED_KEY,
 			"ASYMMETRIC_SHARED_KEY": Encryption_ASYMMETRIC_SHARED_KEY,
 			"ENDUSER_INDIVIDUAL_KEY": Encryption_ENDUSER_INDIVIDUAL_KEY,
+		},
+	)
+	_jsii_.RegisterEnum(
+		"cdktg.ExploitationImpact",
+		reflect.TypeOf((*ExploitationImpact)(nil)).Elem(),
+		map[string]interface{}{
+			"LOW": ExploitationImpact_LOW,
+			"MEDIUM": ExploitationImpact_MEDIUM,
+			"HIGH": ExploitationImpact_HIGH,
+			"VERY_HIGH": ExploitationImpact_VERY_HIGH,
+		},
+	)
+	_jsii_.RegisterEnum(
+		"cdktg.ExploitationLikelihood",
+		reflect.TypeOf((*ExploitationLikelihood)(nil)).Elem(),
+		map[string]interface{}{
+			"UNLIKELY": ExploitationLikelihood_UNLIKELY,
+			"LIKELY": ExploitationLikelihood_LIKELY,
+			"VERY_LIKELY": ExploitationLikelihood_VERY_LIKELY,
+			"FREQUENT": ExploitationLikelihood_FREQUENT,
 		},
 	)
 	_jsii_.RegisterInterface(
@@ -318,6 +348,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "addAbuseCases", GoMethod: "AddAbuseCases"},
 			_jsii_.MemberMethod{JsiiMethod: "addOverride", GoMethod: "AddOverride"},
 			_jsii_.MemberMethod{JsiiMethod: "addQuestion", GoMethod: "AddQuestion"},
+			_jsii_.MemberMethod{JsiiMethod: "addSecurityRequirements", GoMethod: "AddSecurityRequirements"},
 			_jsii_.MemberMethod{JsiiMethod: "addTag", GoMethod: "AddTag"},
 			_jsii_.MemberMethod{JsiiMethod: "addTags", GoMethod: "AddTags"},
 			_jsii_.MemberProperty{JsiiProperty: "author", GoGetter: "Author"},
@@ -486,6 +517,80 @@ func init() {
 		reflect.TypeOf((*ResourceProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
+		"cdktg.Risk",
+		reflect.TypeOf((*Risk)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "dataBreachProbability", GoGetter: "DataBreachProbability"},
+			_jsii_.MemberProperty{JsiiProperty: "dataBreachTechnicalAssets", GoGetter: "DataBreachTechnicalAssets"},
+			_jsii_.MemberProperty{JsiiProperty: "exploitationImpact", GoGetter: "ExploitationImpact"},
+			_jsii_.MemberProperty{JsiiProperty: "exploitationLikelihood", GoGetter: "ExploitationLikelihood"},
+			_jsii_.MemberProperty{JsiiProperty: "id", GoGetter: "Id"},
+			_jsii_.MemberProperty{JsiiProperty: "mostRelevantCommunicationLink", GoGetter: "MostRelevantCommunicationLink"},
+			_jsii_.MemberProperty{JsiiProperty: "mostRelevantDataAsset", GoGetter: "MostRelevantDataAsset"},
+			_jsii_.MemberProperty{JsiiProperty: "mostRelevantSharedRuntime", GoGetter: "MostRelevantSharedRuntime"},
+			_jsii_.MemberProperty{JsiiProperty: "mostRelevantTechnicalAsset", GoGetter: "MostRelevantTechnicalAsset"},
+			_jsii_.MemberProperty{JsiiProperty: "mostRelevantTrustBoundary", GoGetter: "MostRelevantTrustBoundary"},
+			_jsii_.MemberProperty{JsiiProperty: "severity", GoGetter: "Severity"},
+		},
+		func() interface{} {
+			return &jsiiProxy_Risk{}
+		},
+	)
+	_jsii_.RegisterClass(
+		"cdktg.RiskCategory",
+		reflect.TypeOf((*RiskCategory)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "action", GoGetter: "Action"},
+			_jsii_.MemberProperty{JsiiProperty: "asvs", GoGetter: "Asvs"},
+			_jsii_.MemberProperty{JsiiProperty: "cheatSheat", GoGetter: "CheatSheat"},
+			_jsii_.MemberProperty{JsiiProperty: "check", GoGetter: "Check"},
+			_jsii_.MemberProperty{JsiiProperty: "cwe", GoGetter: "Cwe"},
+			_jsii_.MemberProperty{JsiiProperty: "description", GoGetter: "Description"},
+			_jsii_.MemberProperty{JsiiProperty: "detectionLogic", GoGetter: "DetectionLogic"},
+			_jsii_.MemberProperty{JsiiProperty: "falsePositives", GoGetter: "FalsePositives"},
+			_jsii_.MemberProperty{JsiiProperty: "function", GoGetter: "Function"},
+			_jsii_.MemberMethod{JsiiMethod: "identifiedAtDataAsset", GoMethod: "IdentifiedAtDataAsset"},
+			_jsii_.MemberMethod{JsiiMethod: "identifiedAtSharedRuntime", GoMethod: "IdentifiedAtSharedRuntime"},
+			_jsii_.MemberMethod{JsiiMethod: "identifiedAtTechnicalAsset", GoMethod: "IdentifiedAtTechnicalAsset"},
+			_jsii_.MemberMethod{JsiiMethod: "identifiedAtTrustBoundary", GoMethod: "IdentifiedAtTrustBoundary"},
+			_jsii_.MemberProperty{JsiiProperty: "impact", GoGetter: "Impact"},
+			_jsii_.MemberProperty{JsiiProperty: "mitigation", GoGetter: "Mitigation"},
+			_jsii_.MemberProperty{JsiiProperty: "modelFailurePossibleReason", GoGetter: "ModelFailurePossibleReason"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "riskAssessment", GoGetter: "RiskAssessment"},
+			_jsii_.MemberProperty{JsiiProperty: "stride", GoGetter: "Stride"},
+			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+			_jsii_.MemberProperty{JsiiProperty: "uuid", GoGetter: "Uuid"},
+		},
+		func() interface{} {
+			j := jsiiProxy_RiskCategory{}
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_Resource)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"cdktg.RiskCategoryProps",
+		reflect.TypeOf((*RiskCategoryProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterEnum(
+		"cdktg.RiskFunction",
+		reflect.TypeOf((*RiskFunction)(nil)).Elem(),
+		map[string]interface{}{
+			"BUSINESS_SIDE": RiskFunction_BUSINESS_SIDE,
+			"ARCHITECTURE": RiskFunction_ARCHITECTURE,
+			"DEVELOPMENT": RiskFunction_DEVELOPMENT,
+			"OPERATIONS": RiskFunction_OPERATIONS,
+		},
+	)
+	_jsii_.RegisterStruct(
+		"cdktg.RiskOptions",
+		reflect.TypeOf((*RiskOptions)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"cdktg.RiskProps",
+		reflect.TypeOf((*RiskProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
 		"cdktg.Scope",
 		reflect.TypeOf((*Scope)(nil)).Elem(),
 		[]_jsii_.Member{
@@ -494,6 +599,32 @@ func init() {
 		},
 		func() interface{} {
 			return &jsiiProxy_Scope{}
+		},
+	)
+	_jsii_.RegisterClass(
+		"cdktg.SecurityRequirement",
+		reflect.TypeOf((*SecurityRequirement)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "description", GoGetter: "Description"},
+			_jsii_.MemberProperty{JsiiProperty: "name", GoGetter: "Name"},
+		},
+		func() interface{} {
+			return &jsiiProxy_SecurityRequirement{}
+		},
+	)
+	_jsii_.RegisterStruct(
+		"cdktg.SecurityRequirementProps",
+		reflect.TypeOf((*SecurityRequirementProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterEnum(
+		"cdktg.Severity",
+		reflect.TypeOf((*Severity)(nil)).Elem(),
+		map[string]interface{}{
+			"LOW": Severity_LOW,
+			"MEDIUM": Severity_MEDIUM,
+			"ELEVATED": Severity_ELEVATED,
+			"HIGH": Severity_HIGH,
+			"CRITICAL": Severity_CRITICAL,
 		},
 	)
 	_jsii_.RegisterClass(
@@ -525,6 +656,18 @@ func init() {
 			"SERVICE": Size_SERVICE,
 			"APPLICATION": Size_APPLICATION,
 			"COMPONENT": Size_COMPONENT,
+		},
+	)
+	_jsii_.RegisterEnum(
+		"cdktg.Stride",
+		reflect.TypeOf((*Stride)(nil)).Elem(),
+		map[string]interface{}{
+			"SPOOFING": Stride_SPOOFING,
+			"TAMPERING": Stride_TAMPERING,
+			"REPUDIATION": Stride_REPUDIATION,
+			"INFORMATION_DISCLOSURE": Stride_INFORMATION_DISCLOSURE,
+			"DENIAL_OF_SERVICE": Stride_DENIAL_OF_SERVICE,
+			"ELEVATION_OF_PRIVILEGE": Stride_ELEVATION_OF_PRIVILEGE,
 		},
 	)
 	_jsii_.RegisterClass(
