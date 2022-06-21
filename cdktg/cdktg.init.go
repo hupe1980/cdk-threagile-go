@@ -7,6 +7,21 @@ import (
 )
 
 func init() {
+	_jsii_.RegisterClass(
+		"cdktg.AbuseCase",
+		reflect.TypeOf((*AbuseCase)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "description", GoGetter: "Description"},
+			_jsii_.MemberProperty{JsiiProperty: "name", GoGetter: "Name"},
+		},
+		func() interface{} {
+			return &jsiiProxy_AbuseCase{}
+		},
+	)
+	_jsii_.RegisterStruct(
+		"cdktg.AbuseCaseProps",
+		reflect.TypeOf((*AbuseCaseProps)(nil)).Elem(),
+	)
 	_jsii_.RegisterEnum(
 		"cdktg.AnnotationMetadataEntryType",
 		reflect.TypeOf((*AnnotationMetadataEntryType)(nil)).Elem(),
@@ -300,7 +315,10 @@ func init() {
 		"cdktg.Model",
 		reflect.TypeOf((*Model)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "addAbuseCases", GoMethod: "AddAbuseCases"},
 			_jsii_.MemberMethod{JsiiMethod: "addOverride", GoMethod: "AddOverride"},
+			_jsii_.MemberMethod{JsiiMethod: "addQuestion", GoMethod: "AddQuestion"},
+			_jsii_.MemberMethod{JsiiMethod: "addTag", GoMethod: "AddTag"},
 			_jsii_.MemberMethod{JsiiMethod: "addTags", GoMethod: "AddTags"},
 			_jsii_.MemberProperty{JsiiProperty: "author", GoGetter: "Author"},
 			_jsii_.MemberProperty{JsiiProperty: "businessCriticality", GoGetter: "BusinessCriticality"},
@@ -443,6 +461,10 @@ func init() {
 			"MANY": Quantity_MANY,
 			"VERY_MANY": Quantity_VERY_MANY,
 		},
+	)
+	_jsii_.RegisterStruct(
+		"cdktg.Question",
+		reflect.TypeOf((*Question)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
 		"cdktg.Resource",

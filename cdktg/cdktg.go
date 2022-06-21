@@ -9,6 +9,88 @@ import (
 	"github.com/hupe1980/cdk-threagile-go/cdktg/internal"
 )
 
+type AbuseCase interface {
+	Description() *string
+	Name() *string
+}
+
+// The jsii proxy struct for AbuseCase
+type jsiiProxy_AbuseCase struct {
+	_ byte // padding
+}
+
+func (j *jsiiProxy_AbuseCase) Description() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"description",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_AbuseCase) Name() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"name",
+		&returns,
+	)
+	return returns
+}
+
+
+func NewAbuseCase(props *AbuseCaseProps) AbuseCase {
+	_init_.Initialize()
+
+	j := jsiiProxy_AbuseCase{}
+
+	_jsii_.Create(
+		"cdktg.AbuseCase",
+		[]interface{}{props},
+		&j,
+	)
+
+	return &j
+}
+
+func NewAbuseCase_Override(a AbuseCase, props *AbuseCaseProps) {
+	_init_.Initialize()
+
+	_jsii_.Create(
+		"cdktg.AbuseCase",
+		[]interface{}{props},
+		a,
+	)
+}
+
+func AbuseCase_DENIAL_OF_SERVICE() AbuseCase {
+	_init_.Initialize()
+	var returns AbuseCase
+	_jsii_.StaticGet(
+		"cdktg.AbuseCase",
+		"DENIAL_OF_SERVICE",
+		&returns,
+	)
+	return returns
+}
+
+func AbuseCase_RANSOMWARE() AbuseCase {
+	_init_.Initialize()
+	var returns AbuseCase
+	_jsii_.StaticGet(
+		"cdktg.AbuseCase",
+		"RANSOMWARE",
+		&returns,
+	)
+	return returns
+}
+
+type AbuseCaseProps struct {
+	Description *string `field:"required" json:"description" yaml:"description"`
+	Name *string `field:"required" json:"name" yaml:"name"`
+}
+
 type AnnotationMetadataEntryType string
 
 const (
@@ -1064,7 +1146,10 @@ type Model interface {
 	SetSynthesizer(val IModelSynthesizer)
 	Title() *string
 	Version() *string
+	AddAbuseCases(cases ...AbuseCase)
 	AddOverride(path *string, value interface{})
+	AddQuestion(text *string, answer *string)
+	AddTag(tag *string)
 	AddTags(tags ...*string)
 	// Returns a string representation of this construct.
 	ToString() *string
@@ -1250,11 +1335,40 @@ func Model_Of(construct constructs.IConstruct) Model {
 	return returns
 }
 
+func (m *jsiiProxy_Model) AddAbuseCases(cases ...AbuseCase) {
+	args := []interface{}{}
+	for _, a := range cases {
+		args = append(args, a)
+	}
+
+	_jsii_.InvokeVoid(
+		m,
+		"addAbuseCases",
+		args,
+	)
+}
+
 func (m *jsiiProxy_Model) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		m,
 		"addOverride",
 		[]interface{}{path, value},
+	)
+}
+
+func (m *jsiiProxy_Model) AddQuestion(text *string, answer *string) {
+	_jsii_.InvokeVoid(
+		m,
+		"addQuestion",
+		[]interface{}{text, answer},
+	)
+}
+
+func (m *jsiiProxy_Model) AddTag(tag *string) {
+	_jsii_.InvokeVoid(
+		m,
+		"addTag",
+		[]interface{}{tag},
 	)
 }
 
@@ -1307,10 +1421,14 @@ type ModelProps struct {
 	BusinessCriticality BusinessCriticality `field:"required" json:"businessCriticality" yaml:"businessCriticality"`
 	// Version of the Threagile toolkit.
 	Version *string `field:"required" json:"version" yaml:"version"`
+	// Custom abuse cases for the report.
+	AbuseCases *[]AbuseCase `field:"optional" json:"abuseCases" yaml:"abuseCases"`
 	// Date of the model.
 	Date *string `field:"optional" json:"date" yaml:"date"`
 	// Individual management summary for the report.
 	ManagementSummary *string `field:"optional" json:"managementSummary" yaml:"managementSummary"`
+	// Custom questions for the report.
+	Questions *[]*Question `field:"optional" json:"questions" yaml:"questions"`
 	// Title of the model.
 	Title *string `field:"optional" json:"title" yaml:"title"`
 }
@@ -1645,6 +1763,11 @@ const (
 	Quantity_MANY Quantity = "MANY"
 	Quantity_VERY_MANY Quantity = "VERY_MANY"
 )
+
+type Question struct {
+	Text *string `field:"required" json:"text" yaml:"text"`
+	Answer *string `field:"optional" json:"answer" yaml:"answer"`
+}
 
 type Resource interface {
 	constructs.Construct
