@@ -634,7 +634,7 @@ func init() {
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "description", GoGetter: "Description"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "run", GoMethod: "Run"},
+			_jsii_.MemberMethod{JsiiMethod: "runs", GoMethod: "Runs"},
 			_jsii_.MemberProperty{JsiiProperty: "tags", GoGetter: "Tags"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "uuid", GoGetter: "Uuid"},
@@ -677,6 +677,8 @@ func init() {
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "ciaTriad", GoGetter: "CiaTriad"},
 			_jsii_.MemberMethod{JsiiMethod: "communicatesWith", GoMethod: "CommunicatesWith"},
+			_jsii_.MemberProperty{JsiiProperty: "customDevelopedParts", GoGetter: "CustomDevelopedParts"},
+			_jsii_.MemberProperty{JsiiProperty: "dataFormatsAccepted", GoGetter: "DataFormatsAccepted"},
 			_jsii_.MemberProperty{JsiiProperty: "description", GoGetter: "Description"},
 			_jsii_.MemberProperty{JsiiProperty: "encryption", GoGetter: "Encryption"},
 			_jsii_.MemberProperty{JsiiProperty: "humanUse", GoGetter: "HumanUse"},

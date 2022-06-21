@@ -2605,7 +2605,7 @@ type SharedRuntime interface {
 	Node() constructs.Node
 	Tags() *[]*string
 	Uuid() *string
-	Run(assets ...TechnicalAsset)
+	Runs(assets ...TechnicalAsset)
 	// Returns a string representation of this construct.
 	ToString() *string
 }
@@ -2712,7 +2712,7 @@ func SharedRuntime_IsConstruct(x interface{}) *bool {
 	return returns
 }
 
-func (s *jsiiProxy_SharedRuntime) Run(assets ...TechnicalAsset) {
+func (s *jsiiProxy_SharedRuntime) Runs(assets ...TechnicalAsset) {
 	args := []interface{}{}
 	for _, a := range assets {
 		args = append(args, a)
@@ -2720,7 +2720,7 @@ func (s *jsiiProxy_SharedRuntime) Run(assets ...TechnicalAsset) {
 
 	_jsii_.InvokeVoid(
 		s,
-		"run",
+		"runs",
 		args,
 	)
 }
@@ -2766,6 +2766,8 @@ const (
 type TechnicalAsset interface {
 	Resource
 	CiaTriad() CIATriad
+	CustomDevelopedParts() *bool
+	DataFormatsAccepted() *[]DataFormat
 	Description() *string
 	Encryption() Encryption
 	HumanUse() *bool
@@ -2800,6 +2802,26 @@ func (j *jsiiProxy_TechnicalAsset) CiaTriad() CIATriad {
 	_jsii_.Get(
 		j,
 		"ciaTriad",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_TechnicalAsset) CustomDevelopedParts() *bool {
+	var returns *bool
+	_jsii_.Get(
+		j,
+		"customDevelopedParts",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_TechnicalAsset) DataFormatsAccepted() *[]DataFormat {
+	var returns *[]DataFormat
+	_jsii_.Get(
+		j,
+		"dataFormatsAccepted",
 		&returns,
 	)
 	return returns
@@ -3088,6 +3110,8 @@ type TechnicalAssetProps struct {
 	Technology Technology `field:"required" json:"technology" yaml:"technology"`
 	Type TechnicalAssetType `field:"required" json:"type" yaml:"type"`
 	Usage Usage `field:"required" json:"usage" yaml:"usage"`
+	CustomDevelopedParts *bool `field:"optional" json:"customDevelopedParts" yaml:"customDevelopedParts"`
+	DataFormatsAccepted *[]DataFormat `field:"optional" json:"dataFormatsAccepted" yaml:"dataFormatsAccepted"`
 	Scope Scope `field:"optional" json:"scope" yaml:"scope"`
 	Tags *[]*string `field:"optional" json:"tags" yaml:"tags"`
 	TrustBoundary TrustBoundary `field:"optional" json:"trustBoundary" yaml:"trustBoundary"`
