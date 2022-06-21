@@ -291,6 +291,17 @@ func init() {
 		},
 	)
 	_jsii_.RegisterClass(
+		"cdktg.Image",
+		reflect.TypeOf((*Image)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "filePath", GoGetter: "FilePath"},
+			_jsii_.MemberProperty{JsiiProperty: "title", GoGetter: "Title"},
+		},
+		func() interface{} {
+			return &jsiiProxy_Image{}
+		},
+	)
+	_jsii_.RegisterClass(
 		"cdktg.InScope",
 		reflect.TypeOf((*InScope)(nil)).Elem(),
 		[]_jsii_.Member{
@@ -353,10 +364,12 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "addTags", GoMethod: "AddTags"},
 			_jsii_.MemberProperty{JsiiProperty: "author", GoGetter: "Author"},
 			_jsii_.MemberProperty{JsiiProperty: "businessCriticality", GoGetter: "BusinessCriticality"},
+			_jsii_.MemberProperty{JsiiProperty: "businessOverview", GoGetter: "BusinessOverview"},
 			_jsii_.MemberProperty{JsiiProperty: "date", GoGetter: "Date"},
 			_jsii_.MemberProperty{JsiiProperty: "managementSummary", GoGetter: "ManagementSummary"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberProperty{JsiiProperty: "synthesizer", GoGetter: "Synthesizer"},
+			_jsii_.MemberProperty{JsiiProperty: "technicalOverview", GoGetter: "TechnicalOverview"},
 			_jsii_.MemberProperty{JsiiProperty: "title", GoGetter: "Title"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberMethod{JsiiMethod: "trackRisk", GoMethod: "TrackRisk"},
@@ -409,6 +422,21 @@ func init() {
 	_jsii_.RegisterStruct(
 		"cdktg.OutOfScopeProps",
 		reflect.TypeOf((*OutOfScopeProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"cdktg.Overview",
+		reflect.TypeOf((*Overview)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "description", GoGetter: "Description"},
+			_jsii_.MemberProperty{JsiiProperty: "images", GoGetter: "Images"},
+		},
+		func() interface{} {
+			return &jsiiProxy_Overview{}
+		},
+	)
+	_jsii_.RegisterStruct(
+		"cdktg.OverviewProps",
+		reflect.TypeOf((*OverviewProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
 		"cdktg.Project",

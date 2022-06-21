@@ -989,6 +989,61 @@ func (j *jsiiProxy_ISynthesisSession) SkipValidation() *bool {
 	return returns
 }
 
+type Image interface {
+	FilePath() *string
+	Title() *string
+}
+
+// The jsii proxy struct for Image
+type jsiiProxy_Image struct {
+	_ byte // padding
+}
+
+func (j *jsiiProxy_Image) FilePath() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"filePath",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_Image) Title() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"title",
+		&returns,
+	)
+	return returns
+}
+
+
+func NewImage(filePath *string, title *string) Image {
+	_init_.Initialize()
+
+	j := jsiiProxy_Image{}
+
+	_jsii_.Create(
+		"cdktg.Image",
+		[]interface{}{filePath, title},
+		&j,
+	)
+
+	return &j
+}
+
+func NewImage_Override(i Image, filePath *string, title *string) {
+	_init_.Initialize()
+
+	_jsii_.Create(
+		"cdktg.Image",
+		[]interface{}{filePath, title},
+		i,
+	)
+}
+
 type InScope interface {
 	Scope
 	IsInScope() *bool
@@ -1209,12 +1264,14 @@ type Model interface {
 	constructs.Construct
 	Author() Author
 	BusinessCriticality() BusinessCriticality
+	BusinessOverview() Overview
 	Date() *string
 	ManagementSummary() *string
 	// The tree node.
 	Node() constructs.Node
 	Synthesizer() IModelSynthesizer
 	SetSynthesizer(val IModelSynthesizer)
+	TechnicalOverview() Overview
 	Title() *string
 	Version() *string
 	AddAbuseCases(cases ...AbuseCase)
@@ -1248,6 +1305,16 @@ func (j *jsiiProxy_Model) BusinessCriticality() BusinessCriticality {
 	_jsii_.Get(
 		j,
 		"businessCriticality",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_Model) BusinessOverview() Overview {
+	var returns Overview
+	_jsii_.Get(
+		j,
+		"businessOverview",
 		&returns,
 	)
 	return returns
@@ -1288,6 +1355,16 @@ func (j *jsiiProxy_Model) Synthesizer() IModelSynthesizer {
 	_jsii_.Get(
 		j,
 		"synthesizer",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_Model) TechnicalOverview() Overview {
+	var returns Overview
+	_jsii_.Get(
+		j,
+		"technicalOverview",
 		&returns,
 	)
 	return returns
@@ -1517,6 +1594,8 @@ type ModelProps struct {
 	Version *string `field:"required" json:"version" yaml:"version"`
 	// Custom abuse cases for the report.
 	AbuseCases *[]AbuseCase `field:"optional" json:"abuseCases" yaml:"abuseCases"`
+	// Individual business overview for the report.
+	BusinessOverview Overview `field:"optional" json:"businessOverview" yaml:"businessOverview"`
 	// Date of the model.
 	Date *string `field:"optional" json:"date" yaml:"date"`
 	// Individual management summary for the report.
@@ -1525,6 +1604,8 @@ type ModelProps struct {
 	Questions *[]*Question `field:"optional" json:"questions" yaml:"questions"`
 	// Custom security requirements for the report.
 	SecurityRequirements *[]SecurityRequirement `field:"optional" json:"securityRequirements" yaml:"securityRequirements"`
+	// Individual technical overview for the report.
+	TechnicalOverview Overview `field:"optional" json:"technicalOverview" yaml:"technicalOverview"`
 	// Title of the model.
 	Title *string `field:"optional" json:"title" yaml:"title"`
 }
@@ -1652,6 +1733,66 @@ func NewOutOfScope_Override(o OutOfScope, justification *string) {
 type OutOfScopeProps struct {
 	OutOfScope *bool `field:"required" json:"outOfScope" yaml:"outOfScope"`
 	Justification *string `field:"optional" json:"justification" yaml:"justification"`
+}
+
+type Overview interface {
+	Description() *string
+	Images() *[]Image
+}
+
+// The jsii proxy struct for Overview
+type jsiiProxy_Overview struct {
+	_ byte // padding
+}
+
+func (j *jsiiProxy_Overview) Description() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"description",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_Overview) Images() *[]Image {
+	var returns *[]Image
+	_jsii_.Get(
+		j,
+		"images",
+		&returns,
+	)
+	return returns
+}
+
+
+func NewOverview(props *OverviewProps) Overview {
+	_init_.Initialize()
+
+	j := jsiiProxy_Overview{}
+
+	_jsii_.Create(
+		"cdktg.Overview",
+		[]interface{}{props},
+		&j,
+	)
+
+	return &j
+}
+
+func NewOverview_Override(o Overview, props *OverviewProps) {
+	_init_.Initialize()
+
+	_jsii_.Create(
+		"cdktg.Overview",
+		[]interface{}{props},
+		o,
+	)
+}
+
+type OverviewProps struct {
+	Description *string `field:"required" json:"description" yaml:"description"`
+	Images *[]Image `field:"optional" json:"images" yaml:"images"`
 }
 
 type Project interface {
