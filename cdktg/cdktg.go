@@ -1075,62 +1075,6 @@ func NewImage_Override(i Image, filePath *string, title *string) {
 	)
 }
 
-type InScope interface {
-	Scope
-	IsInScope() *bool
-	Justification() *string
-}
-
-// The jsii proxy struct for InScope
-type jsiiProxy_InScope struct {
-	jsiiProxy_Scope
-}
-
-func (j *jsiiProxy_InScope) IsInScope() *bool {
-	var returns *bool
-	_jsii_.Get(
-		j,
-		"isInScope",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_InScope) Justification() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"justification",
-		&returns,
-	)
-	return returns
-}
-
-
-func NewInScope(justification *string) InScope {
-	_init_.Initialize()
-
-	j := jsiiProxy_InScope{}
-
-	_jsii_.Create(
-		"cdktg.InScope",
-		[]interface{}{justification},
-		&j,
-	)
-
-	return &j
-}
-
-func NewInScope_Override(i InScope, justification *string) {
-	_init_.Initialize()
-
-	_jsii_.Create(
-		"cdktg.InScope",
-		[]interface{}{justification},
-		i,
-	)
-}
-
 type Integrity string
 
 const (
@@ -1711,62 +1655,6 @@ func (m *jsiiProxy_ModelSynthesizer) Synthesize(session ISynthesisSession) {
 		m,
 		"synthesize",
 		[]interface{}{session},
-	)
-}
-
-type OutOfScope interface {
-	Scope
-	IsInScope() *bool
-	Justification() *string
-}
-
-// The jsii proxy struct for OutOfScope
-type jsiiProxy_OutOfScope struct {
-	jsiiProxy_Scope
-}
-
-func (j *jsiiProxy_OutOfScope) IsInScope() *bool {
-	var returns *bool
-	_jsii_.Get(
-		j,
-		"isInScope",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_OutOfScope) Justification() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"justification",
-		&returns,
-	)
-	return returns
-}
-
-
-func NewOutOfScope(justification *string) OutOfScope {
-	_init_.Initialize()
-
-	j := jsiiProxy_OutOfScope{}
-
-	_jsii_.Create(
-		"cdktg.OutOfScope",
-		[]interface{}{justification},
-		&j,
-	)
-
-	return &j
-}
-
-func NewOutOfScope_Override(o OutOfScope, justification *string) {
-	_init_.Initialize()
-
-	_jsii_.Create(
-		"cdktg.OutOfScope",
-		[]interface{}{justification},
-		o,
 	)
 }
 
@@ -2774,23 +2662,14 @@ const (
 )
 
 type Scope interface {
-	IsInScope() *bool
 	Justification() *string
+	Out() *bool
+	SetOut(val *bool)
 }
 
 // The jsii proxy struct for Scope
 type jsiiProxy_Scope struct {
 	_ byte // padding
-}
-
-func (j *jsiiProxy_Scope) IsInScope() *bool {
-	var returns *bool
-	_jsii_.Get(
-		j,
-		"isInScope",
-		&returns,
-	)
-	return returns
 }
 
 func (j *jsiiProxy_Scope) Justification() *string {
@@ -2803,15 +2682,77 @@ func (j *jsiiProxy_Scope) Justification() *string {
 	return returns
 }
 
+func (j *jsiiProxy_Scope) Out() *bool {
+	var returns *bool
+	_jsii_.Get(
+		j,
+		"out",
+		&returns,
+	)
+	return returns
+}
 
-func NewScope_Override(s Scope, justification *string) {
+
+func NewScope(out *bool, justification *string) Scope {
+	_init_.Initialize()
+
+	j := jsiiProxy_Scope{}
+
+	_jsii_.Create(
+		"cdktg.Scope",
+		[]interface{}{out, justification},
+		&j,
+	)
+
+	return &j
+}
+
+func NewScope_Override(s Scope, out *bool, justification *string) {
 	_init_.Initialize()
 
 	_jsii_.Create(
 		"cdktg.Scope",
-		[]interface{}{justification},
+		[]interface{}{out, justification},
 		s,
 	)
+}
+
+func (j *jsiiProxy_Scope) SetOut(val *bool) {
+	_jsii_.Set(
+		j,
+		"out",
+		val,
+	)
+}
+
+func Scope_InScope(justification *string) Scope {
+	_init_.Initialize()
+
+	var returns Scope
+
+	_jsii_.StaticInvoke(
+		"cdktg.Scope",
+		"inScope",
+		[]interface{}{justification},
+		&returns,
+	)
+
+	return returns
+}
+
+func Scope_OutOfScope(justification *string) Scope {
+	_init_.Initialize()
+
+	var returns Scope
+
+	_jsii_.StaticInvoke(
+		"cdktg.Scope",
+		"outOfScope",
+		[]interface{}{justification},
+		&returns,
+	)
+
+	return returns
 }
 
 type SecurityRequirement interface {

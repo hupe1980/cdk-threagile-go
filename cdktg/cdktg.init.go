@@ -312,19 +312,6 @@ func init() {
 			return &jsiiProxy_Image{}
 		},
 	)
-	_jsii_.RegisterClass(
-		"cdktg.InScope",
-		reflect.TypeOf((*InScope)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "isInScope", GoGetter: "IsInScope"},
-			_jsii_.MemberProperty{JsiiProperty: "justification", GoGetter: "Justification"},
-		},
-		func() interface{} {
-			j := jsiiProxy_InScope{}
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_Scope)
-			return &j
-		},
-	)
 	_jsii_.RegisterEnum(
 		"cdktg.Integrity",
 		reflect.TypeOf((*Integrity)(nil)).Elem(),
@@ -415,19 +402,6 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_ModelSynthesizer{}
 			_jsii_.InitJsiiProxy(&j.jsiiProxy_IModelSynthesizer)
-			return &j
-		},
-	)
-	_jsii_.RegisterClass(
-		"cdktg.OutOfScope",
-		reflect.TypeOf((*OutOfScope)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "isInScope", GoGetter: "IsInScope"},
-			_jsii_.MemberProperty{JsiiProperty: "justification", GoGetter: "Justification"},
-		},
-		func() interface{} {
-			j := jsiiProxy_OutOfScope{}
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_Scope)
 			return &j
 		},
 	)
@@ -667,8 +641,8 @@ func init() {
 		"cdktg.Scope",
 		reflect.TypeOf((*Scope)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "isInScope", GoGetter: "IsInScope"},
 			_jsii_.MemberProperty{JsiiProperty: "justification", GoGetter: "Justification"},
+			_jsii_.MemberProperty{JsiiProperty: "out", GoGetter: "Out"},
 		},
 		func() interface{} {
 			return &jsiiProxy_Scope{}
