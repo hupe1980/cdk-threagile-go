@@ -141,7 +141,7 @@ Options:
   --version  Show version number                                       [boolean]
 ```
 
-### Analyse outputs:
+### Analyze outputs:
 
 ```sh
 dist
