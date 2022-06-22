@@ -5,7 +5,7 @@
 
 > Agile Threat Modeling as Code
 
-CDK Constructs for [threatgile](https://threagile.io/)
+CDK Constructs for [threagile](https://threagile.io/)
 
 ## Installation
 
@@ -133,7 +133,7 @@ Commands:
   cdktg synth <filename>  synthesize the models
   cdktg ping              ping the api
   cdktg check             check the models
-  cdktg analyse           analyze the models
+  cdktg analyze           analyze the models
   cdktg completion        generate completion script
 
 Options:

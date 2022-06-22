@@ -899,6 +899,28 @@ func (i *jsiiProxy_IAspect) Visit(node constructs.IConstruct) {
 	)
 }
 
+// Interface for constructs that want to do something custom during synthesis.
+//
+// This feature is intended for use by cdktg only; 3rd party
+// library authors and CDK users should not use this function.
+type ICustomSynthesis interface {
+	// Called when the construct is synthesized.
+	OnSynthesize(session ISynthesisSession)
+}
+
+// The jsii proxy for ICustomSynthesis
+type jsiiProxy_ICustomSynthesis struct {
+	_ byte // padding
+}
+
+func (i *jsiiProxy_ICustomSynthesis) OnSynthesize(session ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		i,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
 type IManifest interface {
 	Models() *map[string]*ModelManifest
 	Version() *string
@@ -930,6 +952,7 @@ func (j *jsiiProxy_IManifest) Version() *string {
 }
 
 type IModelSynthesizer interface {
+	AddFileAsset(filePath *string)
 	// Synthesize the associated model to the session.
 	Synthesize(session ISynthesisSession)
 }
@@ -937,6 +960,14 @@ type IModelSynthesizer interface {
 // The jsii proxy for IModelSynthesizer
 type jsiiProxy_IModelSynthesizer struct {
 	_ byte // padding
+}
+
+func (i *jsiiProxy_IModelSynthesizer) AddFileAsset(filePath *string) {
+	_jsii_.InvokeVoid(
+		i,
+		"addFileAsset",
+		[]interface{}{filePath},
+	)
 }
 
 func (i *jsiiProxy_IModelSynthesizer) Synthesize(session ISynthesisSession) {
@@ -1614,6 +1645,7 @@ type ModelSynthesizer interface {
 	IModelSynthesizer
 	Model() Model
 	SetModel(val Model)
+	AddFileAsset(filePath *string)
 	// Synthesize the associated model to the session.
 	Synthesize(session ISynthesisSession)
 }
@@ -1663,6 +1695,14 @@ func (j *jsiiProxy_ModelSynthesizer) SetModel(val Model) {
 		j,
 		"model",
 		val,
+	)
+}
+
+func (m *jsiiProxy_ModelSynthesizer) AddFileAsset(filePath *string) {
+	_jsii_.InvokeVoid(
+		m,
+		"addFileAsset",
+		[]interface{}{filePath},
 	)
 }
 

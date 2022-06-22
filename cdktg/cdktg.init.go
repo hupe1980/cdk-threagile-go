@@ -258,6 +258,16 @@ func init() {
 		},
 	)
 	_jsii_.RegisterInterface(
+		"cdktg.ICustomSynthesis",
+		reflect.TypeOf((*ICustomSynthesis)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
+		},
+		func() interface{} {
+			return &jsiiProxy_ICustomSynthesis{}
+		},
+	)
+	_jsii_.RegisterInterface(
 		"cdktg.IManifest",
 		reflect.TypeOf((*IManifest)(nil)).Elem(),
 		[]_jsii_.Member{
@@ -272,6 +282,7 @@ func init() {
 		"cdktg.IModelSynthesizer",
 		reflect.TypeOf((*IModelSynthesizer)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "addFileAsset", GoMethod: "AddFileAsset"},
 			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 		},
 		func() interface{} {
@@ -397,6 +408,7 @@ func init() {
 		"cdktg.ModelSynthesizer",
 		reflect.TypeOf((*ModelSynthesizer)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "addFileAsset", GoMethod: "AddFileAsset"},
 			_jsii_.MemberProperty{JsiiProperty: "model", GoGetter: "Model"},
 			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 		},
