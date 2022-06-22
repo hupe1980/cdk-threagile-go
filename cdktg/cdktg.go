@@ -2052,12 +2052,12 @@ func (j *jsiiProxy_Resource) Uuid() *string {
 }
 
 
-func NewResource_Override(r Resource, model constructs.Construct, id *string, props *ResourceProps) {
+func NewResource_Override(r Resource, scope constructs.Construct, id *string, props *ResourceProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
 		"cdktg.Resource",
-		[]interface{}{model, id, props},
+		[]interface{}{scope, id, props},
 		r,
 	)
 }
