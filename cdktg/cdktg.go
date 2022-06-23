@@ -439,6 +439,8 @@ type Communication interface {
 	Target() TechnicalAsset
 	Usage() Usage
 	Vpn() *bool
+	IsEncrypted() *bool
+	IsProcessLocal() *bool
 	Receives(assets ...DataAsset)
 	Sends(assets ...DataAsset)
 }
@@ -581,6 +583,32 @@ func NewCommunication_Override(c Communication, id *string, props *Communication
 		[]interface{}{id, props},
 		c,
 	)
+}
+
+func (c *jsiiProxy_Communication) IsEncrypted() *bool {
+	var returns *bool
+
+	_jsii_.Invoke(
+		c,
+		"isEncrypted",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (c *jsiiProxy_Communication) IsProcessLocal() *bool {
+	var returns *bool
+
+	_jsii_.Invoke(
+		c,
+		"isProcessLocal",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
 }
 
 func (c *jsiiProxy_Communication) Receives(assets ...DataAsset) {
@@ -3035,6 +3063,8 @@ type TechnicalAsset interface {
 	Usage() Usage
 	Uuid() *string
 	CommunicatesWith(id *string, target TechnicalAsset, options *CommunicationOptions) Communication
+	IsWebApplication() *bool
+	IsWebService() *bool
 	Processes(assets ...DataAsset)
 	Stores(assets ...DataAsset)
 	// Returns a string representation of this construct.
@@ -3306,6 +3336,32 @@ func (t *jsiiProxy_TechnicalAsset) CommunicatesWith(id *string, target Technical
 	return returns
 }
 
+func (t *jsiiProxy_TechnicalAsset) IsWebApplication() *bool {
+	var returns *bool
+
+	_jsii_.Invoke(
+		t,
+		"isWebApplication",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (t *jsiiProxy_TechnicalAsset) IsWebService() *bool {
+	var returns *bool
+
+	_jsii_.Invoke(
+		t,
+		"isWebService",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 func (t *jsiiProxy_TechnicalAsset) Processes(assets ...DataAsset) {
 	args := []interface{}{}
 	for _, a := range assets {
@@ -3445,6 +3501,8 @@ type TrustBoundary interface {
 	Uuid() *string
 	AddTechnicalAssets(assets ...TechnicalAsset)
 	AddTrustBoundary(boundary TrustBoundary)
+	IsNetworkBoundary() *bool
+	IsWithinCloud() *bool
 	// Returns a string representation of this construct.
 	ToString() *string
 }
@@ -3580,6 +3638,32 @@ func (t *jsiiProxy_TrustBoundary) AddTrustBoundary(boundary TrustBoundary) {
 		"addTrustBoundary",
 		[]interface{}{boundary},
 	)
+}
+
+func (t *jsiiProxy_TrustBoundary) IsNetworkBoundary() *bool {
+	var returns *bool
+
+	_jsii_.Invoke(
+		t,
+		"isNetworkBoundary",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (t *jsiiProxy_TrustBoundary) IsWithinCloud() *bool {
+	var returns *bool
+
+	_jsii_.Invoke(
+		t,
+		"isWithinCloud",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
 }
 
 func (t *jsiiProxy_TrustBoundary) ToString() *string {

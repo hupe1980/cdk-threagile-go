@@ -126,6 +126,10 @@ project.synth();
 
 ### cdktg CLI commands:
 
+A running thragile rest api server is required for the CLI. The URL can be passed by parameter `url` or environment variable `CDKTG_THREAGILE_BASE_URL`.
+
+The examples can be used with the [threagile playground](https://run.threagile.io/)
+
 ```sh
 cdktg [command]
 
