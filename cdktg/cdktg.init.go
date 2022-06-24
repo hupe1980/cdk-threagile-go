@@ -745,6 +745,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "tags", GoGetter: "Tags"},
 			_jsii_.MemberProperty{JsiiProperty: "technology", GoGetter: "Technology"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+			_jsii_.MemberProperty{JsiiProperty: "trustBoundary", GoGetter: "TrustBoundary"},
 			_jsii_.MemberProperty{JsiiProperty: "type", GoGetter: "Type"},
 			_jsii_.MemberProperty{JsiiProperty: "usage", GoGetter: "Usage"},
 			_jsii_.MemberProperty{JsiiProperty: "uuid", GoGetter: "Uuid"},

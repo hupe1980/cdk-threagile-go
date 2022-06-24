@@ -853,7 +853,7 @@ func (d *jsiiProxy_DataAsset) ToString() *string {
 }
 
 type DataAssetProps struct {
-	Description *string `field:"required" json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	CiaTriad CIATriad `field:"required" json:"ciaTriad" yaml:"ciaTriad"`
 	Quantity Quantity `field:"required" json:"quantity" yaml:"quantity"`
 	Usage Usage `field:"required" json:"usage" yaml:"usage"`
@@ -2064,7 +2064,7 @@ func (r *jsiiProxy_Resource) ToString() *string {
 }
 
 type ResourceProps struct {
-	Description *string `field:"required" json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 }
 
 type Risk interface {
@@ -2525,7 +2525,7 @@ func (r *jsiiProxy_RiskCategory) ToString() *string {
 }
 
 type RiskCategoryProps struct {
-	Description *string `field:"required" json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	Action *string `field:"required" json:"action" yaml:"action"`
 	Asvs *string `field:"required" json:"asvs" yaml:"asvs"`
 	CheatSheat *string `field:"required" json:"cheatSheat" yaml:"cheatSheat"`
@@ -3016,7 +3016,7 @@ func (s *jsiiProxy_SharedRuntime) ToString() *string {
 }
 
 type SharedRuntimeProps struct {
-	Description *string `field:"required" json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	Tags *[]*string `field:"optional" json:"tags" yaml:"tags"`
 }
 
@@ -3059,6 +3059,7 @@ type TechnicalAsset interface {
 	Size() Size
 	Tags() *[]*string
 	Technology() Technology
+	TrustBoundary() TrustBoundary
 	Type() TechnicalAssetType
 	Usage() Usage
 	Uuid() *string
@@ -3236,6 +3237,16 @@ func (j *jsiiProxy_TechnicalAsset) Technology() Technology {
 	return returns
 }
 
+func (j *jsiiProxy_TechnicalAsset) TrustBoundary() TrustBoundary {
+	var returns TrustBoundary
+	_jsii_.Get(
+		j,
+		"trustBoundary",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_TechnicalAsset) Type() TechnicalAssetType {
 	var returns TechnicalAssetType
 	_jsii_.Get(
@@ -3402,14 +3413,13 @@ func (t *jsiiProxy_TechnicalAsset) ToString() *string {
 }
 
 type TechnicalAssetProps struct {
-	Description *string `field:"required" json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	CiaTriad CIATriad `field:"required" json:"ciaTriad" yaml:"ciaTriad"`
 	Encryption Encryption `field:"required" json:"encryption" yaml:"encryption"`
 	HumanUse *bool `field:"required" json:"humanUse" yaml:"humanUse"`
 	Internet *bool `field:"required" json:"internet" yaml:"internet"`
 	Machine Machine `field:"required" json:"machine" yaml:"machine"`
 	MultiTenant *bool `field:"required" json:"multiTenant" yaml:"multiTenant"`
-	Owner *string `field:"required" json:"owner" yaml:"owner"`
 	Redundant *bool `field:"required" json:"redundant" yaml:"redundant"`
 	Size Size `field:"required" json:"size" yaml:"size"`
 	Technology Technology `field:"required" json:"technology" yaml:"technology"`
@@ -3417,6 +3427,7 @@ type TechnicalAssetProps struct {
 	Usage Usage `field:"required" json:"usage" yaml:"usage"`
 	CustomDevelopedParts *bool `field:"optional" json:"customDevelopedParts" yaml:"customDevelopedParts"`
 	DataFormatsAccepted *[]DataFormat `field:"optional" json:"dataFormatsAccepted" yaml:"dataFormatsAccepted"`
+	Owner *string `field:"optional" json:"owner" yaml:"owner"`
 	Scope Scope `field:"optional" json:"scope" yaml:"scope"`
 	Tags *[]*string `field:"optional" json:"tags" yaml:"tags"`
 	TrustBoundary TrustBoundary `field:"optional" json:"trustBoundary" yaml:"trustBoundary"`
@@ -3680,7 +3691,7 @@ func (t *jsiiProxy_TrustBoundary) ToString() *string {
 }
 
 type TrustBoundaryProps struct {
-	Description *string `field:"required" json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	Type TrustBoundaryType `field:"required" json:"type" yaml:"type"`
 	Tags *[]*string `field:"optional" json:"tags" yaml:"tags"`
 }
