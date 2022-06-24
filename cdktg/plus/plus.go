@@ -29,10 +29,12 @@ type Browser interface {
 	Tags() *[]*string
 	Technology() cdktg.Technology
 	TrustBoundary() cdktg.TrustBoundary
+	SetTrustBoundary(val cdktg.TrustBoundary)
 	Type() cdktg.TechnicalAssetType
 	Usage() cdktg.Usage
 	Uuid() *string
 	CommunicatesWith(id *string, target cdktg.TechnicalAsset, options *cdktg.CommunicationOptions) cdktg.Communication
+	IsTrafficForwarding() *bool
 	IsWebApplication() *bool
 	IsWebService() *bool
 	Processes(assets ...cdktg.DataAsset)
@@ -271,6 +273,14 @@ func NewBrowser_Override(b Browser, scope constructs.Construct, id *string, prop
 	)
 }
 
+func (j *jsiiProxy_Browser) SetTrustBoundary(val cdktg.TrustBoundary) {
+	_jsii_.Set(
+		j,
+		"trustBoundary",
+		val,
+	)
+}
+
 // Checks if `x` is a construct.
 //
 // Use this method instead of `instanceof` to properly detect `Construct`
@@ -310,6 +320,19 @@ func (b *jsiiProxy_Browser) CommunicatesWith(id *string, target cdktg.TechnicalA
 		b,
 		"communicatesWith",
 		[]interface{}{id, target, options},
+		&returns,
+	)
+
+	return returns
+}
+
+func (b *jsiiProxy_Browser) IsTrafficForwarding() *bool {
+	var returns *bool
+
+	_jsii_.Invoke(
+		b,
+		"isTrafficForwarding",
+		nil, // no parameters
 		&returns,
 	)
 
@@ -426,11 +449,13 @@ type Vault interface {
 	Tags() *[]*string
 	Technology() cdktg.Technology
 	TrustBoundary() cdktg.TrustBoundary
+	SetTrustBoundary(val cdktg.TrustBoundary)
 	Type() cdktg.TechnicalAssetType
 	Usage() cdktg.Usage
 	Uuid() *string
 	VaultStorage() cdktg.TechnicalAsset
 	CommunicatesWith(id *string, target cdktg.TechnicalAsset, options *cdktg.CommunicationOptions) cdktg.Communication
+	IsTrafficForwarding() *bool
 	IsUsedBy(client cdktg.TechnicalAsset)
 	IsWebApplication() *bool
 	IsWebService() *bool
@@ -690,6 +715,14 @@ func NewVault_Override(v Vault, scope constructs.Construct, id *string, props *V
 	)
 }
 
+func (j *jsiiProxy_Vault) SetTrustBoundary(val cdktg.TrustBoundary) {
+	_jsii_.Set(
+		j,
+		"trustBoundary",
+		val,
+	)
+}
+
 // Checks if `x` is a construct.
 //
 // Use this method instead of `instanceof` to properly detect `Construct`
@@ -729,6 +762,19 @@ func (v *jsiiProxy_Vault) CommunicatesWith(id *string, target cdktg.TechnicalAss
 		v,
 		"communicatesWith",
 		[]interface{}{id, target, options},
+		&returns,
+	)
+
+	return returns
+}
+
+func (v *jsiiProxy_Vault) IsTrafficForwarding() *bool {
+	var returns *bool
+
+	_jsii_.Invoke(
+		v,
+		"isTrafficForwarding",
+		nil, // no parameters
 		&returns,
 	)
 

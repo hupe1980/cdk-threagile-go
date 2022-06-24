@@ -3060,10 +3060,12 @@ type TechnicalAsset interface {
 	Tags() *[]*string
 	Technology() Technology
 	TrustBoundary() TrustBoundary
+	SetTrustBoundary(val TrustBoundary)
 	Type() TechnicalAssetType
 	Usage() Usage
 	Uuid() *string
 	CommunicatesWith(id *string, target TechnicalAsset, options *CommunicationOptions) Communication
+	IsTrafficForwarding() *bool
 	IsWebApplication() *bool
 	IsWebService() *bool
 	Processes(assets ...DataAsset)
@@ -3302,6 +3304,14 @@ func NewTechnicalAsset_Override(t TechnicalAsset, scope constructs.Construct, id
 	)
 }
 
+func (j *jsiiProxy_TechnicalAsset) SetTrustBoundary(val TrustBoundary) {
+	_jsii_.Set(
+		j,
+		"trustBoundary",
+		val,
+	)
+}
+
 // Checks if `x` is a construct.
 //
 // Use this method instead of `instanceof` to properly detect `Construct`
@@ -3341,6 +3351,19 @@ func (t *jsiiProxy_TechnicalAsset) CommunicatesWith(id *string, target Technical
 		t,
 		"communicatesWith",
 		[]interface{}{id, target, options},
+		&returns,
+	)
+
+	return returns
+}
+
+func (t *jsiiProxy_TechnicalAsset) IsTrafficForwarding() *bool {
+	var returns *bool
+
+	_jsii_.Invoke(
+		t,
+		"isTrafficForwarding",
+		nil, // no parameters
 		&returns,
 	)
 

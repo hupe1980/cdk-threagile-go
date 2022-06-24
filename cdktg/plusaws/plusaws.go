@@ -30,10 +30,12 @@ type ApplicationLoadBalancer interface {
 	Tags() *[]*string
 	Technology() cdktg.Technology
 	TrustBoundary() cdktg.TrustBoundary
+	SetTrustBoundary(val cdktg.TrustBoundary)
 	Type() cdktg.TechnicalAssetType
 	Usage() cdktg.Usage
 	Uuid() *string
 	CommunicatesWith(id *string, target cdktg.TechnicalAsset, options *cdktg.CommunicationOptions) cdktg.Communication
+	IsTrafficForwarding() *bool
 	IsWebApplication() *bool
 	IsWebService() *bool
 	Processes(assets ...cdktg.DataAsset)
@@ -282,6 +284,14 @@ func NewApplicationLoadBalancer_Override(a ApplicationLoadBalancer, scope constr
 	)
 }
 
+func (j *jsiiProxy_ApplicationLoadBalancer) SetTrustBoundary(val cdktg.TrustBoundary) {
+	_jsii_.Set(
+		j,
+		"trustBoundary",
+		val,
+	)
+}
+
 // Checks if `x` is a construct.
 //
 // Use this method instead of `instanceof` to properly detect `Construct`
@@ -321,6 +331,19 @@ func (a *jsiiProxy_ApplicationLoadBalancer) CommunicatesWith(id *string, target 
 		a,
 		"communicatesWith",
 		[]interface{}{id, target, options},
+		&returns,
+	)
+
+	return returns
+}
+
+func (a *jsiiProxy_ApplicationLoadBalancer) IsTrafficForwarding() *bool {
+	var returns *bool
+
+	_jsii_.Invoke(
+		a,
+		"isTrafficForwarding",
+		nil, // no parameters
 		&returns,
 	)
 

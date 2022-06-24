@@ -731,6 +731,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "encryption", GoGetter: "Encryption"},
 			_jsii_.MemberProperty{JsiiProperty: "humanUse", GoGetter: "HumanUse"},
 			_jsii_.MemberProperty{JsiiProperty: "internet", GoGetter: "Internet"},
+			_jsii_.MemberMethod{JsiiMethod: "isTrafficForwarding", GoMethod: "IsTrafficForwarding"},
 			_jsii_.MemberMethod{JsiiMethod: "isWebApplication", GoMethod: "IsWebApplication"},
 			_jsii_.MemberMethod{JsiiMethod: "isWebService", GoMethod: "IsWebService"},
 			_jsii_.MemberProperty{JsiiProperty: "machine", GoGetter: "Machine"},
