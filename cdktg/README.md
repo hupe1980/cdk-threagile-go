@@ -137,7 +137,7 @@ project.synth();
 ### High level constructs (cdktg/plus*)
 
 ```typescript
-import { ApplicationLoadBalancer, Cloud } from "cdktg/plus_aws";
+import { ApplicationLoadBalancer, Cloud } from "cdktg/plus-aws";
 
 // ...
 

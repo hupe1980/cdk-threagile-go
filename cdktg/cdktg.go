@@ -430,12 +430,12 @@ type CIATriadProps struct {
 type Communication interface {
 	Authentication() Authentication
 	Authorization() Authorization
-	Caller() TechnicalAsset
 	Description() *string
 	Id() *string
 	IpFiltered() *bool
 	Protocol() Protocol
 	Readonly() *bool
+	Source() TechnicalAsset
 	Target() TechnicalAsset
 	Usage() Usage
 	Vpn() *bool
@@ -465,16 +465,6 @@ func (j *jsiiProxy_Communication) Authorization() Authorization {
 	_jsii_.Get(
 		j,
 		"authorization",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_Communication) Caller() TechnicalAsset {
-	var returns TechnicalAsset
-	_jsii_.Get(
-		j,
-		"caller",
 		&returns,
 	)
 	return returns
@@ -525,6 +515,16 @@ func (j *jsiiProxy_Communication) Readonly() *bool {
 	_jsii_.Get(
 		j,
 		"readonly",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_Communication) Source() TechnicalAsset {
+	var returns TechnicalAsset
+	_jsii_.Get(
+		j,
+		"source",
 		&returns,
 	)
 	return returns
@@ -657,7 +657,7 @@ type CommunicationProps struct {
 	Readonly *bool `field:"required" json:"readonly" yaml:"readonly"`
 	Usage Usage `field:"required" json:"usage" yaml:"usage"`
 	Vpn *bool `field:"required" json:"vpn" yaml:"vpn"`
-	Caller TechnicalAsset `field:"required" json:"caller" yaml:"caller"`
+	Source TechnicalAsset `field:"required" json:"source" yaml:"source"`
 	Target TechnicalAsset `field:"required" json:"target" yaml:"target"`
 }
 

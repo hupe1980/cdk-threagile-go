@@ -136,7 +136,6 @@ func init() {
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "authentication", GoGetter: "Authentication"},
 			_jsii_.MemberProperty{JsiiProperty: "authorization", GoGetter: "Authorization"},
-			_jsii_.MemberProperty{JsiiProperty: "caller", GoGetter: "Caller"},
 			_jsii_.MemberProperty{JsiiProperty: "description", GoGetter: "Description"},
 			_jsii_.MemberProperty{JsiiProperty: "id", GoGetter: "Id"},
 			_jsii_.MemberProperty{JsiiProperty: "ipFiltered", GoGetter: "IpFiltered"},
@@ -146,6 +145,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "readonly", GoGetter: "Readonly"},
 			_jsii_.MemberMethod{JsiiMethod: "receives", GoMethod: "Receives"},
 			_jsii_.MemberMethod{JsiiMethod: "sends", GoMethod: "Sends"},
+			_jsii_.MemberProperty{JsiiProperty: "source", GoGetter: "Source"},
 			_jsii_.MemberProperty{JsiiProperty: "target", GoGetter: "Target"},
 			_jsii_.MemberProperty{JsiiProperty: "usage", GoGetter: "Usage"},
 			_jsii_.MemberProperty{JsiiProperty: "vpn", GoGetter: "Vpn"},
