@@ -120,6 +120,8 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "availability", GoGetter: "Availability"},
 			_jsii_.MemberProperty{JsiiProperty: "confidentiality", GoGetter: "Confidentiality"},
 			_jsii_.MemberMethod{JsiiMethod: "hasHigherAvailabilty", GoMethod: "HasHigherAvailabilty"},
+			_jsii_.MemberMethod{JsiiMethod: "hasHigherConfidentiality", GoMethod: "HasHigherConfidentiality"},
+			_jsii_.MemberMethod{JsiiMethod: "hasHigherIntegrity", GoMethod: "HasHigherIntegrity"},
 			_jsii_.MemberProperty{JsiiProperty: "integrity", GoGetter: "Integrity"},
 			_jsii_.MemberProperty{JsiiProperty: "justification", GoGetter: "Justification"},
 		},

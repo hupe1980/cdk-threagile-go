@@ -349,6 +349,8 @@ type CIATriad interface {
 	Integrity() Integrity
 	Justification() *string
 	HasHigherAvailabilty(availability Availability) *bool
+	HasHigherConfidentiality(confidentiality Confidentiality) *bool
+	HasHigherIntegrity(integrity Integrity) *bool
 }
 
 // The jsii proxy struct for CIATriad
@@ -428,6 +430,32 @@ func (c *jsiiProxy_CIATriad) HasHigherAvailabilty(availability Availability) *bo
 		c,
 		"hasHigherAvailabilty",
 		[]interface{}{availability},
+		&returns,
+	)
+
+	return returns
+}
+
+func (c *jsiiProxy_CIATriad) HasHigherConfidentiality(confidentiality Confidentiality) *bool {
+	var returns *bool
+
+	_jsii_.Invoke(
+		c,
+		"hasHigherConfidentiality",
+		[]interface{}{confidentiality},
+		&returns,
+	)
+
+	return returns
+}
+
+func (c *jsiiProxy_CIATriad) HasHigherIntegrity(integrity Integrity) *bool {
+	var returns *bool
+
+	_jsii_.Invoke(
+		c,
+		"hasHigherIntegrity",
+		[]interface{}{integrity},
 		&returns,
 	)
 
