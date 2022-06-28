@@ -17,6 +17,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "dataFormatsAccepted", GoGetter: "DataFormatsAccepted"},
 			_jsii_.MemberProperty{JsiiProperty: "description", GoGetter: "Description"},
 			_jsii_.MemberProperty{JsiiProperty: "encryption", GoGetter: "Encryption"},
+			_jsii_.MemberProperty{JsiiProperty: "highestAvailability", GoGetter: "HighestAvailability"},
 			_jsii_.MemberProperty{JsiiProperty: "humanUse", GoGetter: "HumanUse"},
 			_jsii_.MemberProperty{JsiiProperty: "internet", GoGetter: "Internet"},
 			_jsii_.MemberMethod{JsiiMethod: "isTrafficForwarding", GoMethod: "IsTrafficForwarding"},

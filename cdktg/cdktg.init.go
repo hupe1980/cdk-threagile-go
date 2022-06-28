@@ -119,6 +119,7 @@ func init() {
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "availability", GoGetter: "Availability"},
 			_jsii_.MemberProperty{JsiiProperty: "confidentiality", GoGetter: "Confidentiality"},
+			_jsii_.MemberMethod{JsiiMethod: "hasHigherAvailabilty", GoMethod: "HasHigherAvailabilty"},
 			_jsii_.MemberProperty{JsiiProperty: "integrity", GoGetter: "Integrity"},
 			_jsii_.MemberProperty{JsiiProperty: "justification", GoGetter: "Justification"},
 		},
@@ -729,6 +730,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "dataFormatsAccepted", GoGetter: "DataFormatsAccepted"},
 			_jsii_.MemberProperty{JsiiProperty: "description", GoGetter: "Description"},
 			_jsii_.MemberProperty{JsiiProperty: "encryption", GoGetter: "Encryption"},
+			_jsii_.MemberProperty{JsiiProperty: "highestAvailability", GoGetter: "HighestAvailability"},
 			_jsii_.MemberProperty{JsiiProperty: "humanUse", GoGetter: "HumanUse"},
 			_jsii_.MemberProperty{JsiiProperty: "internet", GoGetter: "Internet"},
 			_jsii_.MemberMethod{JsiiMethod: "isTrafficForwarding", GoMethod: "IsTrafficForwarding"},
@@ -830,6 +832,14 @@ func init() {
 			"MAINFRAME": Technology_MAINFRAME,
 			"BLOCK_STORAGE": Technology_BLOCK_STORAGE,
 			"LIBRARY": Technology_LIBRARY,
+		},
+	)
+	_jsii_.RegisterClass(
+		"cdktg.Testing",
+		reflect.TypeOf((*Testing)(nil)).Elem(),
+		nil, // no members
+		func() interface{} {
+			return &jsiiProxy_Testing{}
 		},
 	)
 	_jsii_.RegisterClass(

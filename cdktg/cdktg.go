@@ -348,6 +348,7 @@ type CIATriad interface {
 	Confidentiality() Confidentiality
 	Integrity() Integrity
 	Justification() *string
+	HasHigherAvailabilty(availability Availability) *bool
 }
 
 // The jsii proxy struct for CIATriad
@@ -418,6 +419,19 @@ func NewCIATriad_Override(c CIATriad, props *CIATriadProps) {
 		[]interface{}{props},
 		c,
 	)
+}
+
+func (c *jsiiProxy_CIATriad) HasHigherAvailabilty(availability Availability) *bool {
+	var returns *bool
+
+	_jsii_.Invoke(
+		c,
+		"hasHigherAvailabilty",
+		[]interface{}{availability},
+		&returns,
+	)
+
+	return returns
 }
 
 type CIATriadProps struct {
@@ -3047,6 +3061,7 @@ type TechnicalAsset interface {
 	DataFormatsAccepted() *[]DataFormat
 	Description() *string
 	Encryption() Encryption
+	HighestAvailability() Availability
 	HumanUse() *bool
 	Internet() *bool
 	Machine() Machine
@@ -3124,6 +3139,16 @@ func (j *jsiiProxy_TechnicalAsset) Encryption() Encryption {
 	_jsii_.Get(
 		j,
 		"encryption",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_TechnicalAsset) HighestAvailability() Availability {
+	var returns Availability
+	_jsii_.Get(
+		j,
+		"highestAvailability",
 		&returns,
 	)
 	return returns
@@ -3524,6 +3549,30 @@ const (
 	Technology_BLOCK_STORAGE Technology = "BLOCK_STORAGE"
 	Technology_LIBRARY Technology = "LIBRARY"
 )
+
+// Testing utilities for cdktg models.
+type Testing interface {
+}
+
+// The jsii proxy struct for Testing
+type jsiiProxy_Testing struct {
+	_ byte // padding
+}
+
+func Testing_Model() Model {
+	_init_.Initialize()
+
+	var returns Model
+
+	_jsii_.StaticInvoke(
+		"cdktg.Testing",
+		"model",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
 
 type TrustBoundary interface {
 	Resource

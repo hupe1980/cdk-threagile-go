@@ -16,6 +16,7 @@ type Browser interface {
 	DataFormatsAccepted() *[]cdktg.DataFormat
 	Description() *string
 	Encryption() cdktg.Encryption
+	HighestAvailability() cdktg.Availability
 	HumanUse() *bool
 	Internet() *bool
 	Machine() cdktg.Machine
@@ -93,6 +94,16 @@ func (j *jsiiProxy_Browser) Encryption() cdktg.Encryption {
 	_jsii_.Get(
 		j,
 		"encryption",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_Browser) HighestAvailability() cdktg.Availability {
+	var returns cdktg.Availability
+	_jsii_.Get(
+		j,
+		"highestAvailability",
 		&returns,
 	)
 	return returns
@@ -436,6 +447,7 @@ type Vault interface {
 	DataFormatsAccepted() *[]cdktg.DataFormat
 	Description() *string
 	Encryption() cdktg.Encryption
+	HighestAvailability() cdktg.Availability
 	HumanUse() *bool
 	Internet() *bool
 	Machine() cdktg.Machine
@@ -525,6 +537,16 @@ func (j *jsiiProxy_Vault) Encryption() cdktg.Encryption {
 	_jsii_.Get(
 		j,
 		"encryption",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_Vault) HighestAvailability() cdktg.Availability {
+	var returns cdktg.Availability
+	_jsii_.Get(
+		j,
+		"highestAvailability",
 		&returns,
 	)
 	return returns
