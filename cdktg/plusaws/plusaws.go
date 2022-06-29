@@ -17,7 +17,9 @@ type ApplicationLoadBalancer interface {
 	Description() *string
 	Encryption() cdktg.Encryption
 	HighestAvailability() cdktg.Availability
+	HighestIntegrity() cdktg.Integrity
 	HumanUse() *bool
+	Id() *string
 	Internet() *bool
 	Machine() cdktg.Machine
 	MultiTenant() *bool
@@ -30,11 +32,11 @@ type ApplicationLoadBalancer interface {
 	Size() cdktg.Size
 	Tags() *[]*string
 	Technology() cdktg.Technology
+	Title() *string
 	TrustBoundary() cdktg.TrustBoundary
 	SetTrustBoundary(val cdktg.TrustBoundary)
 	Type() cdktg.TechnicalAssetType
 	Usage() cdktg.Usage
-	Uuid() *string
 	CommunicatesWith(id *string, target cdktg.TechnicalAsset, options *cdktg.CommunicationOptions) cdktg.Communication
 	IsTrafficForwarding() *bool
 	IsWebApplication() *bool
@@ -110,11 +112,31 @@ func (j *jsiiProxy_ApplicationLoadBalancer) HighestAvailability() cdktg.Availabi
 	return returns
 }
 
+func (j *jsiiProxy_ApplicationLoadBalancer) HighestIntegrity() cdktg.Integrity {
+	var returns cdktg.Integrity
+	_jsii_.Get(
+		j,
+		"highestIntegrity",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_ApplicationLoadBalancer) HumanUse() *bool {
 	var returns *bool
 	_jsii_.Get(
 		j,
 		"humanUse",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_ApplicationLoadBalancer) Id() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"id",
 		&returns,
 	)
 	return returns
@@ -230,6 +252,16 @@ func (j *jsiiProxy_ApplicationLoadBalancer) Technology() cdktg.Technology {
 	return returns
 }
 
+func (j *jsiiProxy_ApplicationLoadBalancer) Title() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"title",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_ApplicationLoadBalancer) TrustBoundary() cdktg.TrustBoundary {
 	var returns cdktg.TrustBoundary
 	_jsii_.Get(
@@ -255,16 +287,6 @@ func (j *jsiiProxy_ApplicationLoadBalancer) Usage() cdktg.Usage {
 	_jsii_.Get(
 		j,
 		"usage",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_ApplicationLoadBalancer) Uuid() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"uuid",
 		&returns,
 	)
 	return returns
@@ -437,11 +459,12 @@ type ApplicationLoadBalancerProps struct {
 type Cloud interface {
 	cdktg.TrustBoundary
 	Description() *string
+	Id() *string
 	// The tree node.
 	Node() constructs.Node
 	Tags() *[]*string
+	Title() *string
 	Type() cdktg.TrustBoundaryType
-	Uuid() *string
 	AddTechnicalAssets(assets ...cdktg.TechnicalAsset)
 	AddTrustBoundary(boundary cdktg.TrustBoundary)
 	IsNetworkBoundary() *bool
@@ -460,6 +483,16 @@ func (j *jsiiProxy_Cloud) Description() *string {
 	_jsii_.Get(
 		j,
 		"description",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_Cloud) Id() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"id",
 		&returns,
 	)
 	return returns
@@ -485,21 +518,21 @@ func (j *jsiiProxy_Cloud) Tags() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_Cloud) Type() cdktg.TrustBoundaryType {
-	var returns cdktg.TrustBoundaryType
+func (j *jsiiProxy_Cloud) Title() *string {
+	var returns *string
 	_jsii_.Get(
 		j,
-		"type",
+		"title",
 		&returns,
 	)
 	return returns
 }
 
-func (j *jsiiProxy_Cloud) Uuid() *string {
-	var returns *string
+func (j *jsiiProxy_Cloud) Type() cdktg.TrustBoundaryType {
+	var returns cdktg.TrustBoundaryType
 	_jsii_.Get(
 		j,
-		"uuid",
+		"type",
 		&returns,
 	)
 	return returns
@@ -630,11 +663,12 @@ type CloudProps struct {
 type SecurityGroup interface {
 	cdktg.TrustBoundary
 	Description() *string
+	Id() *string
 	// The tree node.
 	Node() constructs.Node
 	Tags() *[]*string
+	Title() *string
 	Type() cdktg.TrustBoundaryType
-	Uuid() *string
 	AddTechnicalAssets(assets ...cdktg.TechnicalAsset)
 	AddTrustBoundary(boundary cdktg.TrustBoundary)
 	IsNetworkBoundary() *bool
@@ -653,6 +687,16 @@ func (j *jsiiProxy_SecurityGroup) Description() *string {
 	_jsii_.Get(
 		j,
 		"description",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_SecurityGroup) Id() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"id",
 		&returns,
 	)
 	return returns
@@ -678,21 +722,21 @@ func (j *jsiiProxy_SecurityGroup) Tags() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_SecurityGroup) Type() cdktg.TrustBoundaryType {
-	var returns cdktg.TrustBoundaryType
+func (j *jsiiProxy_SecurityGroup) Title() *string {
+	var returns *string
 	_jsii_.Get(
 		j,
-		"type",
+		"title",
 		&returns,
 	)
 	return returns
 }
 
-func (j *jsiiProxy_SecurityGroup) Uuid() *string {
-	var returns *string
+func (j *jsiiProxy_SecurityGroup) Type() cdktg.TrustBoundaryType {
+	var returns cdktg.TrustBoundaryType
 	_jsii_.Get(
 		j,
-		"uuid",
+		"type",
 		&returns,
 	)
 	return returns

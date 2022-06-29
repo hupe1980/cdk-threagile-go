@@ -17,7 +17,9 @@ type Browser interface {
 	Description() *string
 	Encryption() cdktg.Encryption
 	HighestAvailability() cdktg.Availability
+	HighestIntegrity() cdktg.Integrity
 	HumanUse() *bool
+	Id() *string
 	Internet() *bool
 	Machine() cdktg.Machine
 	MultiTenant() *bool
@@ -29,11 +31,11 @@ type Browser interface {
 	Size() cdktg.Size
 	Tags() *[]*string
 	Technology() cdktg.Technology
+	Title() *string
 	TrustBoundary() cdktg.TrustBoundary
 	SetTrustBoundary(val cdktg.TrustBoundary)
 	Type() cdktg.TechnicalAssetType
 	Usage() cdktg.Usage
-	Uuid() *string
 	CommunicatesWith(id *string, target cdktg.TechnicalAsset, options *cdktg.CommunicationOptions) cdktg.Communication
 	IsTrafficForwarding() *bool
 	IsWebApplication() *bool
@@ -109,11 +111,31 @@ func (j *jsiiProxy_Browser) HighestAvailability() cdktg.Availability {
 	return returns
 }
 
+func (j *jsiiProxy_Browser) HighestIntegrity() cdktg.Integrity {
+	var returns cdktg.Integrity
+	_jsii_.Get(
+		j,
+		"highestIntegrity",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_Browser) HumanUse() *bool {
 	var returns *bool
 	_jsii_.Get(
 		j,
 		"humanUse",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_Browser) Id() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"id",
 		&returns,
 	)
 	return returns
@@ -219,6 +241,16 @@ func (j *jsiiProxy_Browser) Technology() cdktg.Technology {
 	return returns
 }
 
+func (j *jsiiProxy_Browser) Title() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"title",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_Browser) TrustBoundary() cdktg.TrustBoundary {
 	var returns cdktg.TrustBoundary
 	_jsii_.Get(
@@ -244,16 +276,6 @@ func (j *jsiiProxy_Browser) Usage() cdktg.Usage {
 	_jsii_.Get(
 		j,
 		"usage",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_Browser) Uuid() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"uuid",
 		&returns,
 	)
 	return returns
@@ -448,7 +470,9 @@ type Vault interface {
 	Description() *string
 	Encryption() cdktg.Encryption
 	HighestAvailability() cdktg.Availability
+	HighestIntegrity() cdktg.Integrity
 	HumanUse() *bool
+	Id() *string
 	Internet() *bool
 	Machine() cdktg.Machine
 	MultiTenant() *bool
@@ -460,11 +484,11 @@ type Vault interface {
 	Size() cdktg.Size
 	Tags() *[]*string
 	Technology() cdktg.Technology
+	Title() *string
 	TrustBoundary() cdktg.TrustBoundary
 	SetTrustBoundary(val cdktg.TrustBoundary)
 	Type() cdktg.TechnicalAssetType
 	Usage() cdktg.Usage
-	Uuid() *string
 	VaultStorage() cdktg.TechnicalAsset
 	CommunicatesWith(id *string, target cdktg.TechnicalAsset, options *cdktg.CommunicationOptions) cdktg.Communication
 	IsTrafficForwarding() *bool
@@ -552,11 +576,31 @@ func (j *jsiiProxy_Vault) HighestAvailability() cdktg.Availability {
 	return returns
 }
 
+func (j *jsiiProxy_Vault) HighestIntegrity() cdktg.Integrity {
+	var returns cdktg.Integrity
+	_jsii_.Get(
+		j,
+		"highestIntegrity",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_Vault) HumanUse() *bool {
 	var returns *bool
 	_jsii_.Get(
 		j,
 		"humanUse",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_Vault) Id() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"id",
 		&returns,
 	)
 	return returns
@@ -662,6 +706,16 @@ func (j *jsiiProxy_Vault) Technology() cdktg.Technology {
 	return returns
 }
 
+func (j *jsiiProxy_Vault) Title() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"title",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_Vault) TrustBoundary() cdktg.TrustBoundary {
 	var returns cdktg.TrustBoundary
 	_jsii_.Get(
@@ -687,16 +741,6 @@ func (j *jsiiProxy_Vault) Usage() cdktg.Usage {
 	_jsii_.Get(
 		j,
 		"usage",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_Vault) Uuid() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"uuid",
 		&returns,
 	)
 	return returns

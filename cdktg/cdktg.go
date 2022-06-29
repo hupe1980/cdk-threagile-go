@@ -473,12 +473,12 @@ type Communication interface {
 	Authentication() Authentication
 	Authorization() Authorization
 	Description() *string
-	Id() *string
 	IpFiltered() *bool
 	Protocol() Protocol
 	Readonly() *bool
 	Source() TechnicalAsset
 	Target() TechnicalAsset
+	Title() *string
 	Usage() Usage
 	Vpn() *bool
 	IsEncrypted() *bool
@@ -517,16 +517,6 @@ func (j *jsiiProxy_Communication) Description() *string {
 	_jsii_.Get(
 		j,
 		"description",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_Communication) Id() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"id",
 		&returns,
 	)
 	return returns
@@ -582,6 +572,16 @@ func (j *jsiiProxy_Communication) Target() TechnicalAsset {
 	return returns
 }
 
+func (j *jsiiProxy_Communication) Title() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"title",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_Communication) Usage() Usage {
 	var returns Usage
 	_jsii_.Get(
@@ -603,26 +603,26 @@ func (j *jsiiProxy_Communication) Vpn() *bool {
 }
 
 
-func NewCommunication(id *string, props *CommunicationProps) Communication {
+func NewCommunication(title *string, props *CommunicationProps) Communication {
 	_init_.Initialize()
 
 	j := jsiiProxy_Communication{}
 
 	_jsii_.Create(
 		"cdktg.Communication",
-		[]interface{}{id, props},
+		[]interface{}{title, props},
 		&j,
 	)
 
 	return &j
 }
 
-func NewCommunication_Override(c Communication, id *string, props *CommunicationProps) {
+func NewCommunication_Override(c Communication, title *string, props *CommunicationProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
 		"cdktg.Communication",
-		[]interface{}{id, props},
+		[]interface{}{title, props},
 		c,
 	)
 }
@@ -717,14 +717,15 @@ type DataAsset interface {
 	Resource
 	CiaTriad() CIATriad
 	Description() *string
+	Id() *string
 	// The tree node.
 	Node() constructs.Node
 	Origin() *string
 	Owner() *string
 	Quantity() Quantity
 	Tags() *[]*string
+	Title() *string
 	Usage() Usage
-	Uuid() *string
 	// Returns a string representation of this construct.
 	ToString() *string
 }
@@ -749,6 +750,16 @@ func (j *jsiiProxy_DataAsset) Description() *string {
 	_jsii_.Get(
 		j,
 		"description",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_DataAsset) Id() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"id",
 		&returns,
 	)
 	return returns
@@ -804,21 +815,21 @@ func (j *jsiiProxy_DataAsset) Tags() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_DataAsset) Usage() Usage {
-	var returns Usage
+func (j *jsiiProxy_DataAsset) Title() *string {
+	var returns *string
 	_jsii_.Get(
 		j,
-		"usage",
+		"title",
 		&returns,
 	)
 	return returns
 }
 
-func (j *jsiiProxy_DataAsset) Uuid() *string {
-	var returns *string
+func (j *jsiiProxy_DataAsset) Usage() Usage {
+	var returns Usage
 	_jsii_.Get(
 		j,
-		"uuid",
+		"usage",
 		&returns,
 	)
 	return returns
@@ -2007,9 +2018,10 @@ type Question struct {
 type Resource interface {
 	constructs.Construct
 	Description() *string
+	Id() *string
 	// The tree node.
 	Node() constructs.Node
-	Uuid() *string
+	Title() *string
 	// Returns a string representation of this construct.
 	ToString() *string
 }
@@ -2029,6 +2041,16 @@ func (j *jsiiProxy_Resource) Description() *string {
 	return returns
 }
 
+func (j *jsiiProxy_Resource) Id() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"id",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_Resource) Node() constructs.Node {
 	var returns constructs.Node
 	_jsii_.Get(
@@ -2039,11 +2061,11 @@ func (j *jsiiProxy_Resource) Node() constructs.Node {
 	return returns
 }
 
-func (j *jsiiProxy_Resource) Uuid() *string {
+func (j *jsiiProxy_Resource) Title() *string {
 	var returns *string
 	_jsii_.Get(
 		j,
-		"uuid",
+		"title",
 		&returns,
 	)
 	return returns
@@ -2274,6 +2296,7 @@ type RiskCategory interface {
 	DetectionLogic() *string
 	FalsePositives() *string
 	Function() RiskFunction
+	Id() *string
 	Impact() *string
 	Mitigation() *string
 	ModelFailurePossibleReason() *bool
@@ -2281,7 +2304,7 @@ type RiskCategory interface {
 	Node() constructs.Node
 	RiskAssessment() *string
 	Stride() Stride
-	Uuid() *string
+	Title() *string
 	AddIdentifiedRisk(risk Risk)
 	IdentifiedAtDataAsset(target DataAsset, options *RiskOptions)
 	IdentifiedAtSharedRuntime(target SharedRuntime, options *RiskOptions)
@@ -2386,6 +2409,16 @@ func (j *jsiiProxy_RiskCategory) Function() RiskFunction {
 	return returns
 }
 
+func (j *jsiiProxy_RiskCategory) Id() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"id",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_RiskCategory) Impact() *string {
 	var returns *string
 	_jsii_.Get(
@@ -2446,11 +2479,11 @@ func (j *jsiiProxy_RiskCategory) Stride() Stride {
 	return returns
 }
 
-func (j *jsiiProxy_RiskCategory) Uuid() *string {
+func (j *jsiiProxy_RiskCategory) Title() *string {
 	var returns *string
 	_jsii_.Get(
 		j,
-		"uuid",
+		"title",
 		&returns,
 	)
 	return returns
@@ -2920,10 +2953,11 @@ const (
 type SharedRuntime interface {
 	Resource
 	Description() *string
+	Id() *string
 	// The tree node.
 	Node() constructs.Node
 	Tags() *[]*string
-	Uuid() *string
+	Title() *string
 	Runs(assets ...TechnicalAsset)
 	// Returns a string representation of this construct.
 	ToString() *string
@@ -2939,6 +2973,16 @@ func (j *jsiiProxy_SharedRuntime) Description() *string {
 	_jsii_.Get(
 		j,
 		"description",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_SharedRuntime) Id() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"id",
 		&returns,
 	)
 	return returns
@@ -2964,11 +3008,11 @@ func (j *jsiiProxy_SharedRuntime) Tags() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_SharedRuntime) Uuid() *string {
+func (j *jsiiProxy_SharedRuntime) Title() *string {
 	var returns *string
 	_jsii_.Get(
 		j,
-		"uuid",
+		"title",
 		&returns,
 	)
 	return returns
@@ -3090,7 +3134,9 @@ type TechnicalAsset interface {
 	Description() *string
 	Encryption() Encryption
 	HighestAvailability() Availability
+	HighestIntegrity() Integrity
 	HumanUse() *bool
+	Id() *string
 	Internet() *bool
 	Machine() Machine
 	MultiTenant() *bool
@@ -3102,11 +3148,11 @@ type TechnicalAsset interface {
 	Size() Size
 	Tags() *[]*string
 	Technology() Technology
+	Title() *string
 	TrustBoundary() TrustBoundary
 	SetTrustBoundary(val TrustBoundary)
 	Type() TechnicalAssetType
 	Usage() Usage
-	Uuid() *string
 	CommunicatesWith(id *string, target TechnicalAsset, options *CommunicationOptions) Communication
 	IsTrafficForwarding() *bool
 	IsWebApplication() *bool
@@ -3182,11 +3228,31 @@ func (j *jsiiProxy_TechnicalAsset) HighestAvailability() Availability {
 	return returns
 }
 
+func (j *jsiiProxy_TechnicalAsset) HighestIntegrity() Integrity {
+	var returns Integrity
+	_jsii_.Get(
+		j,
+		"highestIntegrity",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_TechnicalAsset) HumanUse() *bool {
 	var returns *bool
 	_jsii_.Get(
 		j,
 		"humanUse",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_TechnicalAsset) Id() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"id",
 		&returns,
 	)
 	return returns
@@ -3292,6 +3358,16 @@ func (j *jsiiProxy_TechnicalAsset) Technology() Technology {
 	return returns
 }
 
+func (j *jsiiProxy_TechnicalAsset) Title() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"title",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_TechnicalAsset) TrustBoundary() TrustBoundary {
 	var returns TrustBoundary
 	_jsii_.Get(
@@ -3317,16 +3393,6 @@ func (j *jsiiProxy_TechnicalAsset) Usage() Usage {
 	_jsii_.Get(
 		j,
 		"usage",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_TechnicalAsset) Uuid() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"uuid",
 		&returns,
 	)
 	return returns
@@ -3605,11 +3671,12 @@ func Testing_Model() Model {
 type TrustBoundary interface {
 	Resource
 	Description() *string
+	Id() *string
 	// The tree node.
 	Node() constructs.Node
 	Tags() *[]*string
+	Title() *string
 	Type() TrustBoundaryType
-	Uuid() *string
 	AddTechnicalAssets(assets ...TechnicalAsset)
 	AddTrustBoundary(boundary TrustBoundary)
 	IsNetworkBoundary() *bool
@@ -3628,6 +3695,16 @@ func (j *jsiiProxy_TrustBoundary) Description() *string {
 	_jsii_.Get(
 		j,
 		"description",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_TrustBoundary) Id() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"id",
 		&returns,
 	)
 	return returns
@@ -3653,21 +3730,21 @@ func (j *jsiiProxy_TrustBoundary) Tags() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_TrustBoundary) Type() TrustBoundaryType {
-	var returns TrustBoundaryType
+func (j *jsiiProxy_TrustBoundary) Title() *string {
+	var returns *string
 	_jsii_.Get(
 		j,
-		"type",
+		"title",
 		&returns,
 	)
 	return returns
 }
 
-func (j *jsiiProxy_TrustBoundary) Uuid() *string {
-	var returns *string
+func (j *jsiiProxy_TrustBoundary) Type() TrustBoundaryType {
+	var returns TrustBoundaryType
 	_jsii_.Get(
 		j,
-		"uuid",
+		"type",
 		&returns,
 	)
 	return returns

@@ -140,7 +140,6 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "authentication", GoGetter: "Authentication"},
 			_jsii_.MemberProperty{JsiiProperty: "authorization", GoGetter: "Authorization"},
 			_jsii_.MemberProperty{JsiiProperty: "description", GoGetter: "Description"},
-			_jsii_.MemberProperty{JsiiProperty: "id", GoGetter: "Id"},
 			_jsii_.MemberProperty{JsiiProperty: "ipFiltered", GoGetter: "IpFiltered"},
 			_jsii_.MemberMethod{JsiiMethod: "isEncrypted", GoMethod: "IsEncrypted"},
 			_jsii_.MemberMethod{JsiiMethod: "isProcessLocal", GoMethod: "IsProcessLocal"},
@@ -150,6 +149,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "sends", GoMethod: "Sends"},
 			_jsii_.MemberProperty{JsiiProperty: "source", GoGetter: "Source"},
 			_jsii_.MemberProperty{JsiiProperty: "target", GoGetter: "Target"},
+			_jsii_.MemberProperty{JsiiProperty: "title", GoGetter: "Title"},
 			_jsii_.MemberProperty{JsiiProperty: "usage", GoGetter: "Usage"},
 			_jsii_.MemberProperty{JsiiProperty: "vpn", GoGetter: "Vpn"},
 		},
@@ -182,14 +182,15 @@ func init() {
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "ciaTriad", GoGetter: "CiaTriad"},
 			_jsii_.MemberProperty{JsiiProperty: "description", GoGetter: "Description"},
+			_jsii_.MemberProperty{JsiiProperty: "id", GoGetter: "Id"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberProperty{JsiiProperty: "origin", GoGetter: "Origin"},
 			_jsii_.MemberProperty{JsiiProperty: "owner", GoGetter: "Owner"},
 			_jsii_.MemberProperty{JsiiProperty: "quantity", GoGetter: "Quantity"},
 			_jsii_.MemberProperty{JsiiProperty: "tags", GoGetter: "Tags"},
+			_jsii_.MemberProperty{JsiiProperty: "title", GoGetter: "Title"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "usage", GoGetter: "Usage"},
-			_jsii_.MemberProperty{JsiiProperty: "uuid", GoGetter: "Uuid"},
 		},
 		func() interface{} {
 			j := jsiiProxy_DataAsset{}
@@ -522,9 +523,10 @@ func init() {
 		reflect.TypeOf((*Resource)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "description", GoGetter: "Description"},
+			_jsii_.MemberProperty{JsiiProperty: "id", GoGetter: "Id"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "title", GoGetter: "Title"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
-			_jsii_.MemberProperty{JsiiProperty: "uuid", GoGetter: "Uuid"},
 		},
 		func() interface{} {
 			j := jsiiProxy_Resource{}
@@ -570,6 +572,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "detectionLogic", GoGetter: "DetectionLogic"},
 			_jsii_.MemberProperty{JsiiProperty: "falsePositives", GoGetter: "FalsePositives"},
 			_jsii_.MemberProperty{JsiiProperty: "function", GoGetter: "Function"},
+			_jsii_.MemberProperty{JsiiProperty: "id", GoGetter: "Id"},
 			_jsii_.MemberMethod{JsiiMethod: "identifiedAtDataAsset", GoMethod: "IdentifiedAtDataAsset"},
 			_jsii_.MemberMethod{JsiiMethod: "identifiedAtSharedRuntime", GoMethod: "IdentifiedAtSharedRuntime"},
 			_jsii_.MemberMethod{JsiiMethod: "identifiedAtTechnicalAsset", GoMethod: "IdentifiedAtTechnicalAsset"},
@@ -580,8 +583,8 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberProperty{JsiiProperty: "riskAssessment", GoGetter: "RiskAssessment"},
 			_jsii_.MemberProperty{JsiiProperty: "stride", GoGetter: "Stride"},
+			_jsii_.MemberProperty{JsiiProperty: "title", GoGetter: "Title"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
-			_jsii_.MemberProperty{JsiiProperty: "uuid", GoGetter: "Uuid"},
 		},
 		func() interface{} {
 			j := jsiiProxy_RiskCategory{}
@@ -684,11 +687,12 @@ func init() {
 		reflect.TypeOf((*SharedRuntime)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "description", GoGetter: "Description"},
+			_jsii_.MemberProperty{JsiiProperty: "id", GoGetter: "Id"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberMethod{JsiiMethod: "runs", GoMethod: "Runs"},
 			_jsii_.MemberProperty{JsiiProperty: "tags", GoGetter: "Tags"},
+			_jsii_.MemberProperty{JsiiProperty: "title", GoGetter: "Title"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
-			_jsii_.MemberProperty{JsiiProperty: "uuid", GoGetter: "Uuid"},
 		},
 		func() interface{} {
 			j := jsiiProxy_SharedRuntime{}
@@ -733,7 +737,9 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "description", GoGetter: "Description"},
 			_jsii_.MemberProperty{JsiiProperty: "encryption", GoGetter: "Encryption"},
 			_jsii_.MemberProperty{JsiiProperty: "highestAvailability", GoGetter: "HighestAvailability"},
+			_jsii_.MemberProperty{JsiiProperty: "highestIntegrity", GoGetter: "HighestIntegrity"},
 			_jsii_.MemberProperty{JsiiProperty: "humanUse", GoGetter: "HumanUse"},
+			_jsii_.MemberProperty{JsiiProperty: "id", GoGetter: "Id"},
 			_jsii_.MemberProperty{JsiiProperty: "internet", GoGetter: "Internet"},
 			_jsii_.MemberMethod{JsiiMethod: "isTrafficForwarding", GoMethod: "IsTrafficForwarding"},
 			_jsii_.MemberMethod{JsiiMethod: "isWebApplication", GoMethod: "IsWebApplication"},
@@ -749,11 +755,11 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "stores", GoMethod: "Stores"},
 			_jsii_.MemberProperty{JsiiProperty: "tags", GoGetter: "Tags"},
 			_jsii_.MemberProperty{JsiiProperty: "technology", GoGetter: "Technology"},
+			_jsii_.MemberProperty{JsiiProperty: "title", GoGetter: "Title"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "trustBoundary", GoGetter: "TrustBoundary"},
 			_jsii_.MemberProperty{JsiiProperty: "type", GoGetter: "Type"},
 			_jsii_.MemberProperty{JsiiProperty: "usage", GoGetter: "Usage"},
-			_jsii_.MemberProperty{JsiiProperty: "uuid", GoGetter: "Uuid"},
 		},
 		func() interface{} {
 			j := jsiiProxy_TechnicalAsset{}
@@ -851,13 +857,14 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "addTechnicalAssets", GoMethod: "AddTechnicalAssets"},
 			_jsii_.MemberMethod{JsiiMethod: "addTrustBoundary", GoMethod: "AddTrustBoundary"},
 			_jsii_.MemberProperty{JsiiProperty: "description", GoGetter: "Description"},
+			_jsii_.MemberProperty{JsiiProperty: "id", GoGetter: "Id"},
 			_jsii_.MemberMethod{JsiiMethod: "isNetworkBoundary", GoMethod: "IsNetworkBoundary"},
 			_jsii_.MemberMethod{JsiiMethod: "isWithinCloud", GoMethod: "IsWithinCloud"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberProperty{JsiiProperty: "tags", GoGetter: "Tags"},
+			_jsii_.MemberProperty{JsiiProperty: "title", GoGetter: "Title"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "type", GoGetter: "Type"},
-			_jsii_.MemberProperty{JsiiProperty: "uuid", GoGetter: "Uuid"},
 		},
 		func() interface{} {
 			j := jsiiProxy_TrustBoundary{}
