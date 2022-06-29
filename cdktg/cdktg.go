@@ -2267,7 +2267,7 @@ type RiskCategory interface {
 	Resource
 	Action() *string
 	Asvs() *string
-	CheatSheat() *string
+	CheatSheet() *string
 	Check() *string
 	Cwe() *float64
 	Description() *string
@@ -2316,11 +2316,11 @@ func (j *jsiiProxy_RiskCategory) Asvs() *string {
 	return returns
 }
 
-func (j *jsiiProxy_RiskCategory) CheatSheat() *string {
+func (j *jsiiProxy_RiskCategory) CheatSheet() *string {
 	var returns *string
 	_jsii_.Get(
 		j,
-		"cheatSheat",
+		"cheatSheet",
 		&returns,
 	)
 	return returns
@@ -2570,7 +2570,7 @@ type RiskCategoryProps struct {
 	Description *string `field:"optional" json:"description" yaml:"description"`
 	Action *string `field:"required" json:"action" yaml:"action"`
 	Asvs *string `field:"required" json:"asvs" yaml:"asvs"`
-	CheatSheat *string `field:"required" json:"cheatSheat" yaml:"cheatSheat"`
+	CheatSheet *string `field:"required" json:"cheatSheet" yaml:"cheatSheet"`
 	Check *string `field:"required" json:"check" yaml:"check"`
 	Cwe *float64 `field:"required" json:"cwe" yaml:"cwe"`
 	DetectionLogic *string `field:"required" json:"detectionLogic" yaml:"detectionLogic"`

@@ -563,7 +563,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "action", GoGetter: "Action"},
 			_jsii_.MemberMethod{JsiiMethod: "addIdentifiedRisk", GoMethod: "AddIdentifiedRisk"},
 			_jsii_.MemberProperty{JsiiProperty: "asvs", GoGetter: "Asvs"},
-			_jsii_.MemberProperty{JsiiProperty: "cheatSheat", GoGetter: "CheatSheat"},
+			_jsii_.MemberProperty{JsiiProperty: "cheatSheet", GoGetter: "CheatSheet"},
 			_jsii_.MemberProperty{JsiiProperty: "check", GoGetter: "Check"},
 			_jsii_.MemberProperty{JsiiProperty: "cwe", GoGetter: "Cwe"},
 			_jsii_.MemberProperty{JsiiProperty: "description", GoGetter: "Description"},
