@@ -37,6 +37,7 @@ type Browser interface {
 	Type() cdktg.TechnicalAssetType
 	Usage() cdktg.Usage
 	CommunicatesWith(id *string, target cdktg.TechnicalAsset, options *cdktg.CommunicationOptions) cdktg.Communication
+	IsInScope() *bool
 	IsTrafficForwarding() *bool
 	IsWebApplication() *bool
 	IsWebService() *bool
@@ -359,6 +360,19 @@ func (b *jsiiProxy_Browser) CommunicatesWith(id *string, target cdktg.TechnicalA
 	return returns
 }
 
+func (b *jsiiProxy_Browser) IsInScope() *bool {
+	var returns *bool
+
+	_jsii_.Invoke(
+		b,
+		"isInScope",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 func (b *jsiiProxy_Browser) IsTrafficForwarding() *bool {
 	var returns *bool
 
@@ -491,6 +505,7 @@ type Vault interface {
 	Usage() cdktg.Usage
 	VaultStorage() cdktg.TechnicalAsset
 	CommunicatesWith(id *string, target cdktg.TechnicalAsset, options *cdktg.CommunicationOptions) cdktg.Communication
+	IsInScope() *bool
 	IsTrafficForwarding() *bool
 	IsUsedBy(client cdktg.TechnicalAsset)
 	IsWebApplication() *bool
@@ -828,6 +843,19 @@ func (v *jsiiProxy_Vault) CommunicatesWith(id *string, target cdktg.TechnicalAss
 		v,
 		"communicatesWith",
 		[]interface{}{id, target, options},
+		&returns,
+	)
+
+	return returns
+}
+
+func (v *jsiiProxy_Vault) IsInScope() *bool {
+	var returns *bool
+
+	_jsii_.Invoke(
+		v,
+		"isInScope",
+		nil, // no parameters
 		&returns,
 	)
 

@@ -38,6 +38,7 @@ type ApplicationLoadBalancer interface {
 	Type() cdktg.TechnicalAssetType
 	Usage() cdktg.Usage
 	CommunicatesWith(id *string, target cdktg.TechnicalAsset, options *cdktg.CommunicationOptions) cdktg.Communication
+	IsInScope() *bool
 	IsTrafficForwarding() *bool
 	IsWebApplication() *bool
 	IsWebService() *bool
@@ -364,6 +365,19 @@ func (a *jsiiProxy_ApplicationLoadBalancer) CommunicatesWith(id *string, target 
 		a,
 		"communicatesWith",
 		[]interface{}{id, target, options},
+		&returns,
+	)
+
+	return returns
+}
+
+func (a *jsiiProxy_ApplicationLoadBalancer) IsInScope() *bool {
+	var returns *bool
+
+	_jsii_.Invoke(
+		a,
+		"isInScope",
+		nil, // no parameters
 		&returns,
 	)
 

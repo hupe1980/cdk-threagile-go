@@ -3311,6 +3311,7 @@ type TechnicalAsset interface {
 	Type() TechnicalAssetType
 	Usage() Usage
 	CommunicatesWith(id *string, target TechnicalAsset, options *CommunicationOptions) Communication
+	IsInScope() *bool
 	IsTrafficForwarding() *bool
 	IsWebApplication() *bool
 	IsWebService() *bool
@@ -3627,6 +3628,19 @@ func (t *jsiiProxy_TechnicalAsset) CommunicatesWith(id *string, target Technical
 		t,
 		"communicatesWith",
 		[]interface{}{id, target, options},
+		&returns,
+	)
+
+	return returns
+}
+
+func (t *jsiiProxy_TechnicalAsset) IsInScope() *bool {
+	var returns *bool
+
+	_jsii_.Invoke(
+		t,
+		"isInScope",
+		nil, // no parameters
 		&returns,
 	)
 
