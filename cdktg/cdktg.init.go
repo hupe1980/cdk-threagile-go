@@ -140,9 +140,13 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "authentication", GoGetter: "Authentication"},
 			_jsii_.MemberProperty{JsiiProperty: "authorization", GoGetter: "Authorization"},
 			_jsii_.MemberProperty{JsiiProperty: "description", GoGetter: "Description"},
+			_jsii_.MemberMethod{JsiiMethod: "hasDataAssets", GoMethod: "HasDataAssets"},
+			_jsii_.MemberProperty{JsiiProperty: "id", GoGetter: "Id"},
 			_jsii_.MemberProperty{JsiiProperty: "ipFiltered", GoGetter: "IpFiltered"},
+			_jsii_.MemberMethod{JsiiMethod: "isBidirectional", GoMethod: "IsBidirectional"},
 			_jsii_.MemberMethod{JsiiMethod: "isEncrypted", GoMethod: "IsEncrypted"},
 			_jsii_.MemberMethod{JsiiMethod: "isProcessLocal", GoMethod: "IsProcessLocal"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberProperty{JsiiProperty: "protocol", GoGetter: "Protocol"},
 			_jsii_.MemberProperty{JsiiProperty: "readonly", GoGetter: "Readonly"},
 			_jsii_.MemberMethod{JsiiMethod: "receives", GoMethod: "Receives"},
@@ -150,11 +154,14 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "source", GoGetter: "Source"},
 			_jsii_.MemberProperty{JsiiProperty: "target", GoGetter: "Target"},
 			_jsii_.MemberProperty{JsiiProperty: "title", GoGetter: "Title"},
+			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "usage", GoGetter: "Usage"},
 			_jsii_.MemberProperty{JsiiProperty: "vpn", GoGetter: "Vpn"},
 		},
 		func() interface{} {
-			return &jsiiProxy_Communication{}
+			j := jsiiProxy_Communication{}
+			_jsii_.InitJsiiProxy(&j.Type__constructsConstruct)
+			return &j
 		},
 	)
 	_jsii_.RegisterStruct(
@@ -556,6 +563,18 @@ func init() {
 		},
 		func() interface{} {
 			return &jsiiProxy_Risk{}
+		},
+	)
+	_jsii_.RegisterClass(
+		"cdktg.RiskAspect",
+		reflect.TypeOf((*RiskAspect)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "visit", GoMethod: "Visit"},
+		},
+		func() interface{} {
+			j := jsiiProxy_RiskAspect{}
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_IAspect)
+			return &j
 		},
 	)
 	_jsii_.RegisterClass(

@@ -470,10 +470,14 @@ type CIATriadProps struct {
 }
 
 type Communication interface {
+	constructs.Construct
 	Authentication() Authentication
 	Authorization() Authorization
 	Description() *string
+	Id() *string
 	IpFiltered() *bool
+	// The tree node.
+	Node() constructs.Node
 	Protocol() Protocol
 	Readonly() *bool
 	Source() TechnicalAsset
@@ -481,15 +485,19 @@ type Communication interface {
 	Title() *string
 	Usage() Usage
 	Vpn() *bool
+	HasDataAssets() *bool
+	IsBidirectional() *bool
 	IsEncrypted() *bool
 	IsProcessLocal() *bool
 	Receives(assets ...DataAsset)
 	Sends(assets ...DataAsset)
+	// Returns a string representation of this construct.
+	ToString() *string
 }
 
 // The jsii proxy struct for Communication
 type jsiiProxy_Communication struct {
-	_ byte // padding
+	internal.Type__constructsConstruct
 }
 
 func (j *jsiiProxy_Communication) Authentication() Authentication {
@@ -522,11 +530,31 @@ func (j *jsiiProxy_Communication) Description() *string {
 	return returns
 }
 
+func (j *jsiiProxy_Communication) Id() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"id",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_Communication) IpFiltered() *bool {
 	var returns *bool
 	_jsii_.Get(
 		j,
 		"ipFiltered",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_Communication) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
 		&returns,
 	)
 	return returns
@@ -603,28 +631,101 @@ func (j *jsiiProxy_Communication) Vpn() *bool {
 }
 
 
-func NewCommunication(title *string, props *CommunicationProps) Communication {
+func NewCommunication(scope constructs.Construct, id *string, props *CommunicationProps) Communication {
 	_init_.Initialize()
 
 	j := jsiiProxy_Communication{}
 
 	_jsii_.Create(
 		"cdktg.Communication",
-		[]interface{}{title, props},
+		[]interface{}{scope, id, props},
 		&j,
 	)
 
 	return &j
 }
 
-func NewCommunication_Override(c Communication, title *string, props *CommunicationProps) {
+func NewCommunication_Override(c Communication, scope constructs.Construct, id *string, props *CommunicationProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
 		"cdktg.Communication",
-		[]interface{}{title, props},
+		[]interface{}{scope, id, props},
 		c,
 	)
+}
+
+func Communication_IsCommunicationl(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"cdktg.Communication",
+		"isCommunicationl",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
+// Checks if `x` is a construct.
+//
+// Use this method instead of `instanceof` to properly detect `Construct`
+// instances, even when the construct library is symlinked.
+//
+// Explanation: in JavaScript, multiple copies of the `constructs` library on
+// disk are seen as independent, completely different libraries. As a
+// consequence, the class `Construct` in each copy of the `constructs` library
+// is seen as a different class, and an instance of one class will not test as
+// `instanceof` the other class. `npm install` will not create installations
+// like this, but users may manually symlink construct libraries together or
+// use a monorepo tool: in those cases, multiple copies of the `constructs`
+// library can be accidentally installed, and `instanceof` will behave
+// unpredictably. It is safest to avoid using `instanceof`, and using
+// this type-testing method instead.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+func Communication_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"cdktg.Communication",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
+func (c *jsiiProxy_Communication) HasDataAssets() *bool {
+	var returns *bool
+
+	_jsii_.Invoke(
+		c,
+		"hasDataAssets",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (c *jsiiProxy_Communication) IsBidirectional() *bool {
+	var returns *bool
+
+	_jsii_.Invoke(
+		c,
+		"isBidirectional",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
 }
 
 func (c *jsiiProxy_Communication) IsEncrypted() *bool {
@@ -677,6 +778,19 @@ func (c *jsiiProxy_Communication) Sends(assets ...DataAsset) {
 		"sends",
 		args,
 	)
+}
+
+func (c *jsiiProxy_Communication) ToString() *string {
+	var returns *string
+
+	_jsii_.Invoke(
+		c,
+		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
 }
 
 type CommunicationOptions struct {
@@ -2282,6 +2396,49 @@ func NewRisk_Override(r Risk, id *string, props *RiskProps) {
 		"cdktg.Risk",
 		[]interface{}{id, props},
 		r,
+	)
+}
+
+type RiskAspect interface {
+	IAspect
+	// All aspects can visit an IConstruct.
+	Visit(node constructs.IConstruct)
+}
+
+// The jsii proxy struct for RiskAspect
+type jsiiProxy_RiskAspect struct {
+	jsiiProxy_IAspect
+}
+
+func NewRiskAspect() RiskAspect {
+	_init_.Initialize()
+
+	j := jsiiProxy_RiskAspect{}
+
+	_jsii_.Create(
+		"cdktg.RiskAspect",
+		nil, // no parameters
+		&j,
+	)
+
+	return &j
+}
+
+func NewRiskAspect_Override(r RiskAspect) {
+	_init_.Initialize()
+
+	_jsii_.Create(
+		"cdktg.RiskAspect",
+		nil, // no parameters
+		r,
+	)
+}
+
+func (r *jsiiProxy_RiskAspect) Visit(node constructs.IConstruct) {
+	_jsii_.InvokeVoid(
+		r,
+		"visit",
+		[]interface{}{node},
 	)
 }
 
